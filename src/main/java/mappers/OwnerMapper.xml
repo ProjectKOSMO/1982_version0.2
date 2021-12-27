@@ -27,14 +27,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 구인공고 게시판 데이터 삽입 -->
 	<insert id="ownerBoardInsert" parameterType="com.javassem.domain.OwnerBoardVO">
-		INSERT INTO board_owner(normal_emergency, shopname, shoppay, shopaddr, jobDate, jobTime_start, jobTime_end, need_Num, regDate)
-		VALUES(#{normal_emergency}, #{shopname}, #{shoppay}, #{shopaddr},#{jobDate}, #{jobTime_start}, #{jobTime_end}, #{need_Num}, now())
+		INSERT INTO board_owner(normal_emergency, shopname, shoppay, shopaddr, jobDate, jobTime_start, jobTime_end, need_Num, regDate, ownernum ,ownersub)
+		VALUES(#{normal_emergency}, #{shopname}, #{shoppay}, #{shopaddr},#{jobDate}, #{jobTime_start}, #{jobTime_end}, #{need_Num}, now(), #{ownernum},0)
 	</insert>
 	
 	<!-- 구인공고 게시판 리스트 표기 -->
 	<select id="ownerBoardList" resultType="com.javassem.domain.OwnerBoardVO">
 		<![CDATA[
-			SELECT * FROM board_owner ORDER BY board_owner_seq DESC
+			SELECT * FROM board_owner 
+			WHERE ownernum = #{ownernum}
+			ORDER BY board_owner_seq DESC
 		]]>
 	</select>	
 
