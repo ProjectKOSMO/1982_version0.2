@@ -221,6 +221,7 @@ margin:auto 300px;
     border-color: var(--yellow);
   }
   
+
   #login-form div[type="submit"] {
     background-color: yellow;
     cursor: pointer;
@@ -348,7 +349,6 @@ ul, li{
   font-weight: 400;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
 #mainWrapper > ul > li:first-child {
   text-align: center;
   font-size:100pt;
@@ -396,7 +396,7 @@ ul, li{
   width:220px; 
   height:50px;
 }
-
+    
 #divPaging > div {
   float:left;
   width: 30px;

@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Gamja+Flower&family=Gowun+Dodum&family=Noto+Serif+KR:wght@400;500;600&family=Stylish&display=swap');
+
+
+
 .body_container{
   margin-left: 15%;
-  border:solid 5px black;
+  
   display: flex;
 }
 
@@ -8,14 +12,13 @@
   width: auto;
   height: 80px;
 
-  flex:3;
+  
   border:solid 5px red;
 }
 
 .body_container_center{
-  flex:3;
-  border:solid 5px green;
-  overflow:hidden;
+ 
+  
 }
 
 .body_container_right{
@@ -23,90 +26,43 @@
   border:solid 5px blue;
 }
 
-.service1{
-	display:flex;
-}
-.service1_left{
-	flex:5;
-	margin-left:200px;
-	position:relative;
-}
-.service1_right{
-	flex:5;
-	margin-right: 180px;
-}
-.service2{
-	display:flex;
-}
-
-.service2_left{
-	flex:3;
-	margin-left:80px;
-	margin-top:50px;
-}
-
-.service2_right{
-	flex:7;
-	margin-right:50px;
-	margin-top:50px;
-}
-
-.body_container_center_members{
-	display:flex;
-}
-
-.member1{
-	flex:3;
-	margin-left:80px;
-	margin-top:50px;
-}
-
-.member2{
-	flex:7;
-	margin-right:50px;
-	margin-top:50px;
-}
 .left_nav {
   list-style-type: none;
   padding: 0px;
-  
-  margin-left: 35px;
+  margin: 0px;
   width: 11%;
-  background: pink;
-  height: 50%;
-  overflow: auto;
+  background: rgba(0,0,0, 0.07);
+  box-shadow: 10px 10px 10px 0 rgba(0,0,0, 0.2);
+  height: 25%;
+  
   position: fixed;
   border-radius: 8px;
-  
+  margin-left: 35px;
 
 }
 
 .left_nav_text {
-  text-decoration: none;
-  padding: 10px;
+  
+  padding:15px;
   display: block;
-  color: #000;
+  
   font-weight: bold;
+  margin-left: 10px;
 }
 
 .left_nav_text:hover {
-  background: #333;
-  color: #fff;
+  transform: scale(1.1);
+  
 }
 
-.left_nav_text .home {
-  background : #333;
-  color: #fff;
+.home{
+  color:rgb(44, 44, 44);
+  font-family: 'Gamja Flower', cursive;
+  font-size: 25px;
 }
 
 .cd1 {
   margin-left: 120px;
-}
-.divTable_deposit {
-border: 3px solid #000000;
-  width: 100%;
-  text-align: center;
-  border-collapse: collapse;
 }
 
 div.minimalistBlack {
@@ -158,23 +114,28 @@ div.minimalistBlack {
   display: flex;
 }
 .body_container_center_shop_contanier_img{
-  flex:5;
-  border:solid 5px rosybrown;
+ 
+  
   height: 300px;
 }
 .body_container_center_shop_contanier_info{
-  flex:5;
-  border:solid 5px khaki;
+  
+  margin-left: 100px;
   height: 300px;
+  margin-top: 50px;
+
+
+
 }
 
 .body_container_center_shop_contanier_info_ta{
   display: flex;
   margin-right: 100px;
+  
 }
 
 
-/*------------------------------�뀒�씠釉�   ----------------------*/
+/*------------------------------테이블   ----------------------*/
 
 table tr td{
   border: 4px solid lightcoral;
@@ -206,18 +167,19 @@ table{
   font-size: 40px;
 }
 
-/*---------------- �긽�떒 寃뚯떆�뙋 ---------------------- */
+/*---------------- 상단 게시판 ---------------------- */
 
 ul, li{ 
   list-style:none;
   text-align:center;
   padding:0;
   margin:0;
+  
 }
 
 #mainWrapper{
   width: 800px;
-  margin: 0 auto; /*媛��슫�뜲 �젙�젹*/
+  margin: 0 auto; /*가운데 정렬*/
 }
 
 #mainWrapper > ul > li:first-child {
@@ -228,7 +190,10 @@ ul, li{
   line-height:30px;
 }
 
-#ulTable {margin-top:10px;}
+#ulTable {
+  margin-top:10px;
+  
+}
 
 
 #ulTable > li:first-child > ul > li {
@@ -245,16 +210,16 @@ ul, li{
 }
 #ulTable > li > ul > li { 
   float:left;
-  font-size:10pt;
+  font-size:12pt;
   border-bottom:1px solid silver;
   vertical-align:baseline;
 }    
 
-#ulTable > li > ul > li:first-child               {width:10%;} /*No �뿴 �겕湲�*/
-#ulTable > li > ul > li:first-child +li           {width:45%;} /*�젣紐� �뿴 �겕湲�*/
-#ulTable > li > ul > li:first-child +li+li        {width:20%;} /*�옉�꽦�씪 �뿴 �겕湲�*/
-#ulTable > li > ul > li:first-child +li+li+li     {width:15%;} /*�옉�꽦�옄 �뿴 �겕湲�*/
-#ulTable > li > ul > li:first-child +li+li+li+li{width:10%;} /*議고쉶�닔 �뿴 �겕湲�*/
+#ulTable > li > ul > li:first-child               {width:10%;} /*No 열 크기*/
+#ulTable > li > ul > li:first-child +li           {width:45%;} /*제목 열 크기*/
+#ulTable > li > ul > li:first-child +li+li        {width:20%;} /*작성일 열 크기*/
+#ulTable > li > ul > li:first-child +li+li+li     {width:15%;} /*작성자 열 크기*/
+#ulTable > li > ul > li:first-child +li+li+li+li{width:10%;} /*조회수 열 크기*/
 
 #divPaging {
     clear:both; 
@@ -262,6 +227,7 @@ ul, li{
   width:220px; 
   height:50px;
 }
+
 
 #divPaging > div {
   float:left;
@@ -281,37 +247,160 @@ ul, li{
 
 .left {
   text-align : left;
+  
 }
 
-/*-------------------�삤瑜몄そ �긽�떒 �뾽泥� �씠誘몄�    290 1350-----------------*/
+/*-------------------오른쪽 상단 업체 이미지  -----------------*/
 
 .shop_img{
   width: 400px;
   height: 200px;
-  border: 5px solid lightgreen; 
+  font-size: 20px;
+}
+.shop_img_img{
+  width: 400px;
+  height: 200px;
+  
+}
+.shop_button{
+  border:none;
+  border-radius: 10px;
+  width: 100px;
+  height: 50px;
+  cursor: pointer;
 }
 .store{
+  position: relative;
   display: flex;
 }
 .talk_store{
-  width: 50px;
-  height: 50px;
-  background-color: lime;
-  border-radius: 25px;
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  top: 700px;
+  right:180px;
+  background-color: rgb(153, 251, 238);
+  box-shadow: 10px 10px 10px 0 rgba(0,0,0, 0.2);
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
-.service1_left > .matchPercent{
-	width:100px;
-	height:100px;
-	top:115px;
-	left:220px;
-	position:absolute;
+@keyframes heartBeat {
+  0% {
+    color: tomato;
+    transform: none;
+  }
+  50% {
+    color: tomato;
+    transform: scale(1.5);
+  }
+  100% {
+    color: tomato;
+    transform: none;
+  }
 }
-.service1_right >.reusePercent{  
-	width:100px;
-	height:100px;
-	top:290px;
-	left:1200px;
-	position:absolute;
+
+.talk_store:hover{
+  cursor: pointer;
+  will-change: transform;
+  animation: heartBeat 1s ease-in-out infinite;
 }
+
+.section1{
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    font-size: 60px;
+    font-family: 'Cute Font', cursive;
+}
+
+/*-------------------------- main 수정 -----------------------  */
+
+.main_title{
+  font-size: 60px;
+  font-family: 'Cute Font', cursive;
+  padding-bottom: 25px;
+}
+.section_main{
+  margin-top: 150px;
+}
+.margin_title{
+  margin: 10px auto;
+}
+
+
+/*------------------  풍선 ----------------------- */
+@media screen and (max-width: 768px) {
+    /*-------------------------헤더 푸터 반응형 -------------------------------- */
+
+.section2{
+    margin-bottom: 100px;
+  }
+  
+  #footer{
+    margin: auto;
+    
+    bottom: 0;
+  }
+  .wrap_inner{
+    margin: auto;
+  }
+  .rap_inner_h4{
+    font-size: 20px;
+  }
+  .left_text{
+    font-size: 15px;
+  }
+  .footer_icon{
+    font-size: 10px;
+  }
+  
+  .right_area{
+    margin: auto;
+    font-size: 15px;
+  }
+  .lorem{
+    margin: auto;
+  }
+  .logo h1{
+    font-size: 50px;
+  }
+  
+  .title{
+    margin-top: 10px;
+  }
+  .title_wrap{
+    margin-left: 50px;
+  }
+  
+  .right-menu{
+    padding: auto;
+  }
+  .right-menu a{
+    font-size: 18px;
+    padding-right: 5px;
+  }
+
+  .left_nav{
+      width: 400px;
+      height: 250px;
+      position: sticky;
+  }
+  .left_nav_text{
+      font-size: 5px;
+
+  }
+  .body_container_center{
+      margin-top: 500px;
+  }
+
+
+
+
+
+  }
