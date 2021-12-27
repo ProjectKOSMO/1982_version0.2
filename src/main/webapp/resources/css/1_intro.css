@@ -385,20 +385,7 @@ position: relative;
 
 
 
-  .title{
-    margin-top: 10px;
-  }
-  .title_wrap{
-    margin-left: 50px;
-  }
- 
-  .right-menu{
-    padding: auto;
-  }
-  .right-menu a{
-    font-size: 20px;
-    padding-right: 5px;
-  }
+  
 
   .circle{
     width: 100px;
@@ -459,6 +446,25 @@ position: relative;
 .logo h1{
   font-size: 50px;
 }
+
+.title{
+  margin-top: 10px;
+}
+.title_wrap{
+  margin-left: 50px;
+}
+
+.right-menu{
+  padding: auto;
+}
+.right-menu a{
+  font-size: 20px;
+  padding-right: 5px;
+}
+
+
+
+
 
 
 }
