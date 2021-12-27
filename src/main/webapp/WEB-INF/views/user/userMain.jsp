@@ -23,7 +23,7 @@
                <!--메뉴--> 
              
                
-               <!-- 오른쪽 메뉴-->
+               <!-- 오른쪽 메뉴----->
                <div class="right-menu">
                    <!--검색 -->
                    <a href="user/storeClose.do" class="search">
