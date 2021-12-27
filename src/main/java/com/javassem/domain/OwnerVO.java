@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.UUID;
 import org.springframework.web.multipart.MultipartFile;
 
+
 public class OwnerVO {
   private int ownernum;
   
