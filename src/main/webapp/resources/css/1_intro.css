@@ -391,12 +391,7 @@ position: relative;
   .title_wrap{
     margin-left: 50px;
   }
-  .lorem{
-    margin: auto;
-  }
-  .logo h1{
-    font-size: 50px;
-  }
+ 
   .right-menu{
     padding: auto;
   }
@@ -429,6 +424,9 @@ position: relative;
     position: relative;
     font-size: 20px;
 }
+
+/*-------------------------헤더 푸터 반응형 -------------------------------- */
+
 .section2{
   margin-bottom: 100px;
 }
@@ -455,7 +453,12 @@ position: relative;
   margin: auto;
   font-size: 15px;
 }
-
+.lorem{
+  margin: auto;
+}
+.logo h1{
+  font-size: 50px;
+}
 
 
 }
