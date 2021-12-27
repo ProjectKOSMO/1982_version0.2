@@ -46,8 +46,6 @@
 </head>
 <body>
 
-    
-
 <h1>도로명 주소를 입력하세요</h1>
 <div class="map_wrap">
     <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
@@ -314,12 +312,9 @@ $(function(){
 	
 	var y= document.getElementById("location_y").value;
 	var x= document.getElementById("location_x").value;
-	opener.document.getElementById("CenterLocation_y").value=y;
-	opener.document.getElementById("CenterLocation_x").value=x;
-	opener.block=0;
-	opener.Test3();
-	opener.Test();
-	opener.Test2();
+	opener.document.getElementById("location_y").value=y;
+	opener.document.getElementById("location_x").value=x;
+	
 	self.close();
 	});
 }) //$(function(){

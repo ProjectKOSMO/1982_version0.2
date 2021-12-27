@@ -11,6 +11,7 @@
     <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
 </head>
 <body>
+    
 <% 
 	String ownerid = (String)session.getAttribute("ownerid");
 	Integer ownernum = (Integer)session.getAttribute("ownernum");

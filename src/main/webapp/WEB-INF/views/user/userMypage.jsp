@@ -13,6 +13,7 @@
     <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
 </head>
 <body>
+    
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
             <!-- 로고-->

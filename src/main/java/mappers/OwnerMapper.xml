@@ -4,6 +4,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
+
+
 <mapper namespace="owner">
 	
 	<!-- 업자 회원가입 -->
@@ -79,6 +81,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                , shoppn =#{shoppn} 
                , shopcontent =#{shopcontent}
                , shopupdate= now()
+               , location_y=#{location_y}
+               , location_x=#{location_x}
                where ownernum =#{ownernum}
       ]]>   
    </when>
@@ -92,6 +96,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                , shopupdate= now()
                , si_fname = #{si_fname}
                , si_realname=#{si_realname}
+               , location_y=#{location_y}
+               , location_x=#{location_x}
       where ownernum =#{ownernum}
       ]]>   </otherwise>
    </choose>
