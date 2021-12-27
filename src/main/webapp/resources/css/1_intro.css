@@ -377,8 +377,8 @@ position: relative;
 @media screen and (max-width: 768px) {
   /* 모바일에 사용될 스트일 시트를 여기에 작성합니다. */
   .main_button{
-    font-size: 50px;
-    line-height: 6;
+    font-size: 60px;
+    line-height: 2;
     width: 300px;
     height: 300px;
   }
