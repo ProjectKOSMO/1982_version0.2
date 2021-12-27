@@ -42,8 +42,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 업체 정보 추가 -->
 	<insert id="shopInsert" parameterType="OwnerVO">
-		INSERT INTO shopInfo(shopname, shopaddr, shoppn, shopcontent, shopdate, ownernum, si_fname,si_realname  )
-		VALUES(#{shopname},#{shopaddr},#{shoppn},#{shopcontent}, now(), #{ownernum},#{si_fname}, #{si_realname});
+		INSERT INTO shopInfo(shopname, shopaddr, shoppn, shopcontent, shopdate, ownernum, si_fname,si_realname, location_y, location_x  )
+		VALUES(#{shopname},#{shopaddr},#{shoppn},#{shopcontent}, now(), #{ownernum},#{si_fname}, #{si_realname}, #{location_y}, #{location_x});
 	</insert>
 
 	<!-- 업체 정보 표기 -->

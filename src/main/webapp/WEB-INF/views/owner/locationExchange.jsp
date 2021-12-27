@@ -67,6 +67,7 @@
 <form id="locationForm" name="locationForm">
         <input type="text" name="location_y" id="location_y" />
         <input type="text" name="location_x" id="location_x" />
+        <input type="text" name="shopaddr" id="shopaddr">
         <input type="button" id="locationConfirm"  value="locationConfirm" />
 </form>
 <script src="https://code.jquery.com/jquery-3.6.0.js" type="text/javascript"></script>
@@ -297,23 +298,23 @@ function removeAllChildNods(el) {
  
 $(function(){
 	$("#placesList").on('click','.item',function(){
-		a=$(this).children("div").children("h5").text();
-		
 		x=$(this).children("div").children("#places_x").text();
 		y=$(this).children("div").children("#places_y").text();
 		z=$(this).children("div").children("#road_address_name").text();
+		
 		$("#location_y").val(y);
 		$("#location_x").val(x);
-		$("#road_address").val(z);
-		$("#shop_name").val(a);
+		$("#shopaddr").val(z);
 		
 	}) //$("#placesList").on(click,'.item',function(){
 	$("#locationConfirm").click(function(){
 	
 	var y= document.getElementById("location_y").value;
 	var x= document.getElementById("location_x").value;
+	var z= document.getElementById("shopaddr").value;
 	opener.document.getElementById("location_y").value=y;
 	opener.document.getElementById("location_x").value=x;
+	opener.document.getElementById("shopaddr").value=z;
 	
 	self.close();
 	});
