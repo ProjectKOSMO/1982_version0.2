@@ -54,8 +54,9 @@
                 <div  class="main">
                   <div id="map" style="width:500px;height:450px;margin-top: 50px;border: 1px solid black;"></div>
                   
-    <script src="https://code.jquery.com/jquery-3.6.0.js" type="text/javascript"></script>
+    
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eb66f18ab68f4698ad06cb4444bfc896&libraries=services"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" type="text/javascript"></script>
 <script src='/project1982/resources/js/locationExample4.js' type="text/javascript"></script>
 
     
@@ -68,12 +69,10 @@
                 </div>
                 
                <div id="SongPagingMap">
-               <div id="prevPagingMap">◀</div>
                 <div id="divPagingMap">
                     <div>2</div>
                     <div>1</div>
                 </div>
-                <div id="nextPagingMap">▶</div>
             </div>
 
 <form name="search-form" method='get'>
