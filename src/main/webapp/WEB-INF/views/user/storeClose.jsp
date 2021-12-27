@@ -14,9 +14,8 @@
     <link type="text/css" href="/project1982/resources/css/6_my_store.css" rel="stylesheet"/>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
-<style>
 
-</style>
+
 <body>
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
@@ -49,42 +48,33 @@
    
            </header>
  <!-- 메인 ---------------------------------------------------------------->
-	 <div>
-        <form class="search-form" action="getBoardList.do" name="search-form" autocomplete="off">
-           <select name="type">
-              <option selected value="">검색 내용 선택</option>
-              <option value="title">제목</option>
-              <option value="content">내용</option>
-              <option value="content">작성자</option>
-           </select>
-           <input type="text" name="searchkeyword" value=""></input>
-           <input type="button" onclick="getSearchList()" class="btn btn-outline-primary mr-2" value="검색"></input>
-           
-        </form>
-     </div>
-     	
+     	<form class="search-form" action="/project1982/user/storeClose.do" autocomplete="off" method="get">
+     		<select name="searchCondition">
+     			<option value="shopaddr">주소</option>
+     			<option value="shopname">업체명</option>
+     			<option value="jobDate">날짜</option>
+     			<option value="normal_emergency">긴급/일일</option>
+     		</select>
+     		
+     		<input type="text" name="searchKeyword">
+     		<input type="submit" value="검색">
+     	</form>
      
     <section class="section_main">
            
       <div id="mainWrapper">
 
-          
-              <!-- 게시판 제목 -->
-              
-             
   
               <!-- 게시판 목록  -->
               <li>
-                  
-                 
                   <ul id ="ulTable">
                       <li>
                           <ul>
                               <li>업체</li>
+                              <li>긴급/일일</li>
                               <li>주소</li>
                               <li>날짜</li>
                               <li>시급</li>
-                              <li>지원</li>
                           </ul>
                       </li>
                       <!-- 게시물이 출력될 영역 -->
@@ -93,25 +83,23 @@
 							<li>
 							<ul>
 								
-								<li class="left">${shop.shopname }</li>
+								<li class="left"><a href="userSupport.do?ownernum=${shop.ownernum }">
+										${shop.shopname}</a></li>
+								<li class="left">${shop.normal_emergency }</li>
 								<li class="left">${shop.shopaddr }</li>
 								<li class="left">${shop.jobDate }</li>
 								<li class="left">${shop.shoppay }</li>
-								<button class="button">지원</button>
 							</ul>
 							</li>
 						</c:forEach>                            
                   </ul>
               </li>
-  
+  	
+          </div>
+          </section>
               <!-- 게시판 페이징 영역 -->
-        
-	
-	
-          
-      </div>
 
-  </section>
+
 
  
         <!-- 검색 폼 영역 -->
