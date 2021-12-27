@@ -201,27 +201,28 @@ margin:auto 300px;
     width:45%;
   }
   
-  #login-form input {
+  #login-form div {
     border: none;
     padding: 15px 0px;
     font-size: 18px;
     margin-bottom: 25px;
   }
   
-  #login-form input:not([type="submit"]) {
+  #login-form div:not([type="submit"]) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     transition: border-color 0.3s ease-in-out;
   }
   
-  #login-form input::placeholder {
+  #login-form div::placeholder {
     color: rgba(0, 0, 0, 0.4);
   }
   
-  #login-form input:focus {
+  #login-form div:focus {
     border-color: var(--yellow);
   }
   
-  #login-form input[type="submit"] {
+
+  #login-form div[type="submit"] {
     background-color: yellow;
     cursor: pointer;
     padding: 20px 0px;
@@ -233,6 +234,10 @@ margin:auto 300px;
     text-decoration: none;
     color: inherit;
     font-size: 13px;
+  }
+  .1{
+  	width : 300px;
+  	height : 200px;
   }
 /* -------------------------------------------------메인 --------------------------------------*/
 .main{
@@ -344,7 +349,6 @@ ul, li{
   font-weight: 400;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
 #mainWrapper > ul > li:first-child {
   text-align: center;
   font-size:100pt;
@@ -384,7 +388,7 @@ ul, li{
 #ulTable > li > ul > li:first-child +li           {width:40%;} /*제목 열 크기*/
 #ulTable > li > ul > li:first-child +li+li        {width:20%;} /*작성일 열 크기*/
 #ulTable > li > ul > li:first-child +li+li+li     {width:15%;} /*작성자 열 크기*/
-#ulTable > li > ul > li:first-child +li+li+li+li{width:15%;} /*조회수 열 크기*/
+#ulTable > li > ul > li:first-child +li+li+li+li{width:15%;} /*조회수 열 크기*/ 
 
 #divPaging {
     clear:both; 
@@ -392,7 +396,7 @@ ul, li{
   width:220px; 
   height:50px;
 }
-
+    
 #divPaging > div {
   float:left;
   width: 30px;
