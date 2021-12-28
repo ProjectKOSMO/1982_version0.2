@@ -1,7 +1,6 @@
 package com.javassem.service;
 
 
-import com.javassem.domain.UserInfoViewVO;
 import com.javassem.domain.UserVO;
 
 public interface UserService {
@@ -11,11 +10,11 @@ public interface UserService {
   
   String userDate(UserVO paramUserVO);
   
-  void insertUserInfoView(UserInfoViewVO paramUserInfoViewVO);
+  void insertUserInfoView(UserVO paramUserVO);
   
-  void updateUserInfoView(UserInfoViewVO paramUserInfoViewVO);
+  void updateUserInfoView(UserVO paramUserVO);
   
-  void deleteUserInfoView(UserInfoViewVO paramUserInfoViewVO);
+  void deleteUserInfoView(UserVO paramUserVO);
   
-  UserInfoViewVO getUserInfoView(UserInfoViewVO paramUserInfoViewVO);
+  UserVO getUserInfoView(UserVO paramUserVO);
 }

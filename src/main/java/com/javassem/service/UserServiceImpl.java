@@ -1,7 +1,6 @@
 package com.javassem.service;
 
 import com.javassem.dao.UserDAOImpl;
-import com.javassem.domain.UserInfoViewVO;
 import com.javassem.domain.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,22 +23,23 @@ public class UserServiceImpl implements UserService {
 	  return this.userDAO.userDate(vo);
 	}
 
-	public void insertUserInfoView(UserInfoViewVO vo) {
+	public void insertUserInfoView(UserVO vo) {
 		this.userDAO.insertUserInfoView(vo);
 	}
 	
 	
-	public void updateUserInfoView(UserInfoViewVO vo) {
+	public void updateUserInfoView(UserVO vo) {
 		this.userDAO.updateUserInfoView(vo);
 	}
 	
 
-	public void deleteUserInfoView(UserInfoViewVO vo) {
+	public void deleteUserInfoView(UserVO vo) {
 		this.userDAO.deleteUserInfoView(vo);
 	}
 	
 
-	public UserInfoViewVO getUserInfoView(UserInfoViewVO vo){
+	public UserVO getUserInfoView(UserVO vo){
 		return this.userDAO.getUserInfoView(vo);
 	}
+
 }

@@ -13,8 +13,10 @@
     <link type="text/css" href="/project1982/resources/css/all.min.css" rel="stylesheet">
   	<link type="text/css" href="/project1982/resources/style/useStyle.css" rel="stylesheet"/>
     <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
+    <script type="text/javascript" src="/project1982/resources/js/userview.js"></script>
 	<title>글 목록</title>
 </head>
+
 <style>
 	h2 {
 		text-align: center;
@@ -45,6 +47,9 @@
 </script>
 
 <body>
+<% 
+	String userId = (String)session.getAttribute("userId");
+%>
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
             <!-- 로고-->
@@ -59,7 +64,7 @@
                    <a href="storeClose.do" class="search">
                    일자리찾기
                    </a>
-                   <a href="userMypage.do" class="user">
+                   <a href="userMypage.do?userid=${userId}" class="user">
                    마이페이지
                    </a>
                    <a href="userBoard.do">
@@ -120,7 +125,7 @@
 				<!-- 프라퍼티이름 변경 -->
 				<tr>
 					<td>${board.b_id }</td>
-					<td align="left"><a href="getBoard.do?b_id=${board.b_id }">
+					<td align="left"><a href="getBoard.do?b_id=${board.b_id}" id="go">
 							${board.b_title }</a></td>
 					<td>${board.b_name }</td>
 					<td>${board.b_date }</td>

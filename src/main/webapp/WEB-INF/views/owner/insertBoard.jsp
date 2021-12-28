@@ -5,6 +5,11 @@
 <title>새글등록</title>
 </head>
 <body>
+<% 
+	String userId = (String)session.getAttribute("userId");
+	out.println(userId);
+%>
+
 		<h1>글 등록</h1>		
 		<hr>
 		<form action="saveBoard.do" method="post" enctype="multipart/form-data"> <!--  enctype="multipart/form-data" -->
@@ -14,8 +19,9 @@
 					<td align="left"><input type="text" name='b_title'/></td>					
 				</tr>
 				<tr>
+
 					<td bgcolor="orange">작성자</td>
-					<td align="left"><input type="text" name='b_name' size="10" /></td>
+					<td align="left"><input type="text" name="b_name" size="10" value='${userId}'/></td>
 				</tr>
 				<tr>
 					<td bgcolor="orange">내용</td>

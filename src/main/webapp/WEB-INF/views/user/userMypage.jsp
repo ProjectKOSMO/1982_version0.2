@@ -23,7 +23,11 @@
 	<link type="text/css" href="/project1982/resources/style/useStyle.css" rel="stylesheet"/>
     <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
 </head>
+
 <body>
+<% 
+	String userId = (String)session.getAttribute("userId");
+%>
         <!--메뉴바(헤더)  ------------------------------------------------->
         <header class="header" >
         
@@ -41,7 +45,7 @@
                    <a href="storeClose.do" class="search">
                   		 일자리찾기
                    </a>
-                   <a href="userMypage.do" class="user">
+                   <a href="userMypage.do?userid=${userId}" class="user">
                    		마이페이지
                    </a>
                    <a href="userBoard.do">
@@ -56,6 +60,7 @@
         
       		<!-- 왼쪽 네비게이션 -->
             <ul class="left_nav">
+            	<br/>
                 <li class="left_nav_text"><a class="home" href="userMain.do">홈</a></li>
                 <br/>
                 <li class="left_nav_text"><a href="#actor">프로필 수정</a></li>
@@ -67,7 +72,8 @@
             </ul>
             
         <!-- 프로필 수정 -->
-		<form action="">
+		<form action="updateMypage.do" method="post" enctype="multipart/form-data">
+			<input name="userid" type="hidden" value="${userid}" />
             <div class="body_container"> <!-- 페이지 컨테이너 시작-->
                 <div class="body_container_center"> <!-- 중간 메뉴바 시작-->
                 
@@ -77,17 +83,16 @@
                             <div class="body_container_center_shop_contanier_img">
                            		<div class="body_container_center_shop_contanier_img_ta1">                          
                                 	<div class="body_container_center_shop_contanier_img_ta2">
-                                		<c:if test="${board.b_realfname != null}">
-                            				<img src="/project1982/resources/upload/${board.b_realfname}">
+                                		<c:if test="${user.userimg1 != null}">             			
+                            				<img src="/project1982/resources/upload/${user.userimg1}" style="height: 240px;width: 180px;">
                             			</c:if>
                                 	</div>
-                                	<input type='submit' value='대표사진변경' style=" margin-left:50px;"> 
+                                	<input type="file" name='file' maxlength="60" size="40" value='대표사진변경' style=" margin-left:10px;">
                                 </div>
                                 	<div style="flex:10;">
                                		<p style="margin-left:4%;margin-top:10px;font-size:20px;font-weight:bolder;font-family:italic;">자기소개<p><br/>                
-                               		<input id= "dia1" type="text" placeholder="자기소개 작성해 보세요!!~~"value=""/><br/>
+                               		<input id= "dia1" name="userself" type="text" value="${user.userself}"/><br/>
                                		<input type="submit" value="수정완료" style="margin-left:4%;">
-                               		<input type="submit" value="이력서 파일">
                                		</div>                              
                             </div>
                         </div>

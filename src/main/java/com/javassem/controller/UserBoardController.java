@@ -6,6 +6,10 @@ import com.javassem.util.PagingVO;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,10 +26,12 @@ public class UserBoardController {
   private BoardService boardService;
   
 	
-	  @RequestMapping({"/user/{step}.do"}) 
-	  public String test(@PathVariable String step){
-		  return "/user/" + step;
-	  }
+  @RequestMapping({"/user/{step}.do"}) 
+  public String test(@PathVariable String step, HttpServletRequest request, Model m){
+	HttpSession session = request.getSession();
+      m.addAttribute("userId",session.getAttribute("userId"));
+      return "/user/" + step;
+  }
 	 
   
   @RequestMapping("/user/user_login.do")

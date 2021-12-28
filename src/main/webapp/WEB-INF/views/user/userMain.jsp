@@ -12,6 +12,9 @@
     <link type="text/css" href="/project1982/resources/css/4_main.css" rel="stylesheet"/>
 </head>
 <body>
+<% 
+	String userId = (String)session.getAttribute("userId");
+%>
         <!-- 메뉴바  ------------------------------------------------->
         <header class="header" >
             <!-- 로고-->
@@ -26,7 +29,7 @@
                    <a href="storeClose.do" class="search">
                    일자리찾기
                    </a>
-                   <a href="userMypage.do" class="user">
+                   <a href="userMypage.do?userid=${userId}" class="user">
                    마이페이지
                    </a>
                    <a href="userBoard.do">
