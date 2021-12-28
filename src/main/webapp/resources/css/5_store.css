@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jua&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cute+Font&family=Jua&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@200;300;400&family=Single+Day&display=swap');
+
+
 
 *{
     box-sizing: border-box;
@@ -16,11 +20,14 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 0px 45px;
- 
-  height: 150px;
-  width: 100%;
-  box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.05);
-  margin-bottom: 100px;
+    height: 150px;
+    width: 100%;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.05);
+    margin-bottom: 100px;
+  }
+  .logo{
+    font-size: 100px;
+    color:black;
   }
   .logo img {
     height: 70px;
@@ -40,15 +47,16 @@ a {
     color: #555555;
   }
   .right-menu a {
-    margin: 0px 10px;
-    font-size: 1.2rem;
+    padding-right: 60px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.5rem;
     color: rgba(0, 0, 0, 0.7);
   }
   .menu a:hover,
   .right-menu a:hover,
   .search-cancel:hover,
   .form-cancel:hover {
-    color: #0b9d8a;
+    color: #ebe717;
     transition: all ease 0.3s;
   }
   .sale-lable {
@@ -214,7 +222,7 @@ margin:auto 300px;
   }
   
   #login-form input[type="submit"] {
-    background-color: var(--yellow);
+    background-color: yellow;
     cursor: pointer;
     padding: 20px 0px;
     border-radius: 5px;
@@ -230,10 +238,11 @@ margin:auto 300px;
 .main{
     display: flex;
     justify-content: center;
+    margin-left: 130px;
 }
 .main_img{
     width: 500px;
-    height: 700px;
+    height: 600px;
     margin-top: 50px;
     border: 5px solid lightsalmon;
 }
@@ -243,15 +252,41 @@ margin:auto 300px;
     justify-content: center;
     align-items: center;
     margin-left: 200px;
-    width: 300px;
+    width: 280px;
     height: 150px;
-    border: 2px solid lightcoral;
-
+    border: none;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 .star{
-    margin: 10px 0;
+    margin: 15px 0;
 }
-
+.button{
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 30px;
+  font-family: 'Cute Font', cursive;
+}
+@keyframes heartBeat {
+  0% {
+    color: tomato;
+    transform: none;
+  }
+  50% {
+    color: tomato;
+    transform: scale(1.5);
+  }
+  100% {
+    color: tomato;
+    transform: none;
+  }
+}
+.button:hover{
+  will-change: transform;
+  animation: heartBeat 1s ease-in-out infinite;
+}
 
 
 /*--------------------------------------------*/
@@ -269,7 +304,9 @@ margin:auto 300px;
 .chart_title{
     display: flex;
     justify-content: flex-end;
-    margin-right: 300px;
+    
+    margin-top: 50px;
+   
 }
 .chart_title div{
     padding-left: 50px;
@@ -287,7 +324,102 @@ table{
     font-size: 80px;
 }
 
+/*------------------- 게시판 ------------------------------------*/
 
+ul, li{ 
+  list-style:none;
+  text-align:center;
+  vertical-align: middle;
+  padding: 0;
+  margin:15px 0;
+}
+
+#mainWrapper{
+  width: 55%;
+  margin: 100px auto; /*가운데 정렬*/
+  font-size: 20px;
+}
+.board_title{
+  font-size: 40px;
+  font-weight: 400;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#mainWrapper > ul > li:first-child {
+  text-align: center;
+  font-size:100pt;
+  height:40px;
+  vertical-align:middle;
+  line-height:30px;
+  
+}
+
+#ulTable {
+  margin-top:10px;
+  
+}
+
+
+#ulTable > li:first-child > ul > li {
+  background-color:#c9c9c9;
+  font-weight:bold;
+  text-align:center;
+  line-height: 30px;
+}
+
+#ulTable > li > ul {
+  clear:both;
+  padding:0px auto;
+  position:relative;
+  min-width:40px;
+}
+#ulTable > li > ul > li { 
+  float:left;
+  font-size:13pt;
+  border-bottom:1px solid silver;
+  vertical-align:baseline;
+}    
+
+#ulTable > li > ul > li:first-child               {width:10%;} /*No 열 크기*/
+#ulTable > li > ul > li:first-child +li           {width:40%;} /*제목 열 크기*/
+#ulTable > li > ul > li:first-child +li+li        {width:20%;} /*작성일 열 크기*/
+#ulTable > li > ul > li:first-child +li+li+li     {width:15%;} /*작성자 열 크기*/
+#ulTable > li > ul > li:first-child +li+li+li+li{width:15%;} /*조회수 열 크기*/
+
+#divPaging {
+    clear:both; 
+  margin:0 auto; 
+  width:220px; 
+  height:50px;
+}
+
+#divPaging > div {
+  float:left;
+  width: 30px;
+  margin:0 auto;
+  text-align:center;
+}
+
+#liSearchOption {
+  clear:both;
+  
+}
+#liSearchOption > div {
+  margin:0 auto; 
+  margin-top: 30px; 
+  width:auto; 
+  
+
+}
+
+.left {
+  text-align : center;
+  height: 40px;  
+  
+}
+.search_height{
+  height: 30px;
+}
 
 
 
