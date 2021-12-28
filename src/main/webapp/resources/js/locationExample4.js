@@ -114,7 +114,7 @@ function Test(){
 		async:false,
 		dataType:'json',
 		success:function(result){
-			 
+			
 			try{
 				for ( var i = 0; i < markers.length; i++ ) {
 		    	markers[i].setMap(null);
@@ -180,9 +180,22 @@ function Test(){
 				
 				var newDIV = document.createElement("div");	//새로 생성된 div
 				newDIV.setAttribute("class","main_right");
-				newDIV.innerHTML=result[i].shopName;
+				
+				var newIMG = document.createElement("img");
+				newIMG.src="../resources/upload/"+result[i].si_realname;
+				
+				var newDIV2 = document.createElement("div");	//새로 생성된 div
+				newDIV2.innerHTML=result[i].shopName+"\r\n"+result[i].shoppay;
+				
+				var newDIV3 = document.createElement('a');
+				var AText= document.createTextNode("자세히 보기");
+				newDIV3.setAttribute('href', "userSupport.do?board_owner_seq="+result[i].board_owner_seq);
+				newDIV3.appendChild(AText);
 				
 				searchPost.appendChild(newDIV);
+				newDIV.appendChild(newIMG);
+				newDIV.appendChild(newDIV2);
+				newDIV.appendChild(newDIV3);
 				}
 		},
 		 error:function(request,status,error){
