@@ -31,7 +31,7 @@
                <!-- 오른쪽 메뉴-->
                <div class="right-menu">
                    <!--검색 -->
-                   <a href="storeClose.do" class="search">
+                   <a href="storeClose.do?userid=${userId}" class="search">
                    일자리찾기
                    </a>
                    <!--유저 -->
@@ -83,7 +83,7 @@
 							<li>
 							<ul>
 								
-								<li class="left"><a href="userSupport.do?ownernum=${shop.ownernum }">
+								<li class="left"><a href="userSupport.do?board_owner_seq=${shop.board_owner_seq}">
 										${shop.shopname}</a></li>
 								<li class="left">${shop.normal_emergency }</li>
 								<li class="left">${shop.shopaddr }</li>

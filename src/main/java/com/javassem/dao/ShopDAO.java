@@ -14,4 +14,6 @@ public interface ShopDAO {
 	ShopVO getShop(ShopVO paramShopVO);
 	
 	int countShop();
+	
+	ShopVO support(ShopVO paramShopVO);
 }
