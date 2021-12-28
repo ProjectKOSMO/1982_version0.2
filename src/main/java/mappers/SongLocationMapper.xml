@@ -5,11 +5,12 @@
 		
 	<select id="getLocationList" parameterType="com.javassem.domain.SongLocationVO" resultType="com.javassem.domain.SongLocationVO" >
 			
-			SELECT *
-			FROM locationTest
+			SELECT I.shopName, I.location_y, I.location_x, b.shoppay
+			FROM board_owner b, shopInfo I
 			<where>
+				b.ownerNum = I.ownerNum
 				<if test="searchCondition != null">
-					${searchCondition} LIKE '%${searchKeyword}%'
+					AND ${searchCondition} LIKE '%${searchKeyword}%'
 				</if>
 			</where>
 	</select> 
