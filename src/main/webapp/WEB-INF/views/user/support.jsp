@@ -11,10 +11,7 @@
      <link type="text/css" href="/project1982/resources/css/5_store.css" rel="stylesheet"/>
 </head>
 <body>
- <% 
-	String userId = (String)session.getAttribute("userId");
- 	out.println(userId);
-%>
+ 
 
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
@@ -47,44 +44,7 @@
 
         </header>
 
-    <!-- 메인 ---------------------------------------------------------------->
-        <main class="main">
-            <div class="main_img">
-                <img src="../resources/upload/${shop.si_realname}" alt="" />
-            </div>
-            <div >
-                <form action="../support.do" method="post" id="login-form">
-                
-                	<input type="hidden" value="${userId}" name="userid"/>
-                	<input type="hidden" value="${shop.board_owner_seq }" name="board_owner_seq"/>
-                	
-                    <div>업체 이름 : ${shop.shopname }</div>
-                    <input type="hidden" value="${shop.shopname }" name="shopname"/>
-                    <div>긴급/일일 : ${shop.normal_emergency }</div>
-                    <input type="hidden" value="${shop.normal_emergency }" name="normal_emergency"/>
-                    <div >주소 : ${shop.shopaddr }</div>
-                    <input type="hidden" value="${shop.shopaddr }" name="shopaddr"/>
-                  	<div>시급 : ${shop.shoppay }</div>
-                  	<input type="hidden" value="${shop.shoppay }" name="shoppay"/>
-                    <div>날짜 : ${shop.jobDate }</div>
-                    <input type="hidden" value="${shop.jobDate }" name="jobDate"/>
-                    <div>시작시간 : ${shop.jobTime_start }</div>
-                    <input type="hidden" value="${shop.jobTime_start }" name="startTime"/>
-                    <div>종료시간 : ${shop.jobTime_end }</div>
-                    <input type="hidden" value="${shop.jobTime_end }" name="endTime" />
-                 	<div class="review_star">
-                   		
-                      <button class="button" type="submit" > 지원하기</button>
-                  </div>
-                  </form>
-                 
-                  
-                  </div>
-        </main>
-        
-      
-        <!--아래 게시판 ----------------------------------------------------------------------->
-
+    
 
 <!-- footer --------------------------------------------------------------------->
     <footer>

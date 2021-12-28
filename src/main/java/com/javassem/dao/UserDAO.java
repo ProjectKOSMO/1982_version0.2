@@ -8,4 +8,5 @@ public interface UserDAO {
   int userInsert(UserVO paramUserVO);
   
   UserVO userLogin(UserVO paramUserVO);
-}
+  
+  }

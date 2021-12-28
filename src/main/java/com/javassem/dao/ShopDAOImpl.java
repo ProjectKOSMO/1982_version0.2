@@ -34,6 +34,9 @@ import com.javassem.domain.ShopVO;
 			System.out.println("===> Mybatis getShop()");
 			return (ShopVO)this.mybatis.selectOne("ShopDAO.getShop", vo);
 		}
-
 		
+		public ShopVO support(ShopVO vo){
+		System.out.println("===> Mybatis support()");
+		return (ShopVO)this.mybatis.selectList("ShopDAO.support", vo);
+		}
 }

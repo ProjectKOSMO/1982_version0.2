@@ -17,4 +17,6 @@ public interface ShopService {
 	
 	ShopVO getShop(ShopVO paramShopVO);
 	
+	ShopVO support(ShopVO paramShopVO);
+	
 }

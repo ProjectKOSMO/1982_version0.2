@@ -109,9 +109,7 @@ display:none;}
                         <!-- 중간 메뉴바 시작-->
                         <div>
                             <div class="main_font">나의 매장 :
-                                <select name="shopname" class="select_css">
-                                    <option>가산1호점</option>
-                                </select>
+                                <input name="shopname" class="select_css"/>                         
 
                             </div>
                             <div class="main_font">근무 날짜 :
