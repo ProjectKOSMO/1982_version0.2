@@ -1,11 +1,12 @@
 package com.javassem.dao;
 
-import java.util.HashMap;
+import com.javassem.domain.ShopVO;
 import java.util.List;
 
-import com.javassem.domain.ShopVO;
-
 public interface ShopDAO {
+
+  List<ShopVO> ShopList(ShopVO paramShopVO);
+
 
 /*	public List<ShopVO> ShopList(ShopVO vo);*/
 	
@@ -14,4 +15,7 @@ public interface ShopDAO {
 	ShopVO getShop(ShopVO paramShopVO);
 	
 	int countShop();
+	
+	ShopVO support(ShopVO paramShopVO);
+
 }

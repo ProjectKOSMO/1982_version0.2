@@ -11,7 +11,10 @@
      <link type="text/css" href="/project1982/resources/css/5_store.css" rel="stylesheet"/>
 </head>
 <body>
- 
+ <% 
+	String userId = (String)session.getAttribute("userId");
+ 	out.println(userId);
+%>
 
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
@@ -47,156 +50,40 @@
     <!-- 메인 ---------------------------------------------------------------->
         <main class="main">
             <div class="main_img">
-                <img src="" alt="" />
+                <img src="../resources/upload/${shop.si_realname}" alt="" />
             </div>
             <div >
-                <form action="updateShop" method="post" id="login-form">
-                    <div name="shopname" >업체명 : ${shop.shopname }</div>
-                    <div name="normal_emergency">긴급/일일 : ${shop.normal_emergency }</div>
-                    <div name="shopaddr">주소 : ${shop.shopaddr }</div>
-                  	<div name="shoppay">시급 : ${shop.shoppay }</div>
-                    <div name="jobDate">날짜 : ${shop.jobDate }</div>
-                    <div name="startTime">시작시간 : ${shop.jobTime_start }</div>
-                    <div name="endTime" >종료시간 : ${shop.jobTime_end }</div>
-                 	
+                <form action="../support.do" method="post" id="login-form">
+                
+                	<input type="hidden" value="${userId}" name="userid"/>
+                	<input type="hidden" value="${shop.board_owner_seq }" name="board_owner_seq"/>
+                	
+                    <div>업체 이름 : ${shop.shopname }</div>
+                    <input type="hidden" value="${shop.shopname }" name="shopname"/>
+                    <div>긴급/일일 : ${shop.normal_emergency }</div>
+                    <input type="hidden" value="${shop.normal_emergency }" name="normal_emergency"/>
+                    <div >주소 : ${shop.shopaddr }</div>
+                    <input type="hidden" value="${shop.shopaddr }" name="shopaddr"/>
+                  	<div>시급 : ${shop.shoppay }</div>
+                  	<input type="hidden" value="${shop.shoppay }" name="shoppay"/>
+                    <div>날짜 : ${shop.jobDate }</div>
+                    <input type="hidden" value="${shop.jobDate }" name="jobDate"/>
+                    <div>시작시간 : ${shop.jobTime_start }</div>
+                    <input type="hidden" value="${shop.jobTime_start }" name="startTime"/>
+                    <div>종료시간 : ${shop.jobTime_end }</div>
+                    <input type="hidden" value="${shop.jobTime_end }" name="endTime" />
+                 	<div class="review_star">
+                   		
+                      <button class="button" type="submit" > 지원하기</button>
+                  </div>
                   </form>
                  
-                  <div class="review_star">
-                      <div>리뷰 및 별점</div>
-                      <div class="star">
-                          <i class="far fa-star"></i>
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                        4/5</div>
-                      <button class="button">지원하기</button>
-                  </div>
+                  
                   </div>
         </main>
         
       
         <!--아래 게시판 ----------------------------------------------------------------------->
-
-        <section class="section_main">
-           
-            
-
-
-
-
-            <div id="mainWrapper">
-
-                <ul>
-                    <!-- 게시판 제목 -->
-                    <div class="board_title">사용자 리뷰 </div>
-        
-                    <!-- 게시판 목록  -->
-                    <li>
-                        
-                        <div class="chart_title">             
-                            <div><a href="#">작성일순</a></div>
-                            <div><a href="#">별점순</a></div>
-                            <div>총 4건</div>
-                        </div>
-                        <ul id ="ulTable">
-                            <li>
-                                <ul>
-                                    <li>No</li>
-                                    <li>제목</li>
-                                    <li>작성일</li>
-                                    <li>작성자</li>
-                                    <li>별점</li>
-                                </ul>
-                            </li>
-                            <!-- 게시물이 출력될 영역 -->
-                            <li>
-                                <ul>
-                                    <li class="left">1</li>
-                                    <li class="left">제목제목제목제목1</li>
-                                    <li class="left">2014.07.09</li>
-                                    <li class="left">자바킹</li>
-                                    <li class="left">
-                                        <i class="far fa-star"></i>
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                          <i class="fas fa-star"></i>
-                                    </li>
-                                </ul>
-                            </li>
-        
-                            <li>
-                                <ul>
-                                    <li class="left">2</li>
-                                    <li class="left">제목제목제목제목1</li>
-                                    <li class="left">2014.07.09</li>
-                                    <li class="left">자바킹</li>
-                                    <li class="left">0</li>
-                                </ul>
-                            </li>
-        
-                            <li>
-                                <ul>
-                                    <li class="left">3</li>
-                                    <li class="left">제목제목제목제목1</li>
-                                    <li class="left">2014.07.09</li>
-                                    <li class="left">자바킹</li>
-                                    <li class="left">0</li>
-                                </ul>
-                            </li>
-        
-                            <li>
-                                <ul>
-                                    <li class="left">4</li>
-                                    <li class="left">제목제목제목제목1</li>
-                                    <li class="left">2014.07.09</li>
-                                    <li class="left">자바킹</li>
-                                    <li class="left">0</li>
-                                </ul>
-                            <li>                                        
-                        </ul>
-                    </li>
-        
-                    <!-- 게시판 페이징 영역 -->
-                    <li>
-                        <div id="divPaging">
-                            <div>◀</div>
-                               <div><b>1</b></div>
-                            <div>2</div>
-                            <div>3</div>
-                            <div>4</div>
-                            <div>5</div>
-                            <div>▶</div>
-                        </div>
-                    </li>
-        
-                    <!-- 검색 폼 영역 -->
-                    <li id='liSearchOption'>
-                        <div>
-                            <select id='selSearchOption' class="search_height">
-                                <option value='A'>제목+내용</option>
-                                <option value='T'>제목</option>
-                                <option value='C'>내용</option>
-                            </select>
-                            <input id='txtKeyWord' class="search_height"/>
-                            <input type='button' value='검색'class="search_height"/>
-                        </div>
-                        </li>
-        
-                </ul>
-            </div>
-
-        </section>
-
-
-
-
-
-
-
-
-
 
 
 <!-- footer --------------------------------------------------------------------->

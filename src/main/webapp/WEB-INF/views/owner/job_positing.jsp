@@ -43,17 +43,13 @@
 /* list_table 에서 사용되는 tbody */
 .list_table tbody td { text-align: center;  border-bottom: 1px solid #e5e5e5; padding: 5px 0; }
 
-.hide{
-display:none;}
 </style>
 
 
 <body>
  <% 
 	String ownerid = (String)session.getAttribute("ownerid");
-	Integer ownernum = (Integer)session.getAttribute("ownernum");
 	out.println(ownerid + " 님 환영합니다.");
-	out.println(ownernum + " 님 환영합니다.");
 %>
 
         <!--메뉴바  ------------------------------------------------->
@@ -109,9 +105,7 @@ display:none;}
                         <!-- 중간 메뉴바 시작-->
                         <div>
                             <div class="main_font">나의 매장 :
-                                <select name="shopname" class="select_css">
-                                    <option>가산1호점</option>
-                                </select>
+                                <input name="shopname" class="select_css"/>                         
 
                             </div>
                             <div class="main_font">근무 날짜 :
@@ -136,9 +130,6 @@ display:none;}
                             </div>
                             <div class="main_font">필요인원 :
                                 <input class="input_box" type="text" name="need_Num" placeholder=" 내용을 입력해주세요">
-                            </div>
-                            <div class="hide">담당자 번호 :
-                                <input class="hide" type="text" name="ownernum" value="${ownernum}">
                             </div>
                             <div class="main_font">상세내용 :
 

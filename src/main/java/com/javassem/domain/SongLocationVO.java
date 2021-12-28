@@ -5,11 +5,11 @@ public class SongLocationVO {
 	private double location_x;
 	private String road_address;
 	private String shop_phone_number;
-	private String shop_name;
+	private String shopName;
+	private String shoppay;
 	
 	
 	//검색 기능을 위해 추가한 vo
-	
 	private double CenterLocation_y;
 	private double CenterLocation_x;
 	private String searchCondition;
@@ -88,10 +88,17 @@ public class SongLocationVO {
 	public void setShop_phone_number(String shop_phone_number) {
 		this.shop_phone_number = shop_phone_number;
 	}
-	public String getShop_name() {
-		return shop_name;
+	
+	public String getShopName() {
+		return shopName;
 	}
-	public void setShop_name(String shop_name) {
-		this.shop_name = shop_name;
+	public void setShopName(String shopName) {
+		this.shopName = shopName;
+	}
+	public String getShoppay() {
+		return shoppay;
+	}
+	public void setShoppay(String shoppay) {
+		this.shoppay = shoppay;
 	}
 }

@@ -9,12 +9,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"> -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css"> -->
-  	<!-- <link type="text/css" href="/project1982/resources/style/style.css" rel="stylesheet"/> -->
+    <link type="text/css" href="/project1982/resources/css/reset.min.css" rel="stylesheet">
+    <link type="text/css" href="/project1982/resources/css/all.min.css" rel="stylesheet">
+  	<link type="text/css" href="/project1982/resources/style/useStyle.css" rel="stylesheet"/>
     <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
+    <script type="text/javascript" src="/project1982/resources/js/userview.js"></script>
 	<title>글 목록</title>
 </head>
+
 <style>
 	h2 {
 		text-align: center;
@@ -24,7 +26,7 @@
 	}
 	#outter {
 		display: block;
-		width: 60%;
+ 		width: 100%;
 		margin: auto;
 	}
 	a {
@@ -45,6 +47,9 @@
 </script>
 
 <body>
+<% 
+	String userId = (String)session.getAttribute("userId");
+%>
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
             <!-- 로고-->
@@ -53,43 +58,44 @@
                    <h1>1982</h1>
                </a>
                </div>
-               <!--메뉴--> 
-             
-               
-               <!-- 오른쪽 메뉴-->
+               <!--유저 메뉴--> 
                <div class="right-menu">
                    <!--검색 -->
                    <a href="storeClose.do" class="search">
                    일자리찾기
                    </a>
-                   <!--유저 -->
-                   <a href="userMypage.do" class="user">
+                   <a href="userMypage.do?userid=${userId}" class="user">
                    마이페이지
                    </a>
-                   <!--카트  -->
                    <a href="userBoard.do">
-                   고객센터
-                       <!--카트 상품-->
-                       
+                   고객센터                       
                    </a>
                </div>
    
            </header>
 <!-- -----------메인---------------- -->
-		                   <!-- 검색부분 추가 -->
+		       <!-- 검색부분 추가 -->
+        <main>
+        	 <div class="jari"> <!-- 페이지 컨테이너 시작-->
+        	 	<div class="jari1"> <!-- 중간 메뉴바 시작-->	
+		        <div id="actor1">고객센터</div>
+		        <hr/>
+		        
 		        <div class="chart">
-		        <h1>게시글 목록</h1>
                    <form action='/project1982/user/userBoard.do' method='get'>
-                       <select name="searchCondition" id="" >
+                       <select name="searchCondition" id="" style="width:150px;">
                            <option value="b_title">제목</option>
                            <option value="b_content">내용</option>
                            <option value="b_name">작성자</option>
                         </select>
-						<input type='text' name='searchKeyword'>
-						<input type='submit' value='검색'>
+						<input type='text' name='searchKeyword' style="width:600px;">
+						<input type='submit' value='검색' style="width:100px;">
 					</form>
 				</div>
-                   
+
+
+
+                 
  			<div id="outter">
 				   <div style="float: right;">
 						<select id="cntPerPage" name="sel" onchange="selChange()">
@@ -102,55 +108,68 @@
 							<option value="20"
 								<c:if test="${paging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
 						</select>
-					</div>
+			</div>
 					
-	<table border="1">
+	<table id="boardTable">
 			<tr>
-				<th bgcolor="orange" width="100" >번호</th>
-				<th bgcolor="orange" width="200" >제목</th>
-				<th bgcolor="orange" width="150" >작성자</th>
-				<th bgcolor="orange" width="150" >등록일</th>
-				<th bgcolor="orange" width="100" >조회수</th>
+				<th bgcolor="#dee2e6" width="100" >번호</th>
+				<th bgcolor="#dee2e6" width="400" >제목</th>
+				<th bgcolor="#dee2e6" width="150" >작성자</th>
+				<th bgcolor="#dee2e6" width="170" >등록일</th>
+				<th bgcolor="#dee2e6" width="120" >조회수</th>
+				<th bgcolor="#dee2e6" width="170">파일이름</th>
+				<th bgcolor="#dee2e6" width="120">파일용량</th>				
 				<!-- 추가 -->
 			</tr>
 			<c:forEach items="${boardList}" var="board">
 				<!-- 프라퍼티이름 변경 -->
 				<tr>
 					<td>${board.b_id }</td>
-					<td align="left"><a href="getBoard.do?b_id=${board.b_id }">
+					<td align="left"><a href="getBoard.do?b_id=${board.b_id}" id="go">
 							${board.b_title }</a></td>
 					<td>${board.b_name }</td>
 					<td>${board.b_date }</td>
 					<td>${board.b_count }</td>
 					<!-- 추가 -->
+					<td>
+					 <c:choose>
+					    <c:when test="${board.b_fsize==0}">첨부파일 없음</c:when>
+					    <c:otherwise>
+					    		<img src="resources/images/disk.gif">${board.b_fname}
+					    </c:otherwise>
+					 </c:choose>					  
+					</td>					
+					<td>${board.b_fsize}byte</td>
 				</tr>
 			</c:forEach>
 		</table>
 		<br> <a href="insertBoard.do">새글 등록</a>
 		
 		
-	<div style="display: block; text-align: center;">		
-		<c:if test="${paging.startPage != 1 }">
-			<a href="/project1982/user/userBoard.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
-		</c:if>
-		<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
-			<c:choose>
-				<c:when test="${p == paging.nowPage }">
-					<b>${p}</b>
-				</c:when>
-				<c:when test="${p != paging.nowPage }">
-					<a href="/project1982/user/userBoard.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
-				</c:when>
-			</c:choose>
-		</c:forEach>
-		<c:if test="${paging.endPage != paging.lastPage}">
-			<a href="/project1982/user/userBoard.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
-		</c:if>
-	</div>
-</div>	
+			<div style="display: block; text-align: center;">		
+				<c:if test="${paging.startPage != 1 }">
+					<a href="/project1982/user/userBoard.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+				</c:if>
+				<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+					<c:choose>
+						<c:when test="${p == paging.nowPage }">
+							<b>${p}</b>
+						</c:when>
+						<c:when test="${p != paging.nowPage }">
+							<a href="/project1982/user/userBoard.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+						</c:when>
+					</c:choose>
+				</c:forEach>
+				<c:if test="${paging.endPage != paging.lastPage}">
+					<a href="/project1982/user/userBoard.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+				</c:if>
+			</div>
+		</div>	
 		
-		
-		
+    	</div> <!-- 중간 메뉴바 종료-->
+	</div><!-- 페이지 컨테이너 종료-->
+</main>  
+
 		<!-- footer --------------------------------------------------------------------->
     <footer>
         <div id="footer">

@@ -12,11 +12,13 @@ public class ShopVO {
 	private String shopdate;
 	private String jobDate;
 	private String normal_emergency;
-	private String board_onwer_seq;
 	private String ownernum;
 	private String jobTime_start;
 	private String jobTime_end;
+	private int board_owner_seq;
+	private String userid;
 	
+	private String si_realname;
 	
 	public String getJobDate() {
 		return jobDate;
@@ -90,11 +92,12 @@ public class ShopVO {
 	public void setNormal_emergency(String normal_emergency) {
 		this.normal_emergency = normal_emergency;
 	}
-	public String getBoard_onwer_seq() {
-		return board_onwer_seq;
+
+	public int getBoard_owner_seq() {
+		return board_owner_seq;
 	}
-	public void setBoard_onwer_seq(String board_onwer_seq) {
-		this.board_onwer_seq = board_onwer_seq;
+	public void setBoard_owner_seq(int board_owner_seq) {
+		this.board_owner_seq = board_owner_seq;
 	}
 	public String getOwnernum() {
 		return ownernum;
@@ -114,8 +117,17 @@ public class ShopVO {
 	public void setJobTime_end(String jobTime_end) {
 		this.jobTime_end = jobTime_end;
 	}
-
-	
-	
-	
+	public String getSi_realname() {
+		return si_realname;
+	}
+	public void setSi_realname(String si_realname) {
+		this.si_realname = si_realname;
+	}
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
 }
+

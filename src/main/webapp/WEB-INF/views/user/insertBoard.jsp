@@ -15,7 +15,7 @@
 				</tr>
 				<tr>
 					<td bgcolor="orange">작성자</td>
-					<td align="left"><input type="text" name='b_name' size="10" /></td>
+					<td align="left"><input type="text" name='b_name' size="10" value="${userId}"/></td>
 				</tr>
 				<tr>
 					<td bgcolor="orange">내용</td>
