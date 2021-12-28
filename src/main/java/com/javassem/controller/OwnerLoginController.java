@@ -87,44 +87,13 @@ public class OwnerLoginController {
     @RequestMapping({"ownerBoardInsert.do"})
     public String ownerBoardInsert(OwnerBoardVO vo, Model m) {
         String jobDate = vo.getJobDate();
-     
+        System.out.println(jobDate);
         this.ownerService.ownerBoardInsert(vo);
         List<OwnerBoardVO> list = this.ownerService.getOwnerBoardList(vo);
         m.addAttribute("ownerBoardList", list);
         return "/owner/job_positing";
     }
-    
-    @RequestMapping({"job_positing.do"})
-    public String job_list(OwnerBoardVO vo, Model m, HttpServletRequest request) throws Exception {
-    	//현재 Ownernum 가져오기---------------------------------------------------------------
-    	HttpSession session = request.getSession();
-        Integer ownernum = (Integer)session.getAttribute("ownernum");
-        vo.setOwnernum(ownernum);
-        System.out.println(ownernum);
-        //---------------------------------------------------------------
-        
-        List<OwnerBoardVO> list = ownerService.getOwnerBoardList(vo);
-        m.addAttribute("ownerBoardList", list);
-        
-       	OwnerBoardVO vo1 = list.get(0);
-       	if(  Integer.parseInt(vo1.getOwnersub()) == 0){
-       		
-       		return "/owner/owner_sub";
-       	}else{
-       		
-       		return "/owner/job_positing";
-       	}
 
-        
-//        list.forEach(System.out::println);
-        
-        
-    }
-
-    
-    
-    
-    
     @RequestMapping({"login.do"})
     public String ownerLogin(OwnerVO vo, OwnerBoardVO boardVo, Model m, HttpServletRequest request) throws Exception {
         OwnerVO result = this.ownerService.idCheck_Login(vo);
@@ -136,7 +105,7 @@ public class OwnerLoginController {
             session.setAttribute("ownerid", result.getOwnerid());
             List<OwnerBoardVO> list = this.ownerService.getOwnerBoardList(boardVo);
             m.addAttribute("ownerBoardList", list);
-            return "redirect:ownerMypage.do";
+            return "/owner/job_positing";
         }
     }
 

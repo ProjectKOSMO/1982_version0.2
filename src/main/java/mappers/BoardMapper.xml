@@ -68,9 +68,9 @@
 			<if test="searchCondition != null">
 		 		B.${searchCondition} LIKE '%${searchKeyword}%' AND
 		 	</if>
-		B.RN BETWEEN ${start} AND ${end};	
+		B.RN BETWEEN ${start} AND ${end};
+			
 	</select>
-		
 		<select id="countboard" resultType="int">
 		SELECT COUNT(*) FROM uploadtemp
 	</select>

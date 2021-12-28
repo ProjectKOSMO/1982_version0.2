@@ -4,10 +4,10 @@
 
 <mapper namespace="ShopDAO">
 
-<!-- <select id="ShopList" resultType="com.javassem.domain.ShopVO"  parameterType="com.javassem.domain.StoreVO">
+<select id="ShopList" resultType="com.javassem.domain.ShopVO"  parameterType="com.javassem.domain.StoreVO">
 		
 		SELECT *
-		FROM board_owner -->
+		FROM board_owner
 	<!-- 	<where>
 			<if test="searchCondition != null">
 				${searchCondition} LIKE '%${searchKeyword}%'
@@ -15,6 +15,7 @@
 		</where>		
 		ORDER BY SEQ DESC -->
 	
+
 	<!--  </select>-->	
 	<select id="getShopList" resultType="com.javassem.domain.ShopVO"  parameterType="hashmap">
 		
@@ -71,10 +72,7 @@
 				B.${searchCondition} LIKE '%${searchKeyword}%' AND
 			</if>
 		B.RN BETWEEN ${start} AND ${end};
+
 	</select>
-		
-	<select id="countShop" resultType="int">
-		SELECT COUNT(*) FROM board_owner
-	</select> -->
 	
 	</mapper>
