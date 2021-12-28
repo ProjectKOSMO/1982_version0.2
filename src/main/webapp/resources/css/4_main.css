@@ -272,7 +272,13 @@ margin:0px;
 text-align:center;
 }
 
-
+.main_right > img{
+  width: 150px;
+  height: auto;
+  background-size: contain;
+  padding: 0;
+  margin:0;
+}
 
 
 
