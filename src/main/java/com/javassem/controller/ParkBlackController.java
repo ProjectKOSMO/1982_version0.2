@@ -17,7 +17,7 @@ public class ParkBlackController {
 
     public ParkBlackController() {
     }
-
+/*
     @RequestMapping({"blacklist_condition.do"})
     public String select(String searchCondition, String searchKeyword, Model m, PagingVO vo) {
         HashMap map = new HashMap();
@@ -27,5 +27,5 @@ public class ParkBlackController {
         List<ParkBlackVO> list = this.parkBlackService.getBlackList(vo);
         m.addAttribute("blacklist", list);
         return "admin/adminPage.do";
-    }
+    }*/
 }

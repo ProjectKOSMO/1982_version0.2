@@ -31,4 +31,8 @@ public class ShopServiceImpl implements ShopService {
 			return this.shopDAO.getShop(vo);
 		}
 		
+		public ShopVO support(ShopVO vo){
+			return this.shopDAO.support(vo);
+		
+		}
 }

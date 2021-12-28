@@ -11,15 +11,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
     <link type="text/css" href="/project1982/resources/css/4_main.css" rel="stylesheet"/>
 </head>
+
+<body>
 <% 
 	String userId = (String)session.getAttribute("userId");
 	Integer userNum = (Integer)session.getAttribute("userNum");
-
-	
-	out.println(userId + " 님 환영합니다.");
-	out.println("번호 : " + userNum);
 %>
-<body>
     
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
@@ -35,7 +32,7 @@
                <!-- 오른쪽 메뉴-->
                <div class="right-menu">
                    <!--검색 -->
-                   <a href="storeClose.do" class="search">
+                   <a href="storeClose.do?userid=${userId}" class="search">
                    일자리찾기
                    </a>
                    <!--유저 -->
