@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
     <link type="text/css" href="/project1982/resources/css/4_main.css" rel="stylesheet"/>
 </head>
+
 <body>
 <% 
 	String userId = (String)session.getAttribute("userId");
@@ -26,7 +27,7 @@
                <!--유저 메뉴--> 
                <div class="right-menu">
                    <!--검색 -->
-                   <a href="storeClose.do" class="search">
+                   <a href="storeClose.do?userid=${userId}" class="search">
                    일자리찾기
                    </a>
                    <a href="userMypage.do?userid=${userId}" class="user">

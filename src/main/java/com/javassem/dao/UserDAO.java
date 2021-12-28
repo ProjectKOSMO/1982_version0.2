@@ -10,6 +10,7 @@ public interface UserDAO {
   
   UserVO userLogin(UserVO paramUserVO);
   
+
   void insertUserInfoView(UserVO paramUserVO);
   
   void updateUserInfoView(UserVO paramUserVO);
@@ -18,3 +19,6 @@ public interface UserDAO {
   
   UserVO getUserInfoView(UserVO paramUserVO);
 }
+
+  }
+

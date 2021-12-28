@@ -15,6 +15,64 @@
 		</where>		
 		ORDER BY SEQ DESC -->
 	
+
+	<!--  </select>-->	
+	<select id="getShopList" resultType="com.javassem.domain.ShopVO"  parameterType="hashmap">
+		
+		SELECT *
+		FROM board_owner
+		<where>
+			<if test="searchCondition != null">
+				${searchCondition} LIKE '%${searchKeyword}%'
+			</if>
+		</where>		
+		
+		
+	</select> 
+	
+	<select id = "getShop" resultType="com.javassem.domain.ShopVO">
+	<![CDATA[
+		SELECT *
+		FROM board_owner b, shopInfo i
+		WHERE b.ownernum=i.ownernum
+		AND board_owner_seq = #{board_owner_seq}
+		]]>
+	
+	</select>
+	
+<!-- 	<update id="updateShop" parameterType="com.javassem.domain.ShopVO">
+		<![CDATA[
+		UPDATE board_owner SET
+		shopname = #{shopname},
+		normal_emergency = #{normal_emergency},
+		shopaddr = #{shopaddr},
+		shoppay = #{shoppay},
+		jobDate = #{jobDate},
+		jobTime_start = #{jobTime_start},
+		jobTime_end = #{jobTime_end}
+		
+		WHERE board_owner_seq = #{board_owner_seq}
+		]]>
+	</update> -->
+	
+  	 <insert id="getShop2" parameterType="com.javassem.domain.ShopVO">
+		INSERT INTO support (shopname, normal_emergency, shopaddr, shoppay, jobDate, jobTime_start, jobTime_end, board_owner_seq, userid)
+		VALUES (#{shopname}, #{normal_emergency}, #{shopaddr}, #{shoppay}, #{jobDate}, #{jobTime_start}, #{jobTime_end}, #{board_owner_seq}, #{userid})
+	</insert> 
+ 
+	  
+
+
+	<!-- <select id="getShopList" resultType="com.javassem.domain.ShopVO"  parameterType="hashmap">
+		
+		SELECT * FROM (SELECT @rownum:=@rownum+1 RN, A.* FROM
+		(SELECT * FROM board_owner ORDER BY board_onwer_seq DESC) A, (SELECT @rownum:=0) r) B
+		where
+			<if test="searchCondition != null">
+				B.${searchCondition} LIKE '%${searchKeyword}%' AND
+			</if>
+		B.RN BETWEEN ${start} AND ${end};
+
 	</select>
 	
 	</mapper>
