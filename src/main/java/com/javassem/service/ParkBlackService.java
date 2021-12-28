@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public interface ParkBlackService {
-  List<ParkBlackVO> getBlackList(HashMap map);
-  int countBlacklist();
+	int countBlacklist();
+	List<ParkBlackVO> getBlackList(HashMap map);
+	int checkCnt(ParkBlackVO vo);
+	void stopAccount(HashMap map);
 }
