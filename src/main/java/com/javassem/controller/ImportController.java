@@ -1,6 +1,10 @@
 package com.javassem.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< Updated upstream
+=======
+import org.springframework.ui.Model;
+>>>>>>> Stashed changes
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,12 +25,21 @@ public class ImportController {
 	
 	@RequestMapping("insertPayCoupon.do")
 	@ResponseBody
+<<<<<<< Updated upstream
 	public int pay(@RequestBody Payed_listVO pvo) {
+=======
+	public int pay(@RequestBody Payed_listVO pvo, Model m) {
+>>>>>>> Stashed changes
 		System.out.println("pvo.getMerchant_uid : " + pvo.getMerchant_uid());
 		int res = paySV.insert_pay(pvo);
 		if(res == 1) {
 			Biz_memberVO bvo = memberSV.selectBizMember(pvo.getBiz_email());
 			bvo.setPay_coupon(bvo.getPay_coupon()+5);
+<<<<<<< Updated upstream
+=======
+			m.addAttribute("biz_member", bvo);
+
+>>>>>>> Stashed changes
 			System.out.println("paycoupon: " + bvo.getPay_coupon());
 			res = paySV.updateBiz_pay(bvo);
 			if(res == 1)
@@ -36,6 +49,7 @@ public class ImportController {
 		return res;
 	}
 	
+<<<<<<< Updated upstream
 //	@RequestMapping(value = "/coupon_cancel.do")
 //	@ResponseBody
 //	public String cancel(@RequestParam(value= "biz_email") String biz_email) {
@@ -61,4 +75,6 @@ public class ImportController {
 //		else 
 //			return "anyway Failure"; 
 //	}
+=======
+>>>>>>> Stashed changes
 }

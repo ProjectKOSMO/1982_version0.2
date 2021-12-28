@@ -18,6 +18,7 @@
 </head>
 
 <body>
+<<<<<<< Updated upstream
 <h5>이용권</h5>		
 	<table class = pay border="1">
 		<tr>
@@ -39,11 +40,25 @@
 	</div>
   
   
+=======
+	
+  구독 기간:
+        		<div class="list">
+        			<button class='check30'>30일</button>	
+        			<button class='check60'>60일</button>	
+        			<button class='check90'>90일</button>	
+        			<button class='check150'>150일</button>	
+        			<button class='check360'>360일</button>	
+        		</div>
+
+
+>>>>>>> Stashed changes
 <!-- pay js -->
 <script type="text/javascript">
 $(document).ready(function(){
 	   var pay = 5;
 	   console.log(pay);
+<<<<<<< Updated upstream
 	   	  
 		var IMP = window.IMP;
 		var code = "imp38743974"; //가맹점 식별코드
@@ -62,6 +77,49 @@ $(document).ready(function(){
           buyer_tel: "010-4242-4242",
           buyer_addr: "서울특별시 강남구 신사동",
           buyer_postcode: "01181"
+=======
+	   	
+		var IMP = window.IMP;
+		var code = "imp38743974"; //가맹점 식별코드
+		IMP.init(code);
+
+		$('.check30, .check60, .check90, .check150, .check360').click(function(e){
+		  var name_var = 'init';
+		  var amount_var = 0;
+		  
+		  if($(this).attr("class") == 'check30'){
+		  	  name_var = "30일 구독권";
+		  	amount_var = 10000;
+		  }else if($(this).attr("class") == 'check60'){
+		  	name_var = "60일 구독권";
+		  	amount_var = 18000;
+		  }else if($(this).attr("class") == 'check90'){
+			  	name_var = "90일 구독권";
+			  	amount_var = 25000;
+		  }else if($(this).attr("class") == 'check150'){
+			  name_var = "150일 구독권";
+			  amount_var = 40000;
+		  }else if($(this).attr("class") == 'check360'){
+		  	  name_var = "360일 구독권";
+		  	amount_var = 60000;
+		  }
+
+		  	
+		  //결제요청
+		  IMP.request_pay({ // param
+          pg: "TC0ONETIME",
+          pay_method: "card",
+          // merchant_uid: "ORD20180131-0000012",
+          // name: "30일 구독권",
+          name : name_var,
+          
+          amount: amount_var,
+          // buyer_email: "gildong@gmail.com",
+          // buyer_name: "홍길동",
+          // buyer_tel: "010-4242-4242",
+          // buyer_addr: "서울특별시 강남구 신사동",
+          // buyer_postcode: "01181"
+>>>>>>> Stashed changes
       }, function(rsp){
 				if(rsp.success){//결제 성공시
 					var msg = '결제가 완료되었습니다';
@@ -107,6 +165,7 @@ $(document).ready(function(){
 			});//pay
 		}); //check1 클릭 이벤트
 		 
+<<<<<<< Updated upstream
 		$("#check2").click(function(e){
 		      console.log("남은이용권"+$('#pay_coupon').text());
 		      if($('#pay_coupon').text() >= 5){
@@ -134,6 +193,8 @@ $(document).ready(function(){
 				console.log("환불 실패 : 남은 결제권 환불 불가");
 			}
 		}); //check2 클릭
+=======
+>>>>>>> Stashed changes
 	}); //doc.ready
 	</script>
 </html>
