@@ -523,6 +523,14 @@ textarea {
       margin-top: 500px;
   }
  
+  .body_container_center_shop_contanier{
+    display: block;
+  }
+ 
+  .body_container_center_shop_contanier_info{
+    
+    margin: 300px auto;
+  }
   
 
   }
