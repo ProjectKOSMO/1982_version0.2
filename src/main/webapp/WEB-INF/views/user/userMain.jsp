@@ -11,47 +11,30 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
     <link type="text/css" href="/project1982/resources/css/4_main.css" rel="stylesheet"/>
 </head>
-<% 
-	String userId = (String)session.getAttribute("userId");
-	Integer userNum = (Integer)session.getAttribute("userNum");
-
-	
-	out.println(userId + " 님 환영합니다.");
-	out.println("번호 : " + userNum);
-%>
 <body>
-    
-        <!--메뉴바  ------------------------------------------------->
+        <!-- 메뉴바  ------------------------------------------------->
         <header class="header" >
             <!-- 로고-->
                <div>
-               <a href="main.do" class="logo">
+               <a href="userMain.do" class="logo">
                    <h1>1982</h1>
                </a>
                </div>
-               <!--메뉴--> 
-             
-               
-               <!-- 오른쪽 메뉴-->
+               <!--유저 메뉴--> 
                <div class="right-menu">
                    <!--검색 -->
                    <a href="storeClose.do" class="search">
                    일자리찾기
                    </a>
-                   <!--유저 -->
                    <a href="userMypage.do" class="user">
                    마이페이지
                    </a>
-                   <!--카트  -->
-                   <a href="board.do">
-                   고객센터
-                       <!--카트 상품-->
-                       
+                   <a href="userBoard.do">
+                   고객센터                       
                    </a>
                </div>
    
            </header>
-
     <!-- 메인 ---------------------------------------------------------------->
         <main >
             <div>
@@ -59,9 +42,8 @@
                 <div  class="main">
                   <div id="map" style="width:500px;height:450px;margin-top: 50px;border: 1px solid black;"></div>
                   
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.js" type="text/javascript"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eb66f18ab68f4698ad06cb4444bfc896&libraries=services"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.js" type="text/javascript"></script>
 <script src='/project1982/resources/js/locationExample4.js' type="text/javascript"></script>
 
     
@@ -74,10 +56,12 @@
                 </div>
                 
                <div id="SongPagingMap">
+               <div id="prevPagingMap">◀</div>
                 <div id="divPagingMap">
                     <div>2</div>
                     <div>1</div>
                 </div>
+                <div id="nextPagingMap">▶</div>
             </div>
 
 <form name="search-form" method='get'>

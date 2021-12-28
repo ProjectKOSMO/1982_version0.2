@@ -9,11 +9,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
 	<link type="text/css" href="/project1982/resources/style/style.css" rel="stylesheet"/>
     <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" type="text/javascript"></script>
-	<script src='/project1982/resources/js/locationExample.js' type="text/javascript"></script>
 </head>
 <body>
-    
 <% 
 	String ownerid = (String)session.getAttribute("ownerid");
 	Integer ownernum = (Integer)session.getAttribute("ownernum");
@@ -79,9 +76,7 @@
                             <div class= "body_container_center_shop_contanier_info">
                                 <div>업체 이름: <input type="text" name="shopname"> </div>
                                     
-                                <div>업체 주소: <input type="text" name="shopaddr" id="shopaddr"><div id="locationConfirm">주소확인</div></div>                                
-                                <div>location_y: <input type="text" name="location_y" id="location_y" ></div>
-                                <div>location_x: <input type="text" name="location_x" id="location_x" ></div>
+                                <div>업체 주소: <input type="text" name="shopaddr"><button>주소확인</button></div>                                
                                 <div>업체 연락처: <input type="text" name="shoppn"></div>                             
                                 <div class="body_container_center_shop_contanier_info_ta">업체 소개: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <textarea name="shopcontent" id="" cols="30" rows="10"></textarea>     

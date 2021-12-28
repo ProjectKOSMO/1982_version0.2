@@ -13,8 +13,6 @@ public class OwnerBoardVO {
   
   private String jobTime_end;
   
-  private String ownersub;
-  
   private String writer;
   
   private String content;
@@ -29,11 +27,7 @@ public class OwnerBoardVO {
   
   private String need_Num;
   
-  private int ownernum;
-  
-
-
-private Date regDate;
+  private Date regDate;
   
   public int getBoard_owner_seq() {
     return this.board_owner_seq;
@@ -138,20 +132,4 @@ private Date regDate;
   public void setShoppay(String shoppay) {
     this.shoppay = shoppay;
   }
-  
-  public String getOwnersub() {
-	return ownersub;
 }
-
-  public void setOwnersub(String ownersub) {
-	this.ownersub = ownersub;
-}
-  public int getOwnernum() {
-	return ownernum;
-}
-
-  public void setOwnernum(int ownernum) {
-	this.ownernum = ownernum;
-}
-}
-

@@ -24,4 +24,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</where>
 	</select>
 	<!-- userid=#{userid} AND userpass=#{userpass} -->
+	
+<!-- 	<insert id="insertUserView" parameterType="UserInfoViewVO">
+		INSERT INTO uploadtemp(b_name, b_email, b_title, b_content, b_pwd, b_date, b_count
+			<if test="b_fname != null">
+				, b_fname, b_fsize, b_realfname
+			</if>)
+		VALUES(#{b_name}, #{b_email}, #{b_title}, #{b_content}, #{b_pwd}, now(), 1
+			<if test="b_fname != null">
+				, #{b_fname}, #{b_fsize}, #{b_realfname}
+			</if>)
+	</insert>
+	
+	<update id="updateUserView" parameterType="UserInfoViewVO">
+		<![CDATA[
+		UPDATE uploadtemp SET
+		b_title = #{b_title},
+		b_content = #{b_content}
+		WHERE b_id = #{b_id}
+		]]>
+	</update>
+	
+	<delete id="deleteUserView" parameterType="UserInfoViewVO">
+		DELETE FROM uploadtemp
+		WHERE b_id = #{b_id}
+	</delete>
+	
+	<select id="getUserView" resultType="UserInfoViewVO">
+		<![CDATA[
+		SELECT *
+		FROM uploadtemp
+		WHERE b_id = #{b_id}
+		]]>
+	</select> -->
+	
 </mapper>

@@ -19,14 +19,17 @@ public class UserVO {
   
   private String useraddr;
   
-  private String usermail;
-  
   private String userimg;
+  
+  private String usermail;
   
   private String userdate;
   
   private String userbirth;
   
+  
+  
+
   public UserVO() {}
   
   public UserVO(String userid, String userpass, String userpass2, String username, String userpn, String usermail, String userbirth, String userdate) {
@@ -120,13 +123,6 @@ public class UserVO {
     this.usermail = usermail;
   }
   
-  public String getUserimg() {
-    return this.userimg;
-  }
-  
-  public void setUserimg(String userimg) {
-    this.userimg = userimg;
-  }
   
   public String getUserdate() {
     return this.userdate;
@@ -143,4 +139,14 @@ public class UserVO {
   public void setUserbirth(String userbirth) {
     this.userbirth = userbirth;
   }
+
+public String getUserimg() {
+	return userimg;
+}
+
+public void setUserimg(String userimg) {
+	this.userimg = userimg;
+}
+  
+  
 }

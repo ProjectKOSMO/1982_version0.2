@@ -17,12 +17,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping
 public class UserBoardController {
+	
   @Autowired
   private BoardService boardService;
   
 	
-	  @RequestMapping({"/user/{step}.do"}) public String test(@PathVariable String
-	  step) { System.out.println("유저 보드 컨트롤러입니다."); return "/user/" + step; }
+	  @RequestMapping({"/user/{step}.do"}) 
+	  public String test(@PathVariable String step){
+		  return "/user/" + step;
+	  }
 	 
   
   @RequestMapping("/user/user_login.do")
@@ -37,6 +40,7 @@ public class UserBoardController {
     this.boardService.insertBoard(vo);
     return "redirect:userBoard.do";
   }
+  
   
   @RequestMapping(value = {"/user/userBoard.do"}, method = {RequestMethod.GET})
   public String select(String searchCondition, String searchKeyword, Model m, PagingVO vo, @RequestParam(value = "nowPage", required = false) String nowPage, @RequestParam(value = "cntPerPage", required = false) String cntPerPage) {

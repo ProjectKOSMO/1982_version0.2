@@ -37,8 +37,8 @@
 				<c:if test="${board.b_realfname != null}">
 				<tr>
 					<td colspan="2" align="center">
-					<%-- <img src="resources/upload/${board.b_fname}" width='500' height='400'> --%>
-					<a download='${board.b_fname}' href='resources/upload/${board.b_realfname}'>${board.b_fname}</a>
+					<img src="/project1982/resources/upload/${board.b_realfname}" width='500' height='400'>
+					<%-- <a download='${board.b_fname}' href='resources/upload/${board.b_realfname}'>${board.b_fname}</a> --%>
 					</td>
 				</tr>
 				</c:if>
@@ -53,6 +53,6 @@
 		<hr>
 		<a href="insertBoard.do">글등록</a>&nbsp;&nbsp;&nbsp; 
 		<a href="deleteBoard.do?b_id=${board.b_id }">글삭제</a>&nbsp;&nbsp;&nbsp;
-		<a href="getBoardList.do">글목록</a>
+		<a href="userBoard.do">글목록</a>
 </body>
 </html>
