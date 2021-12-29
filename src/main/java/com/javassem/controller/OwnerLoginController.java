@@ -2,9 +2,7 @@
 // Source code recreated from a .class file by IntelliJ IDEA
 // (powered by FernFlower decompiler)
 //
-
 package com.javassem.controller;
-
 import com.javassem.domain.OwnerBoardVO;
 import com.javassem.domain.OwnerVO;
 import com.javassem.service.OwnerService;
@@ -17,21 +15,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 @Controller
 @RequestMapping({"owner"})
 public class OwnerLoginController {
     @Autowired
     public OwnerService ownerService;
-
     public OwnerLoginController() {
     }
-
     @RequestMapping({"{step}.do"})
     public String ownerJoin(@PathVariable String step) {
         return "/owner/" + step;
     }
-
     @RequestMapping({"ownerMypage.do"})
     public String ownerMypage(OwnerVO vo, Model model, HttpServletRequest request) throws Exception {
         HttpSession session = request.getSession();
@@ -41,7 +35,6 @@ public class OwnerLoginController {
         model.addAttribute("shopList", list);
         return list.isEmpty() ? "/owner/ownerMypage" : "/owner/ownerViewPage";
     }
-
     @RequestMapping({"shopInsert.do"})
     public String ownerInsert(OwnerVO vo, Model model) {
         this.ownerService.insertShopInfo(vo);
@@ -49,7 +42,6 @@ public class OwnerLoginController {
         model.addAttribute("shopList", list);
         return "redirect:ownerList.do";
     }
-
     @RequestMapping({"ownerUpdate.do"})
     public String ownerUpdatePage(OwnerVO vo, Model model, HttpServletRequest request) throws Exception {
         HttpSession session = request.getSession();
@@ -59,7 +51,6 @@ public class OwnerLoginController {
         model.addAttribute("shopInfo", list);
         return "/owner/ownerUpdate";
     }
-
     @RequestMapping({"shopUpdate.do"})
     public String shopUpdate(OwnerVO vo, Model model, HttpServletRequest request) throws Exception {
         this.ownerService.updateShopInfo(vo);
@@ -67,7 +58,6 @@ public class OwnerLoginController {
         Thread.sleep(5000L);
         return "redirect:ownerList.do";
     }
-
     @RequestMapping({"ownerList.do"})
     public String getList(OwnerVO vo, Model model, HttpServletRequest request) throws Exception {
         HttpSession session = request.getSession();
@@ -77,22 +67,51 @@ public class OwnerLoginController {
         model.addAttribute("shopList", list);
         return "/owner/ownerViewPage";
     }
-
     @RequestMapping({"ownerInsert.do"})
     public String ownerInsert(OwnerVO vo) {
         this.ownerService.ownerInsert(vo);
         return "redirect:owner_login.do";
     }
-
     @RequestMapping({"ownerBoardInsert.do"})
     public String ownerBoardInsert(OwnerBoardVO vo, Model m) {
         String jobDate = vo.getJobDate();
-        System.out.println(jobDate);
+
         this.ownerService.ownerBoardInsert(vo);
         List<OwnerBoardVO> list = this.ownerService.getOwnerBoardList(vo);
         m.addAttribute("ownerBoardList", list);
         return "/owner/job_positing";
     }
+
+    @RequestMapping({"job_positing.do"})
+    public String job_list(OwnerBoardVO vo, Model m, HttpServletRequest request) throws Exception {
+    	//현재 Ownernum 가져오기---------------------------------------------------------------
+    	HttpSession session = request.getSession();
+        Integer ownernum = (Integer)session.getAttribute("ownernum");
+        vo.setOwnernum(ownernum);
+        System.out.println(ownernum);
+        //---------------------------------------------------------------
+
+        List<OwnerBoardVO> list = ownerService.getOwnerBoardList(vo);
+        m.addAttribute("ownerBoardList", list);
+
+       	OwnerBoardVO vo1 = list.get(0);
+       	if(  Integer.parseInt(vo1.getOwnersub()) == 0){
+
+       		return "/owner/owner_sub";
+       	}else{
+
+       		return "/owner/job_positing";
+       	}
+
+
+//        list.forEach(System.out::println);
+
+
+    }
+
+
+
+
 
     @RequestMapping({"login.do"})
     public String ownerLogin(OwnerVO vo, OwnerBoardVO boardVo, Model m, HttpServletRequest request) throws Exception {
@@ -105,7 +124,7 @@ public class OwnerLoginController {
             session.setAttribute("ownerid", result.getOwnerid());
             List<OwnerBoardVO> list = this.ownerService.getOwnerBoardList(boardVo);
             m.addAttribute("ownerBoardList", list);
-            return "/owner/job_positing";
+            return "redirect:ownerMypage.do";
         }
     }
 
@@ -120,7 +139,6 @@ public class OwnerLoginController {
         if (result != null) {
             message = "이미 사용중인 아이디 입니다.";
         }
-
         return message;
     }
 }

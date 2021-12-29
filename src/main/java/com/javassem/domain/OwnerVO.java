@@ -5,9 +5,10 @@ import java.io.IOException;
 import java.util.UUID;
 import org.springframework.web.multipart.MultipartFile;
 
+
 public class OwnerVO {
   private int ownernum;
-  
+
   private String ownerid;
   
   private String ownerpass;
@@ -38,23 +39,39 @@ public class OwnerVO {
   
   private String shopupdate;
   private String shopUpdate;
-  
-  public String getShopUpdate() {
+
+  private String location_y;
+  private String location_x;
+
+  public String getLocation_y() {
+	return location_y;
+}
+
+public void setLocation_y(String location_y) {
+	this.location_y = location_y;
+}
+
+public String getLocation_x() {
+	return location_x;
+}
+
+public void setLocation_x(String location_x) {
+	this.location_x = location_x;
+}
+
+public String getShopUpdate() {
 	return shopUpdate;
 }
 
 public void setShopUpdate(String shopUpdate) {
 	this.shopUpdate = shopUpdate;
 }
-
 public String getShopupdate() {
 	return shopupdate;
 }
-
 public void setShopupdate(String shopupdate) {
 	this.shopupdate = shopupdate;
 }
-
 private String si_fname;
   
   private String si_realname;

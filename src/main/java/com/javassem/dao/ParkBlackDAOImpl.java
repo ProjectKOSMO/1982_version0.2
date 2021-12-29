@@ -2,24 +2,26 @@ package com.javassem.dao;
 
 import com.javassem.domain.PagingVO;
 import com.javassem.domain.ParkBlackVO;
+
+import java.util.HashMap;
 import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-@Repository("parkBlackDAO")
+@Repository("ParkBlackDAO")
 public class ParkBlackDAOImpl implements ParkBlackDAO {
 	
   @Autowired
   private SqlSessionTemplate mybatis1;
   
-  public int countBoard() {
-    return ((Integer)this.mybatis1.selectOne("blacklistBoard.countBoardList")).intValue();
+  public int countBlacklist() {
+    return this.mybatis1.selectOne("blacklistBoard.countBlackList");
   }
   
-  public List<ParkBlackVO> getBlackList(PagingVO vo) {
+  public List<ParkBlackVO> getBlackList(HashMap map) {
     System.out.println("===> Mybatis getBlackList()");
-    return this.mybatis1.selectList("blacklistBoard.getBlackList");
+    return this.mybatis1.selectList("blacklistBoard.getBlackList", map);
   }
 
 	@Override

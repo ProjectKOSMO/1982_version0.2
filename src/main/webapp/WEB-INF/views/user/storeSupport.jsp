@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
@@ -18,30 +17,47 @@
 
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
-            <!-- 로고-->
-               <div>
-               <a href="userMain.do" class="logo">
-                   <h1>1982</h1>
-               </a>
-               </div>
-               <!--유저 메뉴--> 
-               <div class="right-menu">
-                   <!--검색 -->
-                   <a href="storeClose.do" class="search">
-                   일자리찾기
-                   </a>
-                   <a href="userMypage.do" class="user">
-                   마이페이지
-                   </a>
-                   <a href="userBoard.do">
-                   고객센터                       
-                   </a>
-               </div>
-   
-           </header>
+         <!-- 로고-->
+
+            <a href="#" class="logo">
+                <img src=""/>
+            </a>
+
+            <!--메뉴-->   
+            <ul class="menu">
+                <li><a href="#">구직자용</a></li>
+                <li><a href="#">구인자용</a>
+                <!--쎄일 라벨 -->
+                    <span class="sale-lable">신규</span>
+                </li>
+                <li><a href="#">둘러보기</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">고객센터</a></li>
+            </ul>
+            <!-- 오른쪽 메뉴-->
+            <div class="right-menu">
+                <!--검색 -->
+                <a href="#" class="search">
+                    <i class="fas fa-search"></i>
+                </a>
+                <!--유저 -->
+                <a href="#" class="user">
+                    <i class="far fa-user"></i>
+                </a>
+                <!--카트  -->
+                <a href="#">
+                    <i class="fas fa-shopping-cart">
+                    <!--카트 상품-->
+                    <span class="num-cart-product">0</span>
+                    </i>
+                </a>
+            </div>
+
+        </header>
+
     <!-- 메인 ---------------------------------------------------------------->
         <main>
-      
+
             <form action="">
             <ul class="left_nav">
                 <li class="left_nav_text"><a class="home" href="#">홈</a></li>
@@ -49,7 +65,6 @@
                 <li class="left_nav_text"><a href="#">상품</a></li>
                 <li class="left_nav_text"><a href="#">회사</a></li>
             </ul>
-
             <div class="body_container"> <!-- 페이지 컨테이너 시작-->
          
                 <div class="body_container_center"> <!-- 중간 메뉴바 시작-->
@@ -60,7 +75,6 @@
                                  
                             <!--게시판 시작---------->  
                             <div id="mainWrapper">
-
                                 <ul>
                                     <!-- 게시판 제목 -->
                                     <li>게시판 Title </li>
@@ -153,10 +167,10 @@
                              <!-- 게시판 종료 --------->
                             </div>
                             <div class= "body_container_center_shop_contanier_info">
-                                
+
                                 <div class="shop_img">
                                     <img src="" alt="">
-                                    <p>가장 맛있는 족발</p>
+                                    <p>${shop.shopname }</p>
                                     <p>가산 디지털로</p>
                                     <button>찜하기</button>
                                     <button>리뷰작성</button>
@@ -225,7 +239,6 @@
                     
                     
                     
-
                  
                    
                 </div><!--중간 메뉴바 종료-->
@@ -246,12 +259,6 @@
         
         
  
-
-
-
-
-
-
 <!-- footer --------------------------------------------------------------------->
     <footer>
         <div id="footer">
@@ -277,8 +284,6 @@
                         <div><a href="#"><i class="fab fa-instagram fa-2x" style="color:rgba(0,0,0,0.5)"></i></a></div>
                     </div>
                 </div>
-
-
                 <div class="right_area">
                     <div class="right_ul">
                         <p>이용약관 | </p>
@@ -290,7 +295,6 @@
                         <p>
                             <span>주식회사 1982 |</span>
                             <a href="#">
-
                                 <span>대표이사 : 한세호 |</span>
                             </a>
                                 <span>사업자등록번호 : 123-12-12345</span>
@@ -316,7 +320,6 @@
                 </div>        
             </div>
         </div>
-
     </footer>
 </body>
 </html>
