@@ -38,7 +38,7 @@
                    <a href="userMypage.do?userid=${userId}" class="user">
                    마이페이지
                    </a>
-                   <a href="userBoard.do">
+                   <a href="userBoard.do?userid=${userId}">
                    고객센터                       
                    </a>
                </div>

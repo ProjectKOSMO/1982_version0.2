@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository("ParkBlackDAO")
 public class ParkBlackDAOImpl implements ParkBlackDAO {
-	
   @Autowired
   private SqlSessionTemplate mybatis1;
   
@@ -23,15 +22,4 @@ public class ParkBlackDAOImpl implements ParkBlackDAO {
     System.out.println("===> Mybatis getBlackList()");
     return this.mybatis1.selectList("blacklistBoard.getBlackList", map);
   }
-
-	@Override
-	public int checkCnt(ParkBlackVO vo) {
-		System.out.println("===> Mybatis checkCnt()");
-		return this.mybatis1.selectOne("blacklistBoard.checkCnt",vo);
-	}
-	public void stopAccount(HashMap map){
-		System.out.println("===> Mybatis stopaccount()");
-		this.mybatis1.insert("blacklistBoard.stopaccount",map);
-	}
-	  
 }
