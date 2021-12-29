@@ -9,12 +9,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
 	<link type="text/css" href="/project1982/resources/style/style.css" rel="stylesheet"/>
     <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" type="text/javascript"></script>
+<script src='/project1982/resources/js/locationExample.js' type="text/javascript"></script>
 </head>
 <body>
+
 <% 
 	String ownerid = (String)session.getAttribute("ownerid");
 	Integer ownernum = (Integer)session.getAttribute("ownernum");
-
 	
 	out.println(ownerid + " 님 환영합니다.");
 	out.println("번호 : " + ownernum);
@@ -49,7 +51,6 @@
                </div>
    
            </header>
-
     <!-- 메인 ---------------------------------------------------------------->
         <main>
       
@@ -60,7 +61,6 @@
                 <li class="left_nav_text"><a href="#">상품</a></li>
                 <li class="left_nav_text"><a href="#">회사</a></li>
             </ul>
-
             <div class="body_container"> <!-- 페이지 컨테이너 시작-->
          
                 <div class="body_container_center"> <!-- 중간 메뉴바 시작-->
@@ -74,12 +74,13 @@
                     
                             <div class= "body_container_center_shop_contanier_info">
                                 <div>업체 이름: <input type="text" name="shopname" value="${shopInfo[0].shopname }"> </div>
-                                    
-                                <div>업체 주소: <input type="text" name="shopaddr" value="${shopInfo[0].shopaddr }"><button>주소확인</button></div>                                
+
+                                <div>업체 주소: <input type="text" name="shopaddr" id="shopaddr" value="${shopInfo[0].shopaddr }"><div id="locationConfirm">주소확인</button></div>                                
+                                <div>location_y: <input type="text" name="location_y" id="location_y" value="${shopInfo[0].location_y }"></div>
+                                <div>location_x: <input type="text" name="location_x" id="location_x" value="${shopInfo[0].location_x }"></div>
                                 <div>업체 연락처: <input type="text" name="shoppn" value="${shopInfo[0].shoppn }"></div>                             
                                 <div class="body_container_center_shop_contanier_info_ta">업체 소개: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <textarea name="shopcontent" id="" cols="30" rows="10" >${shopInfo[0].shopcontent }</textarea>     
-
                                  <div class="hide">담당자 번호: <input type="text" name="ownernum" value = "${ownernum}"></div>   
                                 </div>                                
                                 
@@ -109,12 +110,6 @@
         
         
  
-
-
-
-
-
-
 <!-- footer --------------------------------------------------------------------->
     <footer>
         <div id="footer">
@@ -140,8 +135,6 @@
                         <div><a href="#"><i class="fab fa-instagram fa-2x" style="color:rgba(0,0,0,0.5)"></i></a></div>
                     </div>
                 </div>
-
-
                 <div class="right_area">
                     <div class="right_ul">
                         <p>이용약관 | </p>
@@ -153,7 +146,6 @@
                         <p>
                             <span>주식회사 1982 |</span>
                             <a href="#">
-
                                 <span>대표이사 : 한세호 |</span>
                             </a>
                                 <span>사업자등록번호 : 123-12-12345</span>
@@ -179,7 +171,6 @@
                 </div>        
             </div>
         </div>
-
     </footer>
 </body>
 </html>
