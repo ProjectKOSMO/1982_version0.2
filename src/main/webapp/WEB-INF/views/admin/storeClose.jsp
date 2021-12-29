@@ -14,12 +14,14 @@
     <link type="text/css" href="/project1982/resources/css/6_my_store.css" rel="stylesheet"/>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
+
+
 <body>
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
             <!-- 로고-->
                <div>
-               <a href="/project1982/admin/main.do" class="logo">
+               <a href="userMain.do" class="logo">
                    <h1>1982</h1>
                </a>
                </div>
@@ -28,63 +30,54 @@
                
                <!-- 오른쪽 메뉴-->
                <div class="right-menu">
-                   
-                   <a href="/project1982/admin/storeClose.do" class="search">
+                   <!--검색 -->
+                   <a href="storeClose.do?userid=${userId}" class="search">
                    일자리찾기
                    </a>
-                   <a href="/project1982/admin/job_positing.do" class="search">
-                    구인공고
-                   </a>
-                   
-                   <a href="/project1982/admin/adminPage.do" class="user">
+                   <!--유저 -->
+                   <a href="userMypage.do" class="user">
                    마이페이지
                    </a>
-                   
-                   <a href="/project1982/admin/Board.do">
+                   <!--카트  -->
+                   <a href="userBoard.do">
                    고객센터
-                    
+                       <!--카트 상품-->
                        
+                   </a>
+                   <a href="/project1982/index.jsp" class="logout">
+                    로그아웃
                    </a>
                </div>
    
            </header>
  <!-- 메인 ---------------------------------------------------------------->
-     <div>
-     	<form name="search-form" autocomplete="off">
-     		<select name="type">
-     			<option selected value="">검색 내용 선택</option>
-     			<option value="title">제목</option>
-     			<option value="content">내용</option>
-     			<option value="content">작성자</option>
+     	<form class="search-form" action="/project1982/user/storeClose.do" autocomplete="off" method="get">
+     		<select name="searchCondition">
+     			<option value="shopaddr">주소</option>
+     			<option value="shopname">업체명</option>
+     			<option value="jobDate">날짜</option>
+     			<option value="normal_emergency">긴급/일일</option>
      		</select>
-     		<input type="text" name="keyword" value=""></input>
-     		<input type="button" onclick="getSearchList()" class="btn btn-outline-primary mr-2" value="검색"></input>
      		
+     		<input type="text" name="searchKeyword">
+     		<input type="submit" value="검색">
      	</form>
-     </div>
-     	
      
     <section class="section_main">
            
       <div id="mainWrapper">
 
-          
-              <!-- 게시판 제목 -->
-              
-             
   
               <!-- 게시판 목록  -->
               <li>
-                  
-                 
                   <ul id ="ulTable">
                       <li>
                           <ul>
                               <li>업체</li>
+                              <li>긴급/일일</li>
                               <li>주소</li>
                               <li>날짜</li>
                               <li>시급</li>
-                              <li>지원</li>
                           </ul>
                       </li>
                       <!-- 게시물이 출력될 영역 -->
@@ -92,26 +85,24 @@
                         <c:forEach items="${ShopList}" var="shop">
 							<li>
 							<ul>
-						
-								<li class="left">${shop.shopName }</li>
+								
+								<li class="left"><a href="userSupport.do?board_owner_seq=${shop.board_owner_seq}">
+										${shop.shopname}</a></li>
+								<li class="left">${shop.normal_emergency }</li>
 								<li class="left">${shop.shopaddr }</li>
-								<li class="left">${shop.shopdate }</li>
+								<li class="left">${shop.jobDate }</li>
 								<li class="left">${shop.shoppay }</li>
-								<button class="button">지원</button>
 							</ul>
 							</li>
 						</c:forEach>                            
                   </ul>
               </li>
-  
+  	
+          </div>
+          </section>
               <!-- 게시판 페이징 영역 -->
-        
-	
-	
-          
-      </div>
 
-  </section>
+
 
  
         <!-- 검색 폼 영역 -->

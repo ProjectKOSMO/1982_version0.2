@@ -43,6 +43,9 @@
                     <!--카트 상품-->
                     
                 </a>
+                <a href="/project1982/index.jsp" class="logout">
+                    로그아웃
+                   </a>
             </div>
 
         </header>
@@ -53,7 +56,7 @@
                 <img src="../resources/upload/${shop.si_realname}" alt="" />
             </div>
             <div >
-                <form action="../support.do" method="post" id="login-form">
+                <form action="support.do" method="post" id="login-form">
                 
                 	<input type="hidden" value="${userId}" name="userid"/>
                 	<input type="hidden" value="${shop.board_owner_seq }" name="board_owner_seq"/>
