@@ -32,4 +32,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 	</select>
 
+	<select id='checkCnt' resultType="Integer" parameterType="com.javassem.domain.ParkBlackVO">
+		SELECT max(WarnCnt)as WarnCnt
+		FROM (SELECT * FROM blacklist WHERE userID=#{userID})A
+	</select>
+	<insert id='stopaccount' parameterType="hashmap">
+		insert into blacklist (WarnCnt, userID, userName, Warn_date, reason, userPN, accountStop)
+		values(3,#{userID},#{userName},now(),'운영자 조치',#{userPN},1)
+	</insert>
+	<select id='division' parameterType="com.javassem.domain.ParkBlackVO">
+		SELECT Max(accountStop)as accountStop FROM blacklist
+		where userID=#{userID}
+	</select>
 </mapper>
