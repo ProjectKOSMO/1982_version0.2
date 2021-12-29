@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-	@@ -18,8 +16,8 @@
-  private ShopService shopService;
+
+private ShopService shopService;
 
   @RequestMapping({"storeClose.do"})
   public void select(HashMap vo, Model m) {
