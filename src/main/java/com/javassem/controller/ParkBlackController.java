@@ -149,4 +149,5 @@ public class ParkBlackController {
     	parkBlackService.stopAccount(map);
     	return "redirect:adminMain.do";
     }
+
 }

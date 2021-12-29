@@ -18,44 +18,27 @@
 
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
-         <!-- 로고-->
-            
-            <a href="#" class="logo">
-                <img src=""/>
-            </a>
-            
-            <!--메뉴-->   
-            <ul class="menu">
-                <li><a href="#">구직자용</a></li>
-                <li><a href="#">구인자용</a>
-                <!--쎄일 라벨 -->
-                    <span class="sale-lable">신규</span>
-                </li>
-                <li><a href="#">둘러보기</a></li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">고객센터</a></li>
-            </ul>
-            <!-- 오른쪽 메뉴-->
-            <div class="right-menu">
-                <!--검색 -->
-                <a href="#" class="search">
-                    <i class="fas fa-search"></i>
-                </a>
-                <!--유저 -->
-                <a href="#" class="user">
-                    <i class="far fa-user"></i>
-                </a>
-                <!--카트  -->
-                <a href="#">
-                    <i class="fas fa-shopping-cart">
-                    <!--카트 상품-->
-                    <span class="num-cart-product">0</span>
-                    </i>
-                </a>
-            </div>
-
-        </header>
-
+            <!-- 로고-->
+               <div>
+               <a href="userMain.do" class="logo">
+                   <h1>1982</h1>
+               </a>
+               </div>
+               <!--유저 메뉴--> 
+               <div class="right-menu">
+                   <!--검색 -->
+                   <a href="storeClose.do" class="search">
+                   일자리찾기
+                   </a>
+                   <a href="userMypage.do" class="user">
+                   마이페이지
+                   </a>
+                   <a href="userBoard.do">
+                   고객센터                       
+                   </a>
+               </div>
+   
+           </header>
     <!-- 메인 ---------------------------------------------------------------->
         <main>
       

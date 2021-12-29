@@ -16,12 +16,6 @@
 <script src="/project1982/resources/js/Chart.min.js"></script>
 </head>
 <script src='../resources/js/reply.js' type="text/javascript"></script>
-<script>
-	function selChange() {
-		var sel = document.getElementById('cntPerPage').value;
-		location.href="/project1982/admin/adminPage.do?nowPage=${paging.nowPage}&cntPerPage="+sel;
-	}
-</script>
 <body>
  
 
@@ -70,7 +64,9 @@
         <main>
             <ul class="left_nav">
                 <li class="left_nav_text"><a class="home" href="#">홈</a></li>
+
                 <li class="left_nav_text"><a href="./adminPage2.do">구독권 현황</a></li>
+
                 <li class="left_nav_text"><a href="#">상품</a></li>
                 <li class="left_nav_text"><a href="#">회사</a></li>
             </ul>
@@ -130,10 +126,37 @@
        
                     </div>
 <!-- 여기2 -->           
+                    <div>예치 현황</div>
+                    <div>
+                        <div class="divTable minimalistBlack">
+                            <div class="divTableHeading">
+                            <div class="divTableRow">
+                            <div class="divTableHead">업체명</div>
+                            <div class="divTableHead">예치금</div>
+                            <div class="divTableHead">진행상황</div>
+                            <div class="divTableHead">구직자 이름</div>
+                            <div class="divTableHead">이체하기</div>
+                            </div>
+                            </div>
+                            <c:forEach items="${ownerlist}" var="ownerlist">    
+                            <div class="divTableBody">
+                            <div class="divTableRow">
+                            <div class="divTableCell">${ownerlist.shopName}</div>
+                            <div class="divTableCell">${ownerlist.deposit}</div>
+                            <div class="divTableCell">${ownerlist.state}</div>
+                            <div class="divTableCell">${ownerlist.userName}</div>
+                            <div class="divTableCell"><button>이체하기</button></div>
+                          </div>
+                          </div>
+                         </c:forEach>
+                    </div>
+
                      <div>블랙리스트 현황</div>
+
                      
                      <div>
                      <div class="divTable minimalistBlack">
+
                             <div class="divTableHeading">
                             <div class="divTableRow">
                             <div class="divTableHead">계정명</div>
@@ -157,24 +180,6 @@
                           </div>
                           
                          </c:forEach>
-                         <div style="display: block; text-align: center;">		
-							<c:if test="${paging.startPage != 1 }">
-								<a href="/project1982/admin/adminPage.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
-							</c:if>
-							<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
-								<c:choose>
-									<c:when test="${p == paging.nowPage }">
-										<b>${p }</b>
-									</c:when>
-									<c:when test="${p != paging.nowPage }">
-										<a href="/project1982/admin/adminPage.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
-									</c:when>
-								</c:choose>
-							</c:forEach>
-							<c:if test="${paging.endPage != paging.lastPage}">
-								<a href="/project1982/admin/adminPage.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
-							</c:if>
-						</div>
                         </div>
                         </div>
                        <div>

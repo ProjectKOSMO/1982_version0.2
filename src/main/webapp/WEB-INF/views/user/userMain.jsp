@@ -11,41 +11,34 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
     <link type="text/css" href="/project1982/resources/css/4_main.css" rel="stylesheet"/>
 </head>
+
 <body>
-        <!--메뉴바  ------------------------------------------------->
+<% 
+	String userId = (String)session.getAttribute("userId");
+%>
+        <!-- 메뉴바  ------------------------------------------------->
         <header class="header" >
             <!-- 로고-->
                <div>
-               <a href="main.do" class="logo">
+               <a href="userMain.do" class="logo">
                    <h1>1982</h1>
                </a>
                </div>
-               <!--메뉴--> 
-             
-               
-               <!-- 오른쪽 메뉴-->
+               <!--유저 메뉴--> 
                <div class="right-menu">
                    <!--검색 -->
-                   <a href="user/storeClose.do" class="search">
+                   <a href="storeClose.do?userid=${userId}" class="search">
                    일자리찾기
                    </a>
-                   <a href="owner/job_positing.do" class="search">
-                    구인공고
-                   </a>
-                   <!--유저 -->
-                   <a href="user/userMypage.do" class="user">
+                   <a href="userMypage.do?userid=${userId}" class="user">
                    마이페이지
                    </a>
-                   <!--카트  -->
-                   <a href="board.do">
-                   고객센터
-                       <!--카트 상품-->
-                       
+                   <a href="userBoard.do">
+                   고객센터                       
                    </a>
                </div>
    
            </header>
-
     <!-- 메인 ---------------------------------------------------------------->
         <main >
             <div>

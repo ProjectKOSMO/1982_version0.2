@@ -18,6 +18,9 @@
 
 </style>
 <body>
+<% 
+	String userId = (String)session.getAttribute("userId");
+%>
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
             <!-- 로고-->
@@ -26,24 +29,17 @@
                    <h1>1982</h1>
                </a>
                </div>
-               <!--메뉴--> 
-             
-               
-               <!-- 오른쪽 메뉴-->
+               <!--유저 메뉴--> 
                <div class="right-menu">
                    <!--검색 -->
-                   <a href="storeClose.do" class="search">
+                   <a href="storeClose.do?userid=${userId}" class="search">
                    일자리찾기
                    </a>
-                   <!--유저 -->
-                   <a href="userMypage.do" class="user">
+                   <a href="userMypage.do?userid=${userId}" class="user">
                    마이페이지
                    </a>
-                   <!--카트  -->
                    <a href="userBoard.do">
-                   고객센터
-                       <!--카트 상품-->
-                       
+                   고객센터                       
                    </a>
                </div>
    
@@ -93,7 +89,11 @@
 							<li>
 							<ul>
 								
+
 								<li class="left">${shop.shopname }</li>
+								<li class="left"><a href="userSupport.do?board_owner_seq=${shop.board_owner_seq}">
+										${shop.shopname}</a></li>
+								<li class="left">${shop.normal_emergency }</li>
 								<li class="left">${shop.shopaddr }</li>
 								<li class="left">${shop.jobDate }</li>
 								<li class="left">${shop.shoppay }</li>

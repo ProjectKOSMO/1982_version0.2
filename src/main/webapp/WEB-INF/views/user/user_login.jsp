@@ -10,6 +10,7 @@
     <title>Document</title>
     <link type="text/css" href="/project1982/resources/css/2_login.css" rel="stylesheet"/>
 </head>
+
 <script>
 		window.onload = function(){
 		document.getElementById('Submit').onclick = check;	
@@ -21,28 +22,17 @@
 			document.loginform.userid.focus();
 			return false;
 		}
-	/* 	if(document.loginform.userid.value!="userid"){
-			alert("ID가 틀립니다..")
-			document.loginform.userid.focus();
-			return false;
-		} */
-		
+	
 		if(document.loginform.userpass.value==""){
 			alert("패스워드를 입력하세요.")
 			document.loginform.userpass.focus();
 			return false;
 		}
-		/* if(document.loginform.userpass.value!="userpass"){
-			alert("비밀번호가 틀립니다.")
-			document.loginform.userpass.focus();
-			return false;
-		} */
 		document.loginform.submit();//전송
 	}
 </script>
 
 <body>
-
     <form name="loginform" action="login.do" method="post" id="login-form">
         <h1>1982 구직자</h1>
         <input name="userid" type="text" placeholder="Username" />
@@ -57,11 +47,7 @@
 
 
         
-    <script
-   src="https://kit.fontawesome.com/6478f529f2.js"
-   crossorigin="anonymous"
-   ></script>
-    
+    <script src="https://kit.fontawesome.com/6478f529f2.js" crossorigin="anonymous"></script>
 </body>
 </html>
 

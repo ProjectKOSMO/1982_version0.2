@@ -8,10 +8,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         SELECT count(*) FROM blacklist
 	</select>
 	
-	<select id="getBlackList" resultType="com.javassem.domain.ParkBlackVO" parameterType="hashmap">
-		SELECT * FROM (SELECT ROW_NUMBER()over(order by warn_date desc)as RN, A.* FROM
-		(SELECT * FROM blacklist) A, (SELECT @rownum:=0) r) B
-		where B.RN BETWEEN #{start} and #{end};
+	<select id="getBlackList" resultType="com.javassem.domain.ParkBlackVO"  parameterType="com.javassem.domain.PagingVO">
+		<!--  select *
+		from(select row_number()over(order by warn_date desc)as RN,A.*
+			from (SELECT * 
+			FROM blacklist
+			)A)B
+		where  RN between #{start} and #{end}-->
+		select * from blacklist
+		order by warn_date desc
+	</select>
+	
+	<select id="BlackList_condition" resultType="com.javassem.domain.ParkBlackVO"  parameterType="com.javassem.domain.ParkBlackVO">
+		
+		SELECT *
+		FROM blacklist
+		<where>
+			<if test="searchCondition != null">
+				${searchCondition} LIKE '%${searchKeyword}%'
+			</if>
+		</where>
+		ORDER BY warn_date DESC
+		
 	</select>
 
 	<select id='checkCnt' resultType="Integer" parameterType="com.javassem.domain.ParkBlackVO">
