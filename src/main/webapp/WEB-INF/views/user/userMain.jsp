@@ -11,6 +11,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
     <link type="text/css" href="/project1982/resources/css/4_main.css" rel="stylesheet"/>
 </head>
+<% 
+	String userId = (String)session.getAttribute("userId");
+	Integer userNum = (Integer)session.getAttribute("userNum");
+
+	
+	out.println(userId + " 님 환영합니다.");
+	out.println("번호 : " + userNum);
+%>
 <body>
     
         <!--메뉴바  ------------------------------------------------->
@@ -27,14 +35,11 @@
                <!-- 오른쪽 메뉴-->
                <div class="right-menu">
                    <!--검색 -->
-                   <a href="user/storeClose.do" class="search">
+                   <a href="storeClose.do" class="search">
                    일자리찾기
                    </a>
-                   <a href="owner/job_positing.do" class="search">
-                    구인공고
-                   </a>
                    <!--유저 -->
-                   <a href="user/userMypage.do" class="user">
+                   <a href="userMypage.do" class="user">
                    마이페이지
                    </a>
                    <!--카트  -->
@@ -80,7 +85,7 @@
 		<input type='text' name='CenterLocation_x' id='CenterLocation_x' >
 		<input type= 'text' name='pageNum' id='pageNum'>
 		<select name='searchCondition'>
-			<option value='shop_name'>가게이름</option>
+			<option value='I.shopName'>가게이름</option>
 			<option value='road_address'>도로명 주소</option>
 		</select>
 		<input type='text' name='searchKeyword'>

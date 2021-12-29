@@ -7,6 +7,8 @@ public class SongLocationVO {
 	private String shop_phone_number;
 	private String shopName;
 	private String shoppay;
+	private String si_realname;
+	private String board_owner_seq;
 	
 	
 	//검색 기능을 위해 추가한 vo
@@ -100,5 +102,17 @@ public class SongLocationVO {
 	}
 	public void setShoppay(String shoppay) {
 		this.shoppay = shoppay;
+	}
+	public String getSi_realname() {
+		return si_realname;
+	}
+	public void setSi_realname(String si_realname) {
+		this.si_realname = si_realname;
+	}
+	public String getBoard_owner_seq() {
+		return board_owner_seq;
+	}
+	public void setBoard_owner_seq(String board_owner_seq) {
+		this.board_owner_seq = board_owner_seq;
 	}
 }
