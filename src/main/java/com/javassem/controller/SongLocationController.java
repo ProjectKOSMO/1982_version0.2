@@ -47,7 +47,7 @@ public class SongLocationController {
 		
 		for(int i = 0; i<list.size();i++) {
 			double y=distance(vo.getCenterLocation_x(),vo.getCenterLocation_y(),list.get(i).getLocation_x(),list.get(i).getLocation_y());
-			System.out.println(list.get(i).getShop_name());
+			System.out.println(list.get(i).getShopName());
 			System.out.println(y);
 			
 			if(y<1) {
@@ -60,7 +60,7 @@ public class SongLocationController {
 		System.out.println(result.size());
 		
 		for(int i = 0; i<result.size();i++) {
-			System.out.println(result.get(i).getShop_name());
+			System.out.println(result.get(i).getShopName());
 		}
 		
 		pagePost=0;

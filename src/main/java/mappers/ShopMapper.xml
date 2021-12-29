@@ -8,6 +8,7 @@
 		
 		SELECT *
 		FROM board_owner
+</select>
 	<!-- 	<where>
 			<if test="searchCondition != null">
 				${searchCondition} LIKE '%${searchKeyword}%'
@@ -61,7 +62,7 @@
 	</insert> 
  
 	  
-
+</mapper>
 
 	<!-- <select id="getShopList" resultType="com.javassem.domain.ShopVO"  parameterType="hashmap">
 		
@@ -73,6 +74,4 @@
 			</if>
 		B.RN BETWEEN ${start} AND ${end};
 
-	</select>
-	
-	</mapper>
+	</select> -->
