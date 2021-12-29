@@ -15,7 +15,7 @@
 		</where>		
 		ORDER BY SEQ DESC -->
 	
-
+</select>
 	<!--  </select>-->	
 	<select id="getShopList" resultType="com.javassem.domain.ShopVO"  parameterType="hashmap">
 		
@@ -33,9 +33,9 @@
 	<select id = "getShop" resultType="com.javassem.domain.ShopVO">
 	<![CDATA[
 		SELECT *
-		FROM board_owner b, shopInfo i
-		WHERE b.ownernum=i.ownernum
-		AND board_owner_seq = #{board_owner_seq}
+		FROM board_owner bo, shopInfo si
+		WHERE bo.ownernum = si.ownernum
+		AND bo.board_owner_seq = #{board_owner_seq}
 		]]>
 	
 	</select>
@@ -73,6 +73,6 @@
 			</if>
 		B.RN BETWEEN ${start} AND ${end};
 
-	</select>
+	</select> -->
 	
 	</mapper>

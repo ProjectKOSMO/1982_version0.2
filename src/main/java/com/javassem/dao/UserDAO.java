@@ -20,5 +20,5 @@ public interface UserDAO {
   UserVO getUserInfoView(UserVO paramUserVO);
 }
 
-  }
+
 

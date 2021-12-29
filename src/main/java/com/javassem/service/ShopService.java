@@ -1,6 +1,8 @@
 package com.javassem.service;
-import com.javassem.domain.ShopVO;
+import java.util.HashMap;
 import java.util.List;
+
+import com.javassem.domain.ShopVO;
 
 public interface ShopService {
   List<ShopVO> ShopList(ShopVO paramShopVO);

@@ -21,9 +21,7 @@
 %>
 
 <body>
-<% 
-	String userId = (String)session.getAttribute("userId");
-%>
+
         <!-- 메뉴바  ------------------------------------------------->
         <header class="header" >
             <!-- 로고-->
@@ -45,6 +43,9 @@
                    </a>
                    <a href="userBoard.do">
                    고객센터                       
+                   </a>
+		           <a href="/project1982/index.jsp" class="logout">
+                    로그아웃
                    </a>
                </div>
    

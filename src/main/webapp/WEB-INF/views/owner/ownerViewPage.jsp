@@ -43,6 +43,9 @@
                        <!--카트 상품-->
                        
                    </a>
+                   <a href="/project1982/index.jsp" class="logout">
+                    로그아웃
+                   </a>
                </div>
    
            </header>
@@ -87,37 +90,7 @@
                     
                     
                     
-                    <div>업체 등록 현황</div>
-                    <div>
-                        <div class="divTable minimalistBlack">
-                            <div class="divTableHeading">
-                            <div class="divTableRow">
-                            <div class="divTableHead">번호</div>
-                            <div class="divTableHead">업체 이름</div>
-                            <div class="divTableHead">매니저 이름</div>
-                            <div class="divTableHead">업체 주소</div>
-                            <div class="divTableHead">업체 연락처</div>
-                            <div class="divTableHead">업체소개</div>
-                       
-                            </div>
-                            </div>
-                            
-                        <c:forEach items="${shopList }" var="shop">    
-                            <div class="divTableBody">
-                            <div class="divTableRow">
-               			 	 <div class="divTableCell">${shop.shopnum }</div>
-                            <div class="divTableCell">${shop.shopname }</div>
-                            <div class="divTableCell">${shop.ownername}</div>
-                            
-                            <div class="divTableCell">${shop.shopaddr }</div>
-                            <div class="divTableCell">${shop.shoppn }</div>
-                            <div class="divTableCell">${shop.shopcontent }</div>
-                          </div>
-                          </div>
-                   
-                            
-                         </c:forEach>
-                    </div>
+                    
 
                     <div>구직자 신청 현황</div>
                     <div>

@@ -1,7 +1,7 @@
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 mapOption = { 
     center: new kakao.maps.LatLng(37.53401162895581, 126.99421849699539), // 지도의 중심좌표
-    level: 3 // 지도의 확대 레벨
+    level: 5 // 지도의 확대 레벨
 };
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -257,13 +257,15 @@ function makeOverListener(map, marker, infowindow) {
 }
 
 //들어가자마자 내위치 검색
-MyLocation();
+
 
 // dd를 누를 때 나옴
 
+MyLocation();
 
 $(function(){
 	//맨처음 화면을 불러올 때 쓸 함수
+
 	Test();
 	Test2();
 	

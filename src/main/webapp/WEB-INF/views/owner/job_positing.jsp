@@ -49,7 +49,10 @@
 <body>
  <% 
 	String ownerid = (String)session.getAttribute("ownerid");
+	int ownernum = (int)session.getAttribute("ownernum");
 	out.println(ownerid + " 님 환영합니다.");
+	out.println(ownernum + " 님 환영합니다.");
+	
 %>
 
         <!--메뉴바  ------------------------------------------------->
@@ -78,6 +81,9 @@
                    고객센터
                        <!--카트 상품-->
                        
+                   </a>
+                   <a href="/project1982/index.jsp" class="logout">
+                    로그아웃
                    </a>
             </div>
 
@@ -135,6 +141,11 @@
 
                                 <textarea name="" id="" cols="30" rows="10"></textarea>
                             </div>
+                            
+                            <div class="hide">
+                            <input class="" type="text" name="ownernum" value="${ownernum }">
+                            </div>
+                                                        
                         </div>
 
                         <div class="main_button">

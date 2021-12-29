@@ -40,6 +40,9 @@
                     <!--카트 상품-->
                     
                 </a>
+                <a href="/project1982/index.jsp" class="logout">
+                    로그아웃
+                   </a>
             </div>
 
         </header>
