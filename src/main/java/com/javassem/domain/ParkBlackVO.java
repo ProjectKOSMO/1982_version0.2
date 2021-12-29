@@ -1,17 +1,14 @@
 package com.javassem.domain;
 
 public class ParkBlackVO {
+	
   private String userID;
-  
   private String reason;
-  
   private String userPN;
-  
   private String userName;
-  
   private int warnCnt;
   
-  public int getWarnCnt() {
+public int getWarnCnt() {
     return this.warnCnt;
   }
   

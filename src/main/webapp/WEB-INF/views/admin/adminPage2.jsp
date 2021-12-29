@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>adminPage.jsp</title>
+    <title>adminPage2.jsp</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
 	<link type="text/css" href="/project1982/resources/style/style.css" rel="stylesheet"/>
@@ -16,6 +16,12 @@
 <script src="/project1982/resources/js/Chart.min.js"></script>
 </head>
 <script src='../resources/js/reply.js' type="text/javascript"></script>
+<script>
+	function selChange() {
+		var sel = document.getElementById('cntPerPage').value;
+		location.href="/project1982/admin/adminPage2.do?nowPage=${paging.nowPage}&cntPerPage="+sel;
+	}
+</script>
 <body>
  
 
@@ -62,11 +68,10 @@
 
     <!-- 메인 ---------------------------------------------------------------->
         <main>
+        <form>
             <ul class="left_nav">
                 <li class="left_nav_text"><a class="home" href="#">홈</a></li>
-
-                <li class="left_nav_text"><a href="./adminPage2.do">구독권 현황</a></li>
-
+                <li class="left_nav_text"><a href="adminPage.do">회원 현황</a></li>
                 <li class="left_nav_text"><a href="#">상품</a></li>
                 <li class="left_nav_text"><a href="#">회사</a></li>
             </ul>
@@ -82,7 +87,7 @@
                             <!-- 매칭성공률 -->
                             <div class="service1_left">
                              <div class="matchPercent"> 매칭성공률 ${matchingPercent}% </div> 
-                             <canvas id="matching" width="350" height="350" style="display: inline-block;"></canvas>
+                           <!--  <canvas id="matching" width="350" height="350" style="display: inline-block;"></canvas> -->
                             </div>                     
                                
        
@@ -90,7 +95,7 @@
       						<!-- 재이용률 -->
                             <div class="service1_right">
                             <div class="reusePercent"> 재이용률 ${reusePercent}% </div>
-                            <canvas id="reuse" width="350" height="350" style="display: inline-block;"></canvas>
+                           <!--  <canvas id="reuse" width="350" height="350" style="display: inline-block;"></canvas> -->
                             </div>
       
                             
@@ -104,7 +109,7 @@
                             
                        <!-- 방문자 현황 -->     
                             <div class="service2_right">
-                          <canvas id="lineChart" width="250" height="250"></canvas>
+                             <!--  <canvas id="lineChart" width="250" height="250"></canvas> -->
                             </div>
            
         
@@ -121,77 +126,58 @@
                             <span class="visit_label">Today joins</span>
                         </div>
                         <div class="member2">
-                         <canvas id="barChart" width="250" height="250"></canvas>
+                       <!--  <canvas id="barChart" width="250" height="250"></canvas> -->
                         </div>
        
                     </div>
 <!-- 여기2 -->           
-                    <div>예치 현황</div>
-                    <div>
+                     <div>구독권 현황</div>
+                     <div>
                         <div class="divTable minimalistBlack">
                             <div class="divTableHeading">
                             <div class="divTableRow">
-                            <div class="divTableHead">업체명</div>
-                            <div class="divTableHead">예치금</div>
-                            <div class="divTableHead">진행상황</div>
-                            <div class="divTableHead">구직자 이름</div>
-                            <div class="divTableHead">이체하기</div>
-                            </div>
-                            </div>
-                            <c:forEach items="${ownerlist}" var="ownerlist">    
+                            <div class="divTableHead">구독권 종류</div>
+                            <div class="divTableHead">사업자 계정</div>
+                            <div class="divTableHead">구독 날짜</div>
+                            <div class="divTableHead">구독 만료일</div> 
+                    </div>
+                    </div>
+                           <c:forEach items="${subscribelist}" var="subscribelist">    
                             <div class="divTableBody">
                             <div class="divTableRow">
-                            <div class="divTableCell">${ownerlist.shopName}</div>
-                            <div class="divTableCell">${ownerlist.deposit}</div>
-                            <div class="divTableCell">${ownerlist.state}</div>
-                            <div class="divTableCell">${ownerlist.userName}</div>
-                            <div class="divTableCell"><button>이체하기</button></div>
+                            <div class="divTableCell">${subscribelist.type}</div>
+                            <div class="divTableCell">${subscribelist.ownerID}</div>
+                            <div class="divTableCell">${subscribelist.buyDate}</div>
+                            <div class="divTableCell">${subscribelist.endDate}</div>
                           </div>
                           </div>
                          </c:forEach>
-                    </div>
-
-                     <div>블랙리스트 현황</div>
-
-                     
-                     <div>
-                     <div class="divTable minimalistBlack">
-
-                            <div class="divTableHeading">
-                            <div class="divTableRow">
-                            <div class="divTableHead">계정명</div>
-                            <div class="divTableHead">경고누적 횟수</div>
-                            <div class="divTableHead">구직자 이름</div>
-                            <div class="divTableHead">연락처</div>
-                            <div class="divTableHead">사유</div>
-                            <div class="divTableHead">이용 정지</div>    
-                    </div>
-                    </div>
-                           <c:forEach items="${blacklist}" var="blacklist">
-                            <div class="divTableBody">
-                            <div class="divTableRow">
-                            <div class="divTableCell"><form action='../checkCnt.do' method='post'><input type='hidden' name="userID" value='${blacklist.userID}'>${blacklist.userID}</div>
-                            <div class="divTableCell"><input type='hidden' name="warnCnt" value='${blacklist.warnCnt}'>${blacklist.warnCnt}</div>
-                            <div class="divTableCell"><input type='hidden' name="userName" value='${blacklist.userName}'>${blacklist.userName}</div>
-                            <div class="divTableCell"><input type='hidden' name="userPN" value='${blacklist.userPN}'>${blacklist.userPN}</div>
-                            <div class="divTableCell"><input type='hidden' name="reason" value='${blacklist.reason}'>${blacklist.reason}</div>
-                            <div class="divTableCell"><input type='Submit' value='영구정지'></div></form>
-                          </div>
-                          </div>
-                          
-                         </c:forEach>
+                         <div style="display: block; text-align: center;">		
+							<c:if test="${paging.startPage != 1 }">
+								<a href="/project1982/admin/adminPage2.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+							</c:if>
+							<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+								<c:choose>
+									<c:when test="${p == paging.nowPage }">
+										<b>${p }</b>
+									</c:when>
+									<c:when test="${p != paging.nowPage }">
+										<a href="/project1982/admin/adminPage2.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+									</c:when>
+								</c:choose>
+							</c:forEach>
+							<c:if test="${paging.endPage != paging.lastPage}">
+								<a href="/project1982/admin/adminPage2.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+							</c:if>
+						</div>
                         </div>
                         </div>
-                       <div>
-                        <li> 경고 1회 - 7일 정지 및 경고 알림 발송</li>
-                        <li> 경고 2회 - 30일 정지 및 경고 알림 발송</li>
-                        <li> 경고 3회 - 영구 정지</li>
-                    </div>
                     
                 </div><!--중간 메뉴바 종료-->
                
             
             </div><!-- 페이지 컨테이너 종료--> 
+          </form>
         </main>
         
         

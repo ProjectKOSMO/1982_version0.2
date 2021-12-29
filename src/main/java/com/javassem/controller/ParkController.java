@@ -34,10 +34,19 @@ public class ParkController {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
-	@RequestMapping("admin/{step}.do") // 단순 페이지 이동용
-	public String parkJoin(@PathVariable String step){
-		System.out.println("호출");
-		return "/admin/" +step;
+	
+	
+	
+//	@RequestMapping("/{step}.do") // 단순 페이지 이동용
+//	public String parkJoin(@PathVariable String step){
+//		System.out.println("호출");
+//		return "/admin/" +step;
+//	}
+	
+	@RequestMapping("admin_login.do")
+	public String move(){
+		return "admin/admin_login";	
+
 	}
 	
 	@RequestMapping("admin/adminPage.do") //로그인과 동시에 블랙리스트 + 예치금리스트 데이터 넘기기

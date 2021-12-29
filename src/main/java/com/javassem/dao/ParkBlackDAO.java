@@ -5,7 +5,9 @@ import com.javassem.domain.ParkBlackVO;
 import java.util.List;
 
 public interface ParkBlackDAO {
-  int countBoard();
-  
-  List<ParkBlackVO> getBlackList(PagingVO paramPagingVO);
+  int countBlacklist();
+  List<ParkBlackVO> getBlackList(HashMap map);
+  int checkCnt(ParkBlackVO vo);
+  void stopAccount(HashMap map);
+
 }
