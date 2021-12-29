@@ -15,13 +15,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.javassem.domain.PagingVO;
 import com.javassem.domain.ParkBlackVO;
 import com.javassem.domain.ParkVO;
-import com.javassem.domain.ParkownerVO;
 import com.javassem.service.ParkBlackService;
 import com.javassem.service.ParkService;
-import com.javassem.service.ParkownerService;
 
 
 @Controller
+@RequestMapping("admin")
 public class ParkController {
 	
 	
@@ -30,31 +29,54 @@ public class ParkController {
 	@Autowired
 	public ParkBlackService parkBlackService;
 	@Autowired
-	public ParkownerService parkownerService;
-	@Autowired
 	private SqlSessionTemplate mybatis;
 	
-	@RequestMapping("admin/{step}.do") // 단순 페이지 이동용
-	public String parkJoin(@PathVariable String step){
-		System.out.println("호출");
-		return "/admin/" +step;
+
+	
+	
+	
+//	@RequestMapping("/{step}.do") // 단순 페이지 이동용
+//	public String parkJoin(@PathVariable String step){
+//		System.out.println("호출");
+//		return "/admin/" +step;
+//	}
+	
+	@RequestMapping("admin_login.do")
+	public String move(){
+		return "admin/admin_login";	
+
 	}
 	
-	@RequestMapping("admin/adminPage.do") //로그인과 동시에 블랙리스트 + 예치금리스트 데이터 넘기기
-	public String userLogin(ParkVO vo,Model m,Model m2,PagingVO vo1){
+	@RequestMapping("adminPage.do") //로그인과 동시에 블랙리스트 데이터 넘기기
+	public String userLogin(ParkVO vo,Model m,Model m2,PagingVO vo1
+			,@RequestParam(value="nowPage", required=false)String nowPage
+			, @RequestParam(value="cntPerPage", required=false)String cntPerPage){
+		
 		ParkVO result =  parkService.idCheck_Login(vo);
+		
 		if(result != null){
-			System.out.println("리스트");
+			HashMap<Object, Object> map = new HashMap<>();
+			int total_black = parkBlackService.countBlacklist();
 			
-			List<ParkBlackVO> list = parkBlackService.getBlackList(vo1);
+			if (nowPage == null && cntPerPage == null) {
+				nowPage = "1";
+				cntPerPage = "5";
+			} else if (nowPage == null) {
+				nowPage = "1";
+			} else if (cntPerPage == null) { 
+				cntPerPage = "5";
+			}
+			
+			vo1 = new PagingVO(total_black, Integer.parseInt(nowPage), 5);
+			
+			map.put("start", vo1.getStart());
+			map.put("end", vo1.getEnd());
+			
+			List<ParkBlackVO> list = parkBlackService.getBlackList(map);
 			m.addAttribute("blacklist",list);
+			m.addAttribute("paging", vo1);
 			
-			List<ParkownerVO> list2 = parkownerService.getOwnerList(vo1);
-			m2.addAttribute("ownerlist",list2);
-			
-			System.out.println(list);
-			System.out.println(list2);
-			
+			//그래프관련
 			int matching = mybatis.selectOne("hold.matching");
 			int whole = mybatis.selectOne("hold.wholeApply");
 			int matchingPercent = mybatis.selectOne("hold.matching_percent");
@@ -103,4 +125,4 @@ public class ParkController {
 			return "./main";
 		}
 	}
-}
+	}
