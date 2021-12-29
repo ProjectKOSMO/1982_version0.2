@@ -1,122 +1,50 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1</title>
+    <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    <title>5</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
-    <link type="text/css" href="/project1982/resources/css/1_intro.css" rel="stylesheet"/>
+     <link type="text/css" href="/project1982/resources/css/5_store.css" rel="stylesheet"/>
 </head>
 <body>
  
 
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
-            <!-- 로고-->
-               <div>
-               <a href="#" class="logo">
-                   <h1>1982</h1>
-               </a>
-               </div>
-               <!--메뉴--> 
-             
-               
-               <!-- 오른쪽 메뉴-->
-               
-               <div class="right-menu">
-                   <!--검색 -->
-                   <a href="#section1" class="search">
-                    소개
-                   </a>
-                   <!--유저 -->
-                   <a href="#section2" class="user">
-                   팀 소개
-                   </a>
-                   <!--카트  -->
-                   <a href="#">
-                   
-                    찾아오시는길
-               
-                   </a>
-               </div>
-   
-           </header>
-
-    <div class="main">
-         <a class="main_button" href="user/user_login.do">구직자 로그인</a>    
-        <a class="main_button" href="owner/owner_login.do">사업자 로그인</a>
-    </div>
-<!-- main------------------------------------------------------------------>
-    <section class="section1" id="section1">
-        <div class="title">1982 소개</div>
-        <div class="title_wrap">
+         <!-- 로고-->
             <div>
-                <div class="circle"></div>
-                <p class="small">협동성</p>
+            <a href="userMain.do" class="logo">
+                <h1>1982</h1>
+            </a>
             </div>
-            <div>
-                <div class="circle"></div>
-                <p class="small">공정성</p>
-            </div>
-            <div>
-                <div class="circle"></div>
-                <p class="small">신뢰성</p>
-            </div>
-        </div>
-        <div class="lorem">코스모 학원에서 만나서 엄호식, 김승민 선생님께 배우고 어찌하다가 1조가 되었습니다. </div>
-    </section>
-
-    <article class="section2" id="section2">
-        <div class="title">팀 소개</div>
-        <div class="title_wrap">
-            <div>
-                <div class="circle"></div>
-                <p class="small">한세호</p>
-            </div>
-            <div>
-                <div class="circle"></div>
-                <p class="small">이성대</p>
-            </div>
-            <div>
-                <div class="circle"></div>
-                <p class="small">송현석</p>
-            </div>
-            <div>
-                <div class="circle"></div>
-                <p class="small">이혁철</p>
-            </div>
-            <div>
-                <div class="circle"></div>
-                <p class="small">고성훈</p>
-            </div>
-            <div>
-                <div class="circle"></div>
-                <p class="small">박준배</p>
-            </div>
-            <div>
-                <div class="circle"></div>
-                <p class="small">최혜정</p>
-            </div>
-            <div>
-                <div class="circle"></div>
-                <p class="small">백강현</p>
-            </div>
+            <!--메뉴--> 
+          
             
-        </div>
-    </article>
+            <!-- 오른쪽 메뉴-->
+            <div class="right-menu">
+                <!--검색 -->
+                <a href="storeClose.do" class="search">
+              일자리찾기
+                </a>
+                <!--유저 -->
+                <a href="userMypage.do" class="user">
+                마이페이지
+                </a>
+                <!--카트  -->
+                <a href="userBoard.do">
+                고객센터
+                    <!--카트 상품-->
+                    
+                </a>
+            </div>
 
+        </header>
 
-
-
-
-
-
-
-
+    
 
 <!-- footer --------------------------------------------------------------------->
     <footer>
@@ -155,7 +83,7 @@
                     <div class="right_address">
                         <p>
                             <span>주식회사 1982 |</span>
-                            <a href="admin/admin_login.do">
+                            <a href="#">
 
                                 <span>대표이사 : 한세호 |</span>
                             </a>
@@ -165,7 +93,7 @@
                             <span>통신판매업신고 : 2021-서울가산-1982 |</span>
                             <span>WEBMASTER : 한세호</span>
                         </p>
-                    <p>
+                        <p>
                             <span>주소 : 00000 서울 금천구 벚꽃로 309 </span>
                         </p>
                         <p>
@@ -184,6 +112,6 @@
         </div>
 
     </footer>
+
 </body>
 </html>
-

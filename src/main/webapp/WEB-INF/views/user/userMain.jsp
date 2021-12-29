@@ -19,7 +19,12 @@
 	out.println(userId + " 님 환영합니다.");
 	out.println("번호 : " + userNum);
 %>
+
 <body>
+<% 
+	String userId = (String)session.getAttribute("userId");
+	Integer userNum = (Integer)session.getAttribute("userNum");
+%>
     
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
@@ -35,7 +40,9 @@
                <!-- 오른쪽 메뉴-->
                <div class="right-menu">
                    <!--검색 -->
-                   <a href="storeClose.do" class="search">
+
+
+                   <a href="storeClose.do?userid=${userId}" class="search">
                    일자리찾기
                    </a>
                    <!--유저 -->
