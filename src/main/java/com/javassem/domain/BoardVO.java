@@ -1,10 +1,8 @@
 package com.javassem.domain;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 import org.springframework.web.multipart.MultipartFile;
-
 public class BoardVO {
   private int b_id;
   
@@ -41,7 +39,7 @@ public class BoardVO {
       this.b_fsize = file.getSize();
       UUID uuid = UUID.randomUUID();
       this.b_realfname = String.valueOf(uuid.toString()) + "_" + this.b_fname;
-      File f = new File("/home/temp/tomcat8.5/webapps/project1982/resources/upload/" + this.b_realfname);
+      File f = new File("C:\\Programing\\git\\project1982\\src\\main\\webapp\\resources\\upload\\" + this.b_realfname);
       try {
         file.transferTo(f);
       } catch (IllegalStateException e) {
