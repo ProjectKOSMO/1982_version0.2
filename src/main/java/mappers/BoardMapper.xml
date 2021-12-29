@@ -2,7 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="BoardDAO">
-
 	
 	<!-- oracle 인 경우 	
 	<insert id="insertBoard" parameterType="board">
@@ -68,13 +67,12 @@
 			<if test="searchCondition != null">
 		 		B.${searchCondition} LIKE '%${searchKeyword}%' AND
 		 	</if>
-		B.RN BETWEEN ${start} AND ${end};
-			
+		B.RN BETWEEN ${start} AND ${end};	
 	</select>
+
 		<select id="countboard" resultType="int">
 		SELECT COUNT(*) FROM uploadtemp
 	</select>
 	
-
 	
 </mapper>
