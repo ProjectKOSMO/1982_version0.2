@@ -271,8 +271,7 @@ background-size: cover;
     font-size: 100px;
     cursor: pointer;
     margin-top: 100px;
-    text-align: center;
-    line-height: 5;
+
 }
 .main_button:hover{
   transform: scale(1.1);
@@ -319,8 +318,6 @@ position: relative;
 
 
 
-
-
 .title{
     display: flex;
     flex-direction: column;
@@ -332,6 +329,11 @@ position: relative;
     text-align: center;
     line-height: 250px;  
     position: relative;
+
+
+
+    
+
 }
 .title_wrap{
     display: flex;
@@ -353,120 +355,22 @@ position: relative;
     height: 200px;
     background-color: aquamarine;
     border-radius: 100px;
-    margin-left: 50px;
+    margin-left: 100px;
     margin-top: 20px;
 }
 .small{
     margin-top: 15px;
-    margin-left: 50px;
+    margin-left: 110px;
     font-weight: 500;
     font-size: 30px;
 }
 .lorem{
     display: flex;
     justify-content: center;
-    
-    
+    margin-left: 600px;
+    margin-right: 500px;
     margin-top: 50px;
     
     position: relative;
     font-size: 20px;
 }
-
-
-@media screen and (max-width: 768px) {
-  /* 모바일에 사용될 스트일 시트를 여기에 작성합니다. */
-  .main_button{
-    font-size: 60px;
-    line-height: 2;
-    width: 300px;
-    height: 300px;
-  }
-
-
-
-  
-
-  .circle{
-    width: 100px;
-    height: 100px;
-    background-color: aquamarine;
-    border-radius: 50px;
-    
-    margin-top: 10px;
-}
-.small{
-    margin-top: 15px;
-    margin-left: 50px;
-    font-weight: 500;
-    font-size: 20px;
-}
-.lorem{
-    display: flex;
-    justify-content: center;
-    margin-left: 20px;
-    
-    margin-top: 50px;
-    
-    position: relative;
-    font-size: 20px;
-}
-
-/*-------------------------헤더 푸터 반응형 -------------------------------- */
-
-.section2{
-  margin-bottom: 100px;
-}
-
-#footer{
-  margin: auto;
-  
-  bottom: 0;
-}
-.wrap_inner{
-  margin: auto;
-}
-.rap_inner_h4{
-  font-size: 20px;
-}
-.left_text{
-  font-size: 15px;
-}
-.footer_icon{
-  font-size: 10px;
-}
-
-.right_area{
-  margin: auto;
-  font-size: 15px;
-}
-.lorem{
-  margin: auto;
-}
-.logo h1{
-  font-size: 50px;
-}
-
-.title{
-  margin-top: 10px;
-}
-.title_wrap{
-  margin-left: 50px;
-}
-
-.right-menu{
-  padding: auto;
-}
-.right-menu a{
-  font-size: 20px;
-  padding-right: 5px;
-}
-
-
-
-
-
-
-}
-
-

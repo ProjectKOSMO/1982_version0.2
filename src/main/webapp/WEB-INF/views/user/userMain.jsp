@@ -12,10 +12,12 @@
     <link type="text/css" href="/project1982/resources/css/4_main.css" rel="stylesheet"/>
 </head>
 <body>
+
 <% 
 	String userId = (String)session.getAttribute("userId");
 	String userPass = (String)session.getAttribute("userPass");
 %>
+
         <!-- 메뉴바  ------------------------------------------------->
         <header class="header" >
             <!-- 로고-->
@@ -37,6 +39,9 @@
                    </a>
                    <a href="userBoard.do?userid=${userId}">
                    고객센터                       
+                   </a>
+		           <a href="/project1982/index.jsp" class="logout">
+                    로그아웃
                    </a>
                </div>
    
