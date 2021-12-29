@@ -1,3 +1,5 @@
+package com.javassem.controller;
+
 import com.javassem.domain.ShopVO;
 import com.javassem.service.ShopService;
 
