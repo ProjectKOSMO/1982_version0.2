@@ -21,12 +21,4 @@ public class ParkBlackServiceImpl implements ParkBlackService {
   public List<ParkBlackVO> getBlackList(HashMap map) {
     return this.parkBlackDAO.getBlackList(map);
   }
-
-  public int checkCnt(ParkBlackVO vo) {
-	return this.parkBlackDAO.checkCnt(vo);
-	}
-
-	public void stopAccount(HashMap map) {
-		this.parkBlackDAO.stopAccount(map);
-	}
 }

@@ -81,6 +81,7 @@ public class ShopController {
 			mybatis.insert("ShopDAO.getShop2", vo);
 			return "redirect:storeClose.do";
 		
+
 	}
 
   

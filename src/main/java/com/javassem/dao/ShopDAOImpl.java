@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.javassem.domain.ShopVO;
 
+
 	@Repository("shopDAO")
 	public class ShopDAOImpl implements ShopDAO {
 		
@@ -18,6 +19,7 @@ import com.javassem.domain.ShopVO;
 		public List<ShopVO> ShopList(ShopVO vo) {
 			System.out.println("===> Mybatis ShopList() 호출");
 			return mybatis.selectList("ShopDAO.ShopList", vo);
+
 		}
 		
 		public List<ShopVO> getShopList(HashMap map) {
@@ -39,5 +41,4 @@ import com.javassem.domain.ShopVO;
 		System.out.println("===> Mybatis support()");
 		return (ShopVO)this.mybatis.selectList("ShopDAO.support", vo);
 		}
-
 }
