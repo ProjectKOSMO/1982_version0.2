@@ -67,6 +67,7 @@ public class ShopController {
 			@RequestParam String jobDate,
 			@RequestParam String startTime,
 			@RequestParam String endTime,
+			@RequestParam String si_realname,
 			ShopVO vo, Model m){
 			
 			vo.setBoard_owner_seq(board_owner_seq);
@@ -77,6 +78,7 @@ public class ShopController {
 			vo.setJobDate(jobDate);
 			vo.setJobTime_start(startTime);
 			vo.setJobTime_end(endTime);
+			vo.setSi_realname(si_realname);
 			
 			mybatis.insert("ShopDAO.getShop2", vo);
 			return "redirect:storeClose.do";

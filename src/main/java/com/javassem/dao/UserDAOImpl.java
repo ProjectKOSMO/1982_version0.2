@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.javassem.domain.ShopVO;
+import com.javassem.domain.SupportVO;
 import com.javassem.domain.UserVO;
 
 @Repository("userDAO")
@@ -52,7 +53,10 @@ public class UserDAOImpl implements UserDAO {
 	    return (UserVO)this.mybatis.selectOne("user.getUserView", vo);
 	}
 
-	public List<HashMap> getShopList(HashMap map) {
-		return this.mybatis.selectList("user.getShopList", map);
+	@Override
+	public SupportVO getSupportView(SupportVO vo) {
+		return this.mybatis.selectOne("user.getSupportView", vo);
 	}
+
+	
 }

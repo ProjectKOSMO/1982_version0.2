@@ -19,7 +19,6 @@
     <title>마이 페이지</title>
     <link type="text/css" href="/project1982/resources/css/reset.min.css" rel="stylesheet">
     <link type="text/css" href="/project1982/resources/css/all.min.css" rel="stylesheet">
-    <link type="text/css" href="/project1982/resources/css/userMypage.css" rel="stylesheet"/>
 	<link type="text/css" href="/project1982/resources/style/useStyle.css" rel="stylesheet"/>
     <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
 </head>
@@ -27,7 +26,6 @@
 <body>
 <% 
 	String userId = (String)session.getAttribute("userId");
-	out.println(userId);
 %>
         <!--메뉴바(헤더)  ------------------------------------------------->
         <header class="header" >
@@ -53,7 +51,7 @@
                  		  고객센터                       
                    </a>
                    <a href="/project1982/index.jsp" class="logout">
-                    로그아웃
+                    	로그아웃
                    </a>
                </div>
                
@@ -138,18 +136,16 @@
 									<th bgcolor="#dee2e6" width="140" >매칭 여부</th>
 									<!-- 추가 -->
 								</tr>
-								<c:forEach items="${support}" var="su">
 									<!-- 프라퍼티이름 변경 -->
 									<tr>
-										<td>${su.jobDate }</td>
-										<td>${su.jobTime_start }</td>
-										<td>${su.jobTime_end }</td>
-										<td><a href="getBoard.do?b_id=${su.b_id}">${su.shopname}</a></td>
-										<td>${su.shoppay }</td>
-										<td>${su.shoppay }</td>
+										<td>${support.jobDate }</td>
+										<td>${support.jobTime_start }</td>
+										<td>${support.jobTime_end }</td>
+										<td><a href="getBoard.do?b_id=${support.b_id}">${support.shopname}</a></td>
+										<td>${support.shoppay }</td>
+										<td>${support.maching }</td>
 										<!-- 추가 -->
 									</tr>
-								</c:forEach>
 							</table> 
                             </div>
                            
