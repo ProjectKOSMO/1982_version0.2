@@ -9,7 +9,7 @@
     <title>main.jsp</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
-    <link type="text/css" href="/project1982/resources/css/4_main.css" rel="stylesheet"/>
+    <link type="text/css" href="./h.css" rel="stylesheet"/>
 </head>
 <body>
 
@@ -47,11 +47,11 @@
    
            </header>
     <!-- 메인 ---------------------------------------------------------------->
-        <main >
+        <main class="main1">
             <div>
                 <div class="main_title">내 주변 일자리</div>
                 <div  class="main">
-                  <div id="map" style="width:500px;height:450px;margin-top: 50px;border: 1px solid black;"></div>
+                  <div id="map" style="width:800px;height:600px;margin-top: 50px;border: 1px solid black;"></div>
                   
     <script src="https://code.jquery.com/jquery-3.6.0.js" type="text/javascript"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eb66f18ab68f4698ad06cb4444bfc896&libraries=services"></script>
@@ -67,49 +67,39 @@
                 </div>
                 
                <div id="SongPagingMap">
-               <div id="prevPagingMap">◀</div>
+
                 <div id="divPagingMap">
                     <div>2</div>
                     <div>1</div>
                 </div>
-                <div id="nextPagingMap">▶</div>
+
             </div>
 
 <form name="search-form" method='get'>
-		<input type='text' name='CenterLocation_y' id='CenterLocation_y' >
-		<input type='text' name='CenterLocation_x' id='CenterLocation_x' >
-		<input type= 'text' name='pageNum' id='pageNum'>
-		<select name='searchCondition'>
+		<input style="display:hidden" type='text' name='CenterLocation_y' id='CenterLocation_y' >
+		<input style="display:hidden" type='text' name='CenterLocation_x' id='CenterLocation_x' >
+		<input style="display:hidden" type= 'text' name='pageNum' id='pageNum'>
+		<select class="store_name" name='searchCondition'>
 			<option value='I.shopName'>가게이름</option>
 			<option value='road_address'>도로명 주소</option>
 		</select>
-		<input type='text' name='searchKeyword'>
-		<input type='button' id="em" value='검색'>
+		<input class="store_input" type='text' name='searchKeyword'>
+		<input class="store_input1" type='button' id="em" value='검색'>
 </form>
 
 <button id="mapPanTo">검색 중심 좌표로 이동하기</button>
 <button id="moveCenterLocation">검색 중심 위치 변경하기</button>
 
-
-            <div>
-                <div class="main_title">추천 일자리</div>
-                <div  class="main_article">
-                       <div class="main_right"></div>
-                       <div class="main_right"></div>
-                       <div class="main_right"></div>
-                       <div class="main_right"></div>
+           <div class="main2">
+                <img src="./main1.jpg" alt="">
+                <div class="main_wrap">
+                    <h2>언제나 365일</h2>
+                    <p>일자리는 언제든 어디서든 열려있습니다. 주저하지 말고 지원하세요 저희는 당신을 응원합니다.
+                    </p>
+                <button class="main2_button">지원하기</button>    
                 </div>
-                
-                <div id="divPaging">
-                    <div>◀</div>
-             		<div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                    <div>5</div>
-                    <div>▶</div>
-                </div>
-            </div>
+            </div>             
+            
         </main>
 
 
@@ -125,7 +115,7 @@
 <!-- footer --------------------------------------------------------------------->
     <footer>
         <div id="footer">
-            <div class="wrap_inner">
+            <div class="wrap_inner" id="wrap">
                 <div class="left_area">
                     <h4 class="rap_inner_h4">
                         일구하자 1982
