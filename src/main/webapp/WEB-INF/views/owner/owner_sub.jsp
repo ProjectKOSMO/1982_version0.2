@@ -12,29 +12,55 @@
 
 <body>
 
-<div class="hide">${ownerBoardList[0].ownernum }</div>
-
-
-<form action="" method="post" id="login-form" name="">
-	<h1>구독권 결제</h1>
-	<div class="center">
+	<div class="hide">${ownerBoardList[0].ownernum }</div>
 	
-        <div class="right">
-       		구독 기간:
-        		<div class="list">
-        			<button>30일</button>	
-        			<button>60일</button>	
-        			<button>90일</button>	
-        			<button>150일</button>	
-        			<button>360일</button>	
-        		</div>
-        
-        </div>
-	</div>     
-
-</form>
-	<div  class="return">
-		<button type="button" class="navyBtn" onClick="location.href='ownerMypage.do'">돌아가기</button>
-	</div> 
-</body>
-</html>
+	
+	<form action="" method="post" id="login-form" name="">
+		<h1>구독권 결제</h1>
+		<div class="center">
+		
+			<div class="right">
+				   
+					<div class="list">
+						<div class="box">
+							<h1>30</h1>
+							<h3>day</h3>
+							<p>50,000원</p>
+							<button class="box_button">Buy</button>
+						</div>
+						<div class="box">
+							<h1>60</h1>
+							<h3>day</h3>
+							<p>90,000원</p>
+							<button class="box_button">Buy</button>
+						</div>
+						<div class="box">
+							<h1>90</h1>
+							<h3>day</h3>
+							<p>135,000원</p>
+							<button class="box_button">Buy</button>
+						</div>
+						<div class="box">
+							<h1>184</h1>
+							<h3>day</h3>
+							<p>260,000원</p>
+							<button class="box_button">Buy</button>
+						</div>
+						<div class="box">
+							<h1>365</h1>
+							<h3>day</h3>
+							<p>500,000원</p>
+							<button class="box_button">Buy</button>
+						</div>	
+							
+					</div>
+			
+			</div>
+		</div>     
+	
+	</form>
+		<div  class="return">
+			<button class="box_button" type="button" class="navyBtn" onClick="location.href='ownerMypage.do'">돌아가기</button>
+		</div> 
+	</body>
+	</html>
