@@ -85,7 +85,7 @@
 <!-- 여기2 -->                            
                             <!-- 매칭성공률 -->
                             <div class="service1_left">
-                             <div class="matchPercent"> 매칭성공률 ${matchingPercent}% </div> 
+                             <div class="matchPercent"> 매칭성공률 ${matching_success}% </div> 
                              <canvas id="matching" width="350" height="350" style="display: inline-block;"></canvas>
                             </div>                     
                                
@@ -93,7 +93,7 @@
       
       						<!-- 재이용률 -->
                             <div class="service1_right">
-                            <div class="reusePercent"> 재이용률 ${reusePercent}% </div>
+                            <div class="reusePercent"> 재이용률 ${reusing_ratio}% </div>
                             <canvas id="reuse" width="350" height="350" style="display: inline-block;"></canvas>
                             </div>
       
@@ -108,7 +108,7 @@
                             
                        <!-- 방문자 현황 -->     
                             <div class="service2_right">
-                          <canvas id="lineChart" width="250" height="250"></canvas>
+                       		   <canvas id="lineChart" width="250" height="250"></canvas>
                             </div>
            
         
@@ -302,7 +302,7 @@
             labels: ['재이용자', '최근 3개월 간 이용자'],
             datasets: [{
                 label: '재이용률',
-                data: ['${reusing}', '${wholeUse}'],
+                data: ['${reusing}', '${whole_use}'],
                 backgroundColor: [
                     'rgba(10,110,255, 0.8)'
                  
