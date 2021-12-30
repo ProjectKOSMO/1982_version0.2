@@ -4,12 +4,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
+
+
 <mapper namespace="owner">
-	
+
 	<!-- 업자 회원가입 -->
 	<insert id="ownerInsert" parameterType="OwnerVO">
-		INSERT INTO ownerInfo(ownerid, ownerpass, ownername, ownerpn, ownermail, ownerdate)
-		VALUES(#{ownerid}, #{ownerpass}, #{ownername}, #{ownerpn}, #{ownermail}, now())
+		INSERT INTO ownerInfo(ownerid, ownerpass, ownername, ownerpn, ownermail, ownerdate,ownersub)
+		VALUES(#{ownerid}, #{ownerpass}, #{ownername}, #{ownerpn}, #{ownermail}, now(),0)
 	</insert>
 	
 	<!-- 로그인시 아이디 체크 -->
@@ -24,24 +26,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				</if>
 			</where>
 	</select>
-	
+
 	<!-- 구인공고 게시판 데이터 삽입 -->
 	<insert id="ownerBoardInsert" parameterType="com.javassem.domain.OwnerBoardVO">
-		INSERT INTO board_owner(normal_emergency, shopname, shoppay, shopaddr, jobDate, jobTime_start, jobTime_end, need_Num, regDate)
-		VALUES(#{normal_emergency}, #{shopname}, #{shoppay}, #{shopaddr},#{jobDate}, #{jobTime_start}, #{jobTime_end}, #{need_Num}, now())
+		INSERT INTO board_owner(normal_emergency, shopname, shoppay, shopaddr, jobDate, jobTime_start, jobTime_end, need_Num, regDate, ownernum)
+		VALUES(#{normal_emergency}, #{shopname}, #{shoppay}, #{shopaddr},#{jobDate}, #{jobTime_start}, #{jobTime_end}, #{need_Num}, now(), #{ownernum})
 	</insert>
-	
+
 	<!-- 구인공고 게시판 리스트 표기 -->
 	<select id="ownerBoardList" resultType="com.javassem.domain.OwnerBoardVO">
 		<![CDATA[
-			SELECT * FROM board_owner ORDER BY board_owner_seq DESC
+			SELECT * FROM ownerInfo oi ,shopInfo si, board_owner bo
+			WHERE oi.ownerNum = si.ownernum 
+			and si.ownernum = bo.ownernum 
+			and oi.ownerNum = bo.ownernum 
+			and oi.ownernum = #{ownernum}
 		]]>
-	</select>	
+	</select>
 
 	<!-- 업체 정보 추가 -->
 	<insert id="shopInsert" parameterType="OwnerVO">
-		INSERT INTO shopInfo(shopname, shopaddr, shoppn, shopcontent, shopdate, ownernum, si_fname,si_realname  )
-		VALUES(#{shopname},#{shopaddr},#{shoppn},#{shopcontent}, now(), #{ownernum},#{si_fname}, #{si_realname});
+		INSERT INTO shopInfo(shopname, shopaddr, shoppn, shopcontent, shopdate, ownernum, si_fname,si_realname, location_y, location_x  )
+		VALUES(#{shopname},#{shopaddr},#{shoppn},#{shopcontent}, now(), #{ownernum},#{si_fname}, #{si_realname}, #{location_y}, #{location_x});
 	</insert>
 
 	<!-- 업체 정보 표기 -->
@@ -60,17 +66,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 로그인한 업자에 대한 업체 정보 표기 -->
 	<select id="getList"  parameterType="OwnerVO" resultType="OwnerVO">
 		<![CDATA[
-			SELECT * FROM ownerInfo o,shopInfo s
+			select * from ownerInfo oi ,shopInfo si
 		]]>	
 			<where>
-				o.ownerNum = s.ownernum
-				AND o.ownerNum = #{ownernum} 
+			
+				oi.ownerNum = si.ownernum AND oi.ownerNum =#{ownernum}; 
 			</where>
 	</select>
 	
 	
+	
+	
 	<update id="shopUpdate"  parameterType="OwnerVO" >
-
    <choose>
     <when test="si_fname == null">
        <![CDATA[
@@ -79,6 +86,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                , shoppn =#{shoppn} 
                , shopcontent =#{shopcontent}
                , shopupdate= now()
+               , location_y=#{location_y}
+               , location_x=#{location_x}
                where ownernum =#{ownernum}
       ]]>   
    </when>
@@ -92,10 +101,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                , shopupdate= now()
                , si_fname = #{si_fname}
                , si_realname=#{si_realname}
+               , location_y=#{location_y}
+               , location_x=#{location_x}
       where ownernum =#{ownernum}
       ]]>   </otherwise>
    </choose>
                
    </update>
-
 </mapper>

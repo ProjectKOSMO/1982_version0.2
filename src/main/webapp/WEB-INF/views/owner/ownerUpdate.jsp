@@ -9,18 +9,20 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
 	<link type="text/css" href="/project1982/resources/style/style.css" rel="stylesheet"/>
     <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" type="text/javascript"></script>
+<script src='/project1982/resources/js/locationExample.js' type="text/javascript"></script>
 </head>
 <body>
+
 <% 
 	String ownerid = (String)session.getAttribute("ownerid");
 	Integer ownernum = (Integer)session.getAttribute("ownernum");
-
 	
 	out.println(ownerid + " 님 환영합니다.");
 	out.println("번호 : " + ownernum);
 %>
-        <!--메뉴바  ------------------------------------------------->
-       <header class="header" >
+          <!--메뉴바  ------------------------------------------------->
+          <header class="header" >
             <!-- 로고-->
                <div>
                <a href="#" class="logo">
@@ -33,29 +35,32 @@
                <!-- 오른쪽 메뉴-->
                <div class="right-menu">
                    <!--검색 -->
-                   <a href="/project1982/owner/job_positing.do" class="search">
+                   <a href="/project1982/owner/job_positing.do" id="s1">
                     구인공고
                    </a>
                    <!--유저 -->
-                   <a href="/project1982/owner/ownerMypage" class="user">
+                   <a href="/project1982/owner/ownerMypage" id="s2">
                    마이페이지
                    </a>
                    <!--카트  -->
-                   <a href="/project1982/owner/ownerBoard.do">
+                   <a href="/project1982/owner/ownerBoard.do" id="s3">
                    고객센터
                        <!--카트 상품-->
                        
                    </a>
+                   <a href="/project1982/index.jsp" class="logout">
+                    로그아웃
+                   </a>
                </div>
-   
+    
            </header>
 
     <!-- 메인 ---------------------------------------------------------------->
-        <main>
+    <main>
       
         <form action="shopUpdate.do" method='post' enctype="multipart/form-data"> 
-            <ul class="left_nav">
-                <li class="left_nav_text"><a class="home" href="#">홈</a></li>
+            <ul class="left_nav" id="left_nav1">
+                <li class="left_nav_text"><a class="home" href="#"></a></li>
                 <li class="left_nav_text"><a href="#">새소식</a></li>
                 <li class="left_nav_text"><a href="#">상품</a></li>
                 <li class="left_nav_text"><a href="#">회사</a></li>
@@ -63,33 +68,43 @@
 
             <div class="body_container"> <!-- 페이지 컨테이너 시작-->
          
+                
                 <div class="body_container_center"> <!-- 중간 메뉴바 시작-->
-                    <div>업체 정보 수정</div>
+                    <div class="main_title">업체 등록 / 수정</div>
                         <div class="body_container_center_shop_contanier">
                             <div class="body_container_center_shop_contanier_img">
-                     			<img width="70%" height="70%" src="/project1982/resources/upload/${shopInfo[0].si_realname }">
-								<input type="file" name="file" maxlength="60" size="40">
-					        </div>
-                    
-                    
-                            <div class= "body_container_center_shop_contanier_info">
-                                <div>업체 이름: <input type="text" name="shopname" value="${shopInfo[0].shopname }"> </div>
+                                <div >
+                                    <img class="img_box" src="/project1982/resources/upload/${shopInfo[0].si_realname }">
+					                <input class="img_button" type="file" name="file" maxlength="60" size="40">
                                     
-                                <div>업체 주소: <input type="text" name="shopaddr" value="${shopInfo[0].shopaddr }"><button>주소확인</button></div>                                
-                                <div>업체 연락처: <input type="text" name="shoppn" value="${shopInfo[0].shoppn }"></div>                             
-                                <div class="body_container_center_shop_contanier_info_ta">업체 소개: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <textarea name="shopcontent" id="" cols="30" rows="10" >${shopInfo[0].shopcontent }</textarea>     
-
-                                 <div class="hide">담당자 번호: <input type="text" name="ownernum" value = "${ownernum}"></div>   
-                                </div>                                
-                                
-                                                     <button>확인 </button>                 
+                                </div>
+                 
                             </div>
-                        </div>
-                    
-                    
-            
-                  
+                            <div class= "body_container_center_shop_contanier_info">
+                                <div class="main_font salary">업체이름 :
+                                    <input class="input_box" type="text" value="${shopInfo[0].shopname }">
+                                </div>
+                                <div class="main_font">업체주소 :
+                                    <input class="input_box" type="text" value="${shopInfo[0].shopaddr }">
+                                </div>
+                                <div class="main_font">전화번호 :
+                                    <input class="input_box" type="text" value="${shopInfo[0].shoppn }">
+                                </div>          
+                                <div class="main_font">업체소개 :
+                                    
+                                    <textarea name="" id="" cols="30" rows="10">
+                                        ${shopInfo[0].shopcontent }
+                                    </textarea>
+                                </div>                              
+                                
+                                <button class="store_button1">수정 </button>
+                                <button class="store_button2">업체 등록 </button>                 
+                            </div>
+                        </div>            
+              
+                    </div>
+
+                 
                    
                 </div><!--중간 메뉴바 종료-->
                
@@ -118,7 +133,7 @@
 <!-- footer --------------------------------------------------------------------->
     <footer>
         <div id="footer">
-            <div class="wrap_inner">
+            <div class="wrap_inner" id="wrap">
                 <div class="left_area">
                     <h4 class="rap_inner_h4">
                         일구하자 1982

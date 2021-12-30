@@ -1,7 +1,5 @@
 package com.javassem.domain;
-
 import java.util.Date;
-
 public class OwnerBoardVO {
   private int board_owner_seq;
   
@@ -10,11 +8,13 @@ public class OwnerBoardVO {
   private String jobDate;
   
   private String jobTime_start;
-  
+
   private String jobTime_end;
-  
+
+  private String ownersub;
+
   private String writer;
-  
+
   private String content;
   
   private String shopname;
@@ -24,11 +24,15 @@ public class OwnerBoardVO {
   private String shopdate;
   
   private String shoppay;
-  
+
   private String need_Num;
-  
-  private Date regDate;
-  
+
+  private int ownernum;
+
+
+
+private Date regDate;
+
   public int getBoard_owner_seq() {
     return this.board_owner_seq;
   }
@@ -132,4 +136,19 @@ public class OwnerBoardVO {
   public void setShoppay(String shoppay) {
     this.shoppay = shoppay;
   }
+
+  public String getOwnersub() {
+	return ownersub;
+}
+
+  public void setOwnersub(String ownersub) {
+	this.ownersub = ownersub;
+}
+  public int getOwnernum() {
+	return ownernum;
+}
+
+  public void setOwnernum(int ownernum) {
+	this.ownernum = ownernum;
+}
 }

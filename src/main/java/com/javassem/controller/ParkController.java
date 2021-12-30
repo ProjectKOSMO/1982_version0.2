@@ -34,6 +34,7 @@ public class ParkController {
 	@Autowired
 	private GraphService graphService;
 	
+
 	
 	
 	
@@ -46,6 +47,7 @@ public class ParkController {
 	@RequestMapping("admin_login.do")
 	public String move(){
 		return "admin/admin_login";	
+
 	}
 	
 	@RequestMapping("adminPage.do") //로그인과 동시에 블랙리스트 데이터 넘기기

@@ -11,11 +11,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
     <link type="text/css" href="/project1982/resources/css/4_main.css" rel="stylesheet"/>
 </head>
-
 <body>
+
 <% 
 	String userId = (String)session.getAttribute("userId");
+	String userPass = (String)session.getAttribute("userPass");
 %>
+
         <!-- 메뉴바  ------------------------------------------------->
         <header class="header" >
             <!-- 로고-->
@@ -27,14 +29,19 @@
                <!--유저 메뉴--> 
                <div class="right-menu">
                    <!--검색 -->
+
+
                    <a href="storeClose.do?userid=${userId}" class="search">
                    일자리찾기
                    </a>
                    <a href="userMypage.do?userid=${userId}" class="user">
                    마이페이지
                    </a>
-                   <a href="userBoard.do">
+                   <a href="userBoard.do?userid=${userId}">
                    고객센터                       
+                   </a>
+		           <a href="/project1982/index.jsp" class="logout">
+                    로그아웃
                    </a>
                </div>
    
@@ -73,7 +80,7 @@
 		<input type='text' name='CenterLocation_x' id='CenterLocation_x' >
 		<input type= 'text' name='pageNum' id='pageNum'>
 		<select name='searchCondition'>
-			<option value='shop_name'>가게이름</option>
+			<option value='I.shopName'>가게이름</option>
 			<option value='road_address'>도로명 주소</option>
 		</select>
 		<input type='text' name='searchKeyword'>

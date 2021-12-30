@@ -2,7 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="BoardDAO">
-
 	
 	<!-- oracle 인 경우 	
 	<insert id="insertBoard" parameterType="board">
@@ -61,20 +60,19 @@
 		# : PreparedStatement를 사용할때 -> 문자열인 경우 자동으로 '' 붇음
 		$ : Statement를 사용 -> 문자열인 경우도 '' 안 붙음
 	 -->
-	<select id="getBoardList" resultType="BoardVO"  parameterType="hashmap">
-		SELECT * FROM (SELECT @rownum:=@rownum+1 RN, A.* FROM
-		(SELECT * FROM uploadtemp ORDER BY b_id DESC) A, (SELECT @rownum:=0) r) B
-		where
-			<if test="searchCondition != null">
-		 		B.${searchCondition} LIKE '%${searchKeyword}%' AND
-		 	</if>
-		B.RN BETWEEN ${start} AND ${end};
-			
-	</select>
-		<select id="countboard" resultType="int">
-		SELECT COUNT(*) FROM uploadtemp
-	</select>
+   <select id="getBoardList" resultType="BoardVO"  parameterType="hashmap">
+      SELECT * FROM (SELECT @rownum:=@rownum+1 RN, A.* FROM
+      (SELECT * FROM uploadtemp ORDER BY b_id DESC) A, (SELECT @rownum:=0) r) B
+      where
+         <if test="searchCondition != null">
+             B.${searchCondition} LIKE '%${searchKeyword}%' AND
+          </if>
+      B.RN BETWEEN ${start} AND ${end};   
+   </select>
+      
+      <select id="countboard" resultType="int">
+      SELECT COUNT(*) FROM uploadtemp
+   </select>
 	
-
 	
 </mapper>
