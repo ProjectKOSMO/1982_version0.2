@@ -16,7 +16,7 @@
 		</where>		
 		ORDER BY SEQ DESC -->
 	
-</select>
+
 	<!--  </select>-->	
 	<select id="getShopList" resultType="com.javassem.domain.ShopVO"  parameterType="hashmap">
 		
@@ -62,7 +62,6 @@
 	</insert> 
  
 	  
-</mapper>
 
 	<!-- <select id="getShopList" resultType="com.javassem.domain.ShopVO"  parameterType="hashmap">
 		
