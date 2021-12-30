@@ -6,39 +6,86 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="hold">
 	
 	<!-- 매칭성공률 그래프 -->
-	<select id="matching_percent" resultType="com.javassem.domain.GraphVO">
-		SELECT * FROM matchPercent
+	<select id="matching" resultType="int">
+		SELECT matching FROM matchPercent
+	</select>
+	
+	<select id="wholeApply" resultType="int">
+		SELECT whole_apply FROM matchPercent
+	</select>
+	
+	<select id="matching_percent" resultType="int">
+		SELECT matching_success FROM matchPercent
 	</select>
 
+
 	<!-- 재이용률 그래프 -->
-	<select id="reusePercent" resultType="com.javassem.domain.GraphVO">
-	SELECT * from reusing
+	<select id="reusing" resultType="int">
+	SELECT reusing from reusing
+	</select> 
+	
+	<select id="wholeUse" resultType="int">
+	SELECT whole_use from reusing
 	</select>
 	
-	
-	<!-- 회원현황 그래프 -->
-	<select id="joinTotal" resultType="int">
-		select count(*) from joinTable
+	<select id="reusePercent" resultType="int">
+	SELECT reusing_ratio from reusing
 	</select>
-	
 	<select id="joinToday" resultType="int">
-		select count(*) from joinTable where date_format(joinDate, '%Y-%m-%d') = date_format(now(), '%Y-%m-%d')
+	select count(*) from joinTable where date_format(joinDate, '%Y-%m-%d') = date_format(now(), '%Y-%m-%d')
 	</select>
 	
 	<select id="joinYesterday1" resultType="int">
-		select count(*) from joinTable where date_format(joinDate, '%Y-%m-%d') = date_format(now()- INTERVAL 1 DAY, '%Y-%m-%d')
+	select count(*) from joinTable where date_format(joinDate, '%Y-%m-%d') = date_format(now()- INTERVAL 1 DAY, '%Y-%m-%d')
 	</select>
 	
 	<select id="joinYesterday2" resultType="int">
-		select count(*) from joinTable where date_format(joinDate, '%Y-%m-%d') = date_format(now()- INTERVAL 2 DAY, '%Y-%m-%d')
+	select count(*) from joinTable where date_format(joinDate, '%Y-%m-%d') = date_format(now()- INTERVAL 2 DAY, '%Y-%m-%d')
 	</select>
 	
 	<select id="joinYesterday3" resultType="int">
-		select count(*) from joinTable where date_format(joinDate, '%Y-%m-%d') = date_format(now()- INTERVAL 3 DAY, '%Y-%m-%d')
+	select count(*) from joinTable where date_format(joinDate, '%Y-%m-%d') = date_format(now()- INTERVAL 3 DAY, '%Y-%m-%d')
 	</select>
 	
 	<select id="joinYesterday4" resultType="int">
-		select count(*) from joinTable where date_format(joinDate, '%Y-%m-%d') = date_format(now()- INTERVAL 4 DAY, '%Y-%m-%d')
+	select count(*) from joinTable where date_format(joinDate, '%Y-%m-%d') = date_format(now()- INTERVAL 4 DAY, '%Y-%m-%d')
 	</select>
+	
+	<select id="cumulateToday" resultType="int">
+	select count(*) from joinTable
+	</select>
+	
+		<select id="cumulateYesterday1" resultType="int">
+	select count(*) from joinTable 
+	where 
+	date_format(joinDate, '%Y-%m-%d') != date_format(now(), '%Y-%m-%d')
 
+	</select>
+	
+		<select id="cumulateYesterday2" resultType="int">
+	select count(*) from joinTable 
+	where 
+	date_format(joinDate, '%Y-%m-%d') != date_format(now(), '%Y-%m-%d')
+AND date_format(joinDate, '%Y-%m-%d') != date_format(now()- INTERVAL 1 DAY, '%Y-%m-%d')
+
+	</select>
+	
+		<select id="cumulateYesterday3" resultType="int">
+	select count(*) from joinTable 
+	where 
+	date_format(joinDate, '%Y-%m-%d') != date_format(now(), '%Y-%m-%d')
+AND date_format(joinDate, '%Y-%m-%d') != date_format(now()- INTERVAL 1 DAY, '%Y-%m-%d')
+AND date_format(joinDate, '%Y-%m-%d') != date_format(now()- INTERVAL 2 DAY, '%Y-%m-%d')
+
+	</select>
+	
+		<select id="cumulateYesterday4" resultType="int">
+	select count(*) from joinTable 
+	where 
+	date_format(joinDate, '%Y-%m-%d') != date_format(now(), '%Y-%m-%d')
+AND date_format(joinDate, '%Y-%m-%d') != date_format(now()- INTERVAL 1 DAY, '%Y-%m-%d')
+AND date_format(joinDate, '%Y-%m-%d') != date_format(now()- INTERVAL 2 DAY, '%Y-%m-%d')
+AND date_format(joinDate, '%Y-%m-%d') != date_format(now()- INTERVAL 3 DAY, '%Y-%m-%d')
+
+	</select>
 </mapper>

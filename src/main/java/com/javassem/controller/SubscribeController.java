@@ -53,18 +53,6 @@ public class SubscribeController {
 		System.out.println("컨트롤러");
 		System.out.println(list);
 		
-	
-		int Type5 = subscribeService.getType5();
-		int Type4 = subscribeService.getType4();
-		int Type3 = subscribeService.getType3();
-		int Type2 = subscribeService.getType2();
-		int Type1 = subscribeService.getType1();
-
-		m.addAttribute("Type5", Type5);
-		m.addAttribute("Type4", Type4);
-		m.addAttribute("Type3", Type3);
-		m.addAttribute("Type2", Type2);
-		m.addAttribute("Type1", Type1);
 		
 		return "admin/adminPage2";
 	}

@@ -4,41 +4,12 @@
 <mapper namespace='subscribePage'>
 
 	<select id="countSubscribeList" resultType="Integer">
-		SELECT count(*) FROM subscribe where overDate=0
+		SELECT count(*) FROM subscribe
 	</select>
 	
 	<select id='getSubscribeList' resultType="com.javassem.domain.SubscribeVO" parameterType="hashmap">
 		SELECT * FROM (SELECT ROW_NUMBER()over(order by endDate desc)as RN, A.* FROM
-		(SELECT * FROM subscribe where overDate=0) A, (SELECT @rownum:=0) r) B
-		where B.RN BETWEEN #{start} and #{end}
+		(SELECT * FROM subscribe) A, (SELECT @rownum:=0) r) B
+		where B.RN BETWEEN #{start} and #{end};
 	</select>
-	<select id='TotalList' resultType="com.javassem.domain.SubscribeVO">
-		SELECT * FROM subscribe
-	</select>
-	
-	<select id='type5' resultType="integer">
-		select count(*) from subscribe where type=5 and overDate=0
-	</select>
-	
-	<select id='type4' resultType="integer">
-		select count(*) from subscribe where type=4 and overDate=0
-	</select>
-	
-	<select id='type3' resultType="integer">
-		select count(*) from subscribe where type=3 and overDate=0
-	</select>
-	
-	<select id='type2' resultType="integer">
-		select count(*) from subscribe where type=2 and overDate=0
-	</select>
-	
-	<select id='type1' resultType="integer">
-		select count(*) from subscribe where type=1 and overDate=0
-	</select>
-	<update id="refresh">
-		update subscribe set overDate = 1 
-		<where>
-			endDate > now()
-		</where>
-	</update>
 </mapper>
