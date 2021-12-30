@@ -84,11 +84,36 @@
                     <div class="body_container_center_services">
                         <div class="service1">
 <!-- 여기2 -->                            
-
+                            <!-- 매칭성공률 -->
+                            <div class="service1_left">
+                             <div class="matchPercent"> 매칭성공률 ${matchingPercent}% </div> 
+                           <!--  <canvas id="matching" width="350" height="350" style="display: inline-block;"></canvas> -->
+                            </div>                     
+                               
+       
+      
+      						<!-- 재이용률 -->
+                            <div class="service1_right">
+                            <div class="reusePercent"> 재이용률 ${reusePercent}% </div>
+                           <!--  <canvas id="reuse" width="350" height="350" style="display: inline-block;"></canvas> -->
+                            </div>
       
                             
                         </div>
-
+                        <div class="service2">
+                            <div class="service2_left">
+                            <span class="visit_value">288</span><br/>
+                            <span class="visit_label">Today visits</span>
+                            </div>
+                            
+                            
+                       <!-- 방문자 현황 -->     
+                            <div class="service2_right">
+                             <!--  <canvas id="lineChart" width="250" height="250"></canvas> -->
+                            </div>
+           
+        
+                    </div>
                     </div>
                    
                    
@@ -97,10 +122,11 @@
                <!--  회원가입 현황  -->
                     <div class="body_container_center_members">
                         <div class="member1">
-                        
+                        <span class="visit_value">60</span><br/>
+                            <span class="visit_label">Today joins</span>
                         </div>
                         <div class="member2">
-                       	 <canvas id="barChart" width="250" height="250"></canvas>
+                       <!--  <canvas id="barChart" width="250" height="250"></canvas> -->
                         </div>
        
                     </div>
@@ -235,14 +261,140 @@
 
     </footer>
 <script>
-
+    var ctx = document.getElementById('matching').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['매칭 건수', '전체 지원 건수'],
+            datasets: [{
+                label: '매칭' ,
+                data: ['${matching}', '${wholeApply}'],
+                backgroundColor: [
+                    'rgba(255, 99, 71)'
+                 
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)'
+                    
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+     	  responsive: false
+        }
+    });
+  
+    
+    var ctx = document.getElementById('reuse').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['재이용자', '최근 3개월 간 이용자'],
+            datasets: [{
+                label: '재이용률',
+                data: ['${reusing}', '${wholeUse}'],
+                backgroundColor: [
+                    'rgba(10,110,255, 0.8)'
+                 
+                ],
+                borderColor: [
+                    'rgba(10,110,255, 0.8)'
+                    
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+     	  responsive: false
+        }
+    });
+    
+    
+    
+var ctx = document.getElementById('lineChart').getContext('2d');
+    
+    var now = new Date();
+    var now_month = (now.getMonth() + 1).toString();
+    var now_day = now.getDate().toString();
+    var now_string = now_month +'월 '+now_day+'일';
+    
+    now.setDate(now.getDate() - 1);
+    var now_month = (now.getMonth() + 1).toString();
+    var now_day = now.getDate().toString();
+    var now_string1 = now_month +'월 '+now_day+'일';
+    
+    now.setDate(now.getDate() - 1);
+    var now_month = (now.getMonth() + 1).toString();
+    var now_day = now.getDate().toString();
+    var now_string2 = now_month +'월 '+now_day+'일';
+    
+    now.setDate(now.getDate() - 1);
+    var now_month = (now.getMonth() + 1).toString();
+    var now_day = now.getDate().toString();
+    var now_string3 = now_month +'월 '+now_day+'일';
+    
+    now.setDate(now.getDate() - 1);
+    var now_month = (now.getMonth() + 1).toString();
+    var now_day = now.getDate().toString();
+    var now_string4 = now_month +'월 '+now_day+'일';
+    
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [now_string4, now_string3, now_string2, now_string1, now_string],
+            datasets: [{
+                label: '방문자 추이',
+                data: [300, 255, 400, 500, 450],
+                backgroundColor: [
+              	  'rgba(255, 117, 232, 1)'
+                ],
+                borderColor: [
+              	  'rgba(255, 117, 232, 1)' 
+                ],
+                borderWidth: 1,
+               fill: false
+            }]
+        },
+        options: {
+      	  maintainAspectRatio: false,
+      	  cutoutPercentage: 50,
+      	  responsive: true,
+            scales: {
+                xAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: '날짜'
+                    }
+                }],
+                yAxes: [{
+                    display: true,
+                    ticks: {
+                        suggestedMin: 0,
+                    },
+                    scaleLabel: {
+                        display: false,
+                        labelString: '(명)'
+                    }
+                }]
+            }
+        }
+    });
+    
+    
+    
+    
+    
     var ctx = document.getElementById('barChart').getContext('2d');
     var myChart = new Chart(ctx, {
   	  type: 'bar',    
   	  data: {
-            labels: ['30일', '60일', '90일', '184일', '365일'],
+            labels: [now_string4, now_string3, now_string2, now_string1, now_string],
             datasets: [{
-                data: ['${Type1}', '${Type2}', '${Type3}', '${Type4}', '${Type5}'],
+          	  
+                label: '회원가입자 수',
+                data: ['${joinYesterday4}', '${joinYesterday3}', '${joinYesterday2}', '${joinYesterday1}', '${joinToday}'],
                 backgroundColor: [
               	  'rgba(0, 204, 102)',
               	  'rgba(0, 204, 102)',
@@ -259,35 +411,44 @@
                 ],
                 borderWidth: 1,
                fill: false
-            }]
+            } , {
+            	type: 'line',
+            	label: '회원가입자 수 누적',
+            	data: ['${cumulYesterday4}', '${cumulYesterday3}', '${cumulYesterday2}', '${cumulYesterday1}', '${cumulToday}'], 
+            	backgroundColor: [
+            	  'rgba(76, 0, 153)'
+              ],
+              borderColor: [
+              	'rgba(76, 0, 153)'
+              ],
+              borderWidth: 1,
+             fill: false
+            } ]
         },
         options: {
-        	  maintainAspectRatio: false,
-        	  cutoutPercentage: 50,
-        	  responsive: true,
-        	  legend: {
-        		    display: false
-        		  },
-              scales: {
-                  xAxes: [{
-                      display: true,
-                      scaleLabel: {
-                          display: true,
-                          labelString: '구독권 종류'
-                      }
-                  }],
-                  yAxes: [{
-                      display: true,
-                      ticks: {
-                          suggestedMin: 0,
-                      },
-                      scaleLabel: {
-                          display: false,
-                          labelString: '(명)'
-                      }
-                  }]
-              }
-          }
+      	  maintainAspectRatio: false,
+      	  cutoutPercentage: 50,
+      	  responsive: true,
+            scales: {
+                xAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: '날짜'
+                    }
+                }],
+                yAxes: [{
+                    display: true,
+                    ticks: {
+                        suggestedMin: 0,
+                    },
+                    scaleLabel: {
+                        display: false,
+                        labelString: '(명)'
+                    }
+                }]
+            }
+        }
     });
     </script>
 </body>

@@ -27,25 +27,5 @@ public class SubscribeDAOImpl implements SubscribeDAO{
 	    System.out.println("===> Mybatis getBlackList()");
 	    return this.mybatis.selectList("subscribePage.getSubscribeList", map);
 	}
-	public List<SubscribeVO> getTotalList() {
-	    return this.mybatis.selectList("subscribePage.TotalList");
-	}
-	public int getType5(){
-		return this.mybatis.selectOne("subscribePage.type5");
-	}
-	public int getType4(){
-		return this.mybatis.selectOne("subscribePage.type4");
-	}
 
-	public int getType3(){
-		return this.mybatis.selectOne("subscribePage.type3");
-	}
-
-	public int getType2(){
-		return this.mybatis.selectOne("subscribePage.type2");
-	}
-
-	public int getType1(){
-		return this.mybatis.selectOne("subscribePage.type1");
-	}
 }
