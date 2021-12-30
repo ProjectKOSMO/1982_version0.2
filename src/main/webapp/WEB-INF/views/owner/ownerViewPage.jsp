@@ -43,6 +43,9 @@
                        <!--카트 상품-->
                        
                    </a>
+                   <a href="/project1982/index.jsp" class="logout">
+                    로그아웃
+                   </a>
                </div>
     
            </header>
@@ -99,6 +102,7 @@
                     
                     
                     
+
                     <div class="main_title">업체 등록 현황</div>
                     <div>
                         <div class="divTable minimalistBlack">
@@ -132,6 +136,11 @@
                     </div>
     
                     <div class="main_title">구직자 신청 현황</div>
+
+                    
+
+                    <div>구직자 신청 현황</div>
+
                     <div>
                         <div>
                             

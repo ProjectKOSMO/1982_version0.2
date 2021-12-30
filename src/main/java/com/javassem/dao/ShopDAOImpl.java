@@ -1,24 +1,14 @@
 package com.javassem.dao;
 
-import com.javassem.domain.ShopVO;
+import java.util.HashMap;
 import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-
-@Repository("shopDAO")
-public class ShopDAOImpl implements ShopDAO {
-  
-  @Autowired
-  private SqlSessionTemplate mybatis;
-  
-  public List<ShopVO> ShopList(ShopVO vo) {
-    System.out.println("===> Mybatis ShopList()");
-    return this.mybatis.selectList("ShopDAO.ShopList", vo);
-  }
-
 import com.javassem.domain.ShopVO;
+
 
 	@Repository("shopDAO")
 	public class ShopDAOImpl implements ShopDAO {
@@ -26,10 +16,11 @@ import com.javassem.domain.ShopVO;
 		@Autowired
 		private SqlSessionTemplate mybatis;
 		
-	/*	public List<ShopVO> ShopList(ShopVO vo) {
+		public List<ShopVO> ShopList(ShopVO vo) {
 			System.out.println("===> Mybatis ShopList() 호출");
 			return mybatis.selectList("ShopDAO.ShopList", vo);
-		}*/
+
+		}
 		
 		public List<ShopVO> getShopList(HashMap map) {
 			System.out.println("===> Mybatis getBoardList() 호출");
@@ -50,5 +41,4 @@ import com.javassem.domain.ShopVO;
 		System.out.println("===> Mybatis support()");
 		return (ShopVO)this.mybatis.selectList("ShopDAO.support", vo);
 		}
-
 }

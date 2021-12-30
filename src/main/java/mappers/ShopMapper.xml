@@ -8,6 +8,7 @@
 		
 		SELECT *
 		FROM board_owner
+</select>
 	<!-- 	<where>
 			<if test="searchCondition != null">
 				${searchCondition} LIKE '%${searchKeyword}%'
@@ -33,9 +34,9 @@
 	<select id = "getShop" resultType="com.javassem.domain.ShopVO">
 	<![CDATA[
 		SELECT *
-		FROM board_owner b, shopInfo i
-		WHERE b.ownernum=i.ownernum
-		AND board_owner_seq = #{board_owner_seq}
+		FROM board_owner bo, shopInfo si
+		WHERE bo.ownernum = si.ownernum
+		AND bo.board_owner_seq = #{board_owner_seq}
 		]]>
 	
 	</select>
@@ -62,7 +63,6 @@
  
 	  
 
-
 	<!-- <select id="getShopList" resultType="com.javassem.domain.ShopVO"  parameterType="hashmap">
 		
 		SELECT * FROM (SELECT @rownum:=@rownum+1 RN, A.* FROM
@@ -73,6 +73,8 @@
 			</if>
 		B.RN BETWEEN ${start} AND ${end};
 
-	</select>
+	</select> -->
+
 	
 	</mapper>
+

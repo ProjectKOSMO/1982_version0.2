@@ -33,10 +33,11 @@ public class OwnerLoginController {
         vo.setOwnernum(ownernum);
         List<OwnerVO> list = this.ownerService.getList(vo);
         model.addAttribute("shopList", list);
+        System.out.println(list);
         return list.isEmpty() ? "/owner/ownerMypage" : "/owner/ownerViewPage";
     }
     @RequestMapping({"shopInsert.do"})
-    public String ownerInsert(OwnerVO vo, Model model) {
+    public String shopInsert(OwnerVO vo, Model model) {
         this.ownerService.insertShopInfo(vo);
         List<OwnerVO> list = this.ownerService.getList(vo);
         model.addAttribute("shopList", list);
@@ -74,32 +75,48 @@ public class OwnerLoginController {
     }
     @RequestMapping({"ownerBoardInsert.do"})
     public String ownerBoardInsert(OwnerBoardVO vo, Model m) {
+    	
         String jobDate = vo.getJobDate();
-
-        this.ownerService.ownerBoardInsert(vo);
-        List<OwnerBoardVO> list = this.ownerService.getOwnerBoardList(vo);
+        
+        System.out.println(vo.getOwnernum());
+        ownerService.ownerBoardInsert(vo);
+        List<OwnerBoardVO> list = ownerService.getOwnerBoardList(vo);
         m.addAttribute("ownerBoardList", list);
-        return "/owner/job_positing";
+        
+       
+        return "redirect:job_positing.do";
     }
 
     @RequestMapping({"job_positing.do"})
-    public String job_list(OwnerBoardVO vo, Model m, HttpServletRequest request) throws Exception {
+    public String job_list(OwnerVO vo,OwnerBoardVO vo1, Model m, HttpServletRequest request) throws Exception {
     	//현재 Ownernum 가져오기---------------------------------------------------------------
     	HttpSession session = request.getSession();
         Integer ownernum = (Integer)session.getAttribute("ownernum");
         vo.setOwnernum(ownernum);
+        vo1.setOwnernum(ownernum);
         System.out.println(ownernum);
         //---------------------------------------------------------------
 
-        List<OwnerBoardVO> list = ownerService.getOwnerBoardList(vo);
-        m.addAttribute("ownerBoardList", list);
-
-       	OwnerBoardVO vo1 = list.get(0);
-       	if(  Integer.parseInt(vo1.getOwnersub()) == 0){
-
+        List<OwnerVO> list = ownerService.getList(vo);
+        List<OwnerBoardVO> list1= ownerService.getOwnerBoardList(vo1);
+        m.addAttribute("ownerList", list);
+        m.addAttribute("ownerBoardList",list1);
+     
+        
+       	OwnerVO vosub = list.get(0);
+       	
+       	
+       	
+       	if(  Integer.parseInt(vosub.getOwnersub()) == 0 || vosub.getOwnersub() == null  ){
+ 
+       		System.out.println("널값입니다.");
+       		
        		return "/owner/owner_sub";
+       		
        	}else{
-
+       		
+       		System.out.println("이사람은 구독해써요");
+       		
        		return "/owner/job_positing";
        	}
 

@@ -37,7 +37,26 @@ public class OwnerVO {
   
   private String shopnum;
   
-  private String shopupdate;
+  private String ownersub;
+  
+private int board_owner_seq;
+  
+  public int getBoard_owner_seq() {
+	return board_owner_seq;
+}
+
+public void setBoard_owner_seq(int board_owner_seq) {
+	this.board_owner_seq = board_owner_seq;
+}
+
+public String getOwnersub() {
+	return ownersub;
+}
+
+public void setOwnersub(String ownersub) {
+	this.ownersub = ownersub;
+}
+private String shopupdate;
   private String shopUpdate;
 
   private String location_y;

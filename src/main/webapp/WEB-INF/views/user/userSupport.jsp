@@ -16,6 +16,7 @@
  	out.println(userId);
 %>
 
+
        <!--메뉴바  ------------------------------------------------->
        <header class="header" >
         <!-- 로고-->
@@ -45,7 +46,9 @@
                </a>
            </div>
 
+
        </header>
+
 
    <!-- 메인 ---------------------------------------------------------------->
        <main class="main">
@@ -77,6 +80,15 @@
                      <button class="button" id="button1" type="submit" > 지원하기</button>
                  </div>
                  </form>
+
+    <!-- 메인 ---------------------------------------------------------------->
+        <main class="main">
+            <div class="main_img">
+                <img src="../resources/upload/${shop.si_realname}" alt="" />
+            </div>
+            <div >
+                <form action="support.do" method="post" id="login-form">
+
                 
                  
                  </div>
