@@ -42,6 +42,7 @@ $(function(){
         success : function(result){
         	$('#idCheckResult').text(result);
         },
+        
         error : function(err){
         	alert('fail');
         }

@@ -48,10 +48,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		]]>
 	</select>
 	
-	<select id="getShopList" resultType="java.util.HashMap"  parameterType="java.util.HashMap">
-	<![CDATA[
-		SELECT * FROM support a, shopInfo b
-		Where a.userid = '${userid}'
-		]]>
+	<select id="getSupportView" resultType="SupportVO">
+		SELECT * FROM support
+		WHERE userid = #{userid}
 	</select>
 </mapper>
