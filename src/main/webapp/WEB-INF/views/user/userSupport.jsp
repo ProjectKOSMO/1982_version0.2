@@ -13,6 +13,7 @@
 <body>
  <% 
 	String userId = (String)session.getAttribute("userId");
+ 	out.println(userId);
 %>
 
 
@@ -39,7 +40,9 @@
                </a>
                <!--카트  -->
                <a href="userBoard.do" id="s3">
-               고객센터                   
+               고객센터
+                   <!--카트 상품-->
+                   
                </a>
            </div>
 

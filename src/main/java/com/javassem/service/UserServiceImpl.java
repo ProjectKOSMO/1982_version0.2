@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.javassem.dao.UserDAOImpl;
 import com.javassem.domain.ShopVO;
-import com.javassem.domain.SupportVO;
 import com.javassem.domain.UserVO;
 
 @Service("userService")
@@ -46,10 +45,7 @@ public class UserServiceImpl implements UserService {
 		return this.userDAO.getUserInfoView(vo);
 	}
 
-	@Override
-	public SupportVO getSupportView(SupportVO vo) {
-		return this.userDAO.getSupportView(vo);
+	public List<HashMap> getShopList(HashMap map) {
+		return this.userDAO.getShopList(map);
 	}
-
-	
 }
