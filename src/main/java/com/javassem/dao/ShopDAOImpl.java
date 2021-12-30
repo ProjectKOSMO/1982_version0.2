@@ -22,6 +22,13 @@ import com.javassem.domain.ShopVO;
 
 		}
 		
+		public List<ShopVO> ShopList1(ShopVO vo) {
+			System.out.println("===> Mybatis ShopList() 호출");
+			return mybatis.selectList("ShopDAO.ShopList1", vo);
+
+		}
+		
+		
 		public List<ShopVO> getShopList(HashMap map) {
 			System.out.println("===> Mybatis getBoardList() 호출");
 			return mybatis.selectList("ShopDAO.getShopList", map);

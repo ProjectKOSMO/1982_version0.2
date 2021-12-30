@@ -56,7 +56,7 @@
                <img src="../resources/upload/${shop.si_realname}" alt="" />
            </div>
            <div >
-               <form action="../support.do" method="post" id="login-form">
+               <form action="../user/support.do" method="post" id="login-form">
                
                    <input type="hidden" value="${userId}" name="userid"/>
                    <input type="hidden" value="${shop.board_owner_seq }" name="board_owner_seq"/>
