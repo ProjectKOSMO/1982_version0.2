@@ -60,7 +60,7 @@
         <main>
             <form action="">
             <ul class="left_nav">
-                <li class="left_nav_text"><a class="home" href="#">홈</a></li>
+                <li class="left_nav_text"><a class="home" href="#"></a></li>
                 <li class="left_nav_text"><a href="#">새소식</a></li>
                 <li class="left_nav_text"><a href="#">상품</a></li>
                 <li class="left_nav_text"><a href="#">회사</a></li>

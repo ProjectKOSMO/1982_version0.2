@@ -61,7 +61,7 @@
       		<!-- 왼쪽 네비게이션 -->
             <ul class="left_nav">
             	<br/>
-                <li class="left_nav_text"><a class="home" href="userMain.do">홈</a></li>
+                <li class="left_nav_text"><a class="home" href="userMain.do"></a></li>
                 <br/>
                 <li class="left_nav_text"><a href="#actor">프로필 수정</a></li>
                 <br/>
