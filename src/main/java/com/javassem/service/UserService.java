@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.javassem.domain.ShopVO;
+import com.javassem.domain.SupportVO;
 import com.javassem.domain.UserVO;
 
 public interface UserService {
@@ -23,5 +24,5 @@ public interface UserService {
   
   UserVO getUserInfoView(UserVO paramUserVO);
   
-  List<HashMap> getShopList(HashMap paramHashMap);
+  SupportVO getSupportView(SupportVO paramSupportVO);
 }
