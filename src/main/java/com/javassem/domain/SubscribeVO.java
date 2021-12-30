@@ -5,8 +5,8 @@ import java.util.Date;
 public class SubscribeVO {
 	private int type;
 	private String ownerID;
-	private Date buyDate;
-	private Date endDate;
+	private String buyDate;
+	private String endDate;
 	
 	
 	
@@ -22,18 +22,19 @@ public class SubscribeVO {
 	public void setType(int type) {
 		this.type = type;
 	}
-	public Date getBuyDate() {
+	public String getBuyDate() {
 		return buyDate;
 	}
-	public void setBuyDate(Date buyDate) {
+	public void setBuyDate(String buyDate) {
 		this.buyDate = buyDate;
 	}
-	public Date getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
+
 	
 
 }
