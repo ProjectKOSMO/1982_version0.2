@@ -35,7 +35,7 @@
 	  		<value>com.javassem.domain.BoardVO</value>
 	  		<value>com.javassem.domain.SongLocationVO</value>
 	  		<value>com.javassem.domain.StoreVO</value>
-	  		
+	  		<value>com.javassem.domain.ShopVO</value>	  		
 	  	</list>
 	  </property>
 	 </bean>

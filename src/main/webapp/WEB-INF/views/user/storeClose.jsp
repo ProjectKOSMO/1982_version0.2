@@ -38,11 +38,16 @@
                    <a href="userMypage.do" class="user">
                    마이페이지
                    </a>
+
                    <!--카트  -->
                    <a href="userBoard.do">
                    고객센터
                        <!--카트 상품-->
                        
+                   </a>
+                   <a href="/project1982/index.jsp" class="logout">
+                    로그아웃
+
                    </a>
                </div>
    

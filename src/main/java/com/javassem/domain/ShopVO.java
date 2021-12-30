@@ -129,7 +129,5 @@ public class ShopVO {
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-	
-	
-	
 }
+

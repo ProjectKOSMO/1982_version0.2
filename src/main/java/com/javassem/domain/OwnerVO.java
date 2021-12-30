@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class OwnerVO {
   private int ownernum;
-  
+
   private String ownerid;
   
   private String ownerpass;
@@ -37,12 +37,31 @@ public class OwnerVO {
   
   private String shopnum;
   
-  private String shopupdate;
-  private String shopUpdate;
+  private String ownersub;
   
+private int board_owner_seq;
+  
+  public int getBoard_owner_seq() {
+	return board_owner_seq;
+}
+
+public void setBoard_owner_seq(int board_owner_seq) {
+	this.board_owner_seq = board_owner_seq;
+}
+
+public String getOwnersub() {
+	return ownersub;
+}
+
+public void setOwnersub(String ownersub) {
+	this.ownersub = ownersub;
+}
+private String shopupdate;
+  private String shopUpdate;
+
   private String location_y;
   private String location_x;
-  
+
   public String getLocation_y() {
 	return location_y;
 }
@@ -66,15 +85,12 @@ public String getShopUpdate() {
 public void setShopUpdate(String shopUpdate) {
 	this.shopUpdate = shopUpdate;
 }
-
 public String getShopupdate() {
 	return shopupdate;
 }
-
 public void setShopupdate(String shopupdate) {
 	this.shopupdate = shopupdate;
 }
-
 private String si_fname;
   
   private String si_realname;

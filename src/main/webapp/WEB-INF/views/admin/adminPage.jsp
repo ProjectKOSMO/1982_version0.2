@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
 	<link type="text/css" href="/project1982/resources/style/style.css" rel="stylesheet"/>
     <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="/project1982/resources/js/Chart.min.js"></script>
 </head>
 <script src='../resources/js/reply.js' type="text/javascript"></script>
 <script>
@@ -68,10 +68,9 @@
 
     <!-- 메인 ---------------------------------------------------------------->
         <main>
-        <form>
             <ul class="left_nav">
                 <li class="left_nav_text"><a class="home" href="#">홈</a></li>
-                <li class="left_nav_text"><a href="#">구독권 현황</a></li>
+                <li class="left_nav_text"><a href="./adminPage2.do">구독권 현황</a></li>
                 <li class="left_nav_text"><a href="#">상품</a></li>
                 <li class="left_nav_text"><a href="#">회사</a></li>
             </ul>
@@ -87,7 +86,7 @@
                             <!-- 매칭성공률 -->
                             <div class="service1_left">
                              <div class="matchPercent"> 매칭성공률 ${matchingPercent}% </div> 
-                            <canvas id="matching" width="350" height="350" style="display: inline-block;"></canvas>
+                             <canvas id="matching" width="350" height="350" style="display: inline-block;"></canvas>
                             </div>                     
                                
        
@@ -126,14 +125,15 @@
                             <span class="visit_label">Today joins</span>
                         </div>
                         <div class="member2">
-                        <canvas id="barChart" width="250" height="250"></canvas>
+                         <canvas id="barChart" width="250" height="250"></canvas>
                         </div>
        
                     </div>
 <!-- 여기2 -->           
                      <div>블랙리스트 현황</div>
+                     
                      <div>
-                        <div class="divTable minimalistBlack">
+                     <div class="divTable minimalistBlack">
                             <div class="divTableHeading">
                             <div class="divTableRow">
                             <div class="divTableHead">계정명</div>
@@ -144,17 +144,18 @@
                             <div class="divTableHead">이용 정지</div>    
                     </div>
                     </div>
-                           <c:forEach items="${blacklist}" var="blacklist">    
+                           <c:forEach items="${blacklist}" var="blacklist">
                             <div class="divTableBody">
                             <div class="divTableRow">
-                            <div class="divTableCell">${blacklist.userID}</div>
-                            <div class="divTableCell">${blacklist.warnCnt}</div>
-                            <div class="divTableCell">${blacklist.userName}</div>
-                            <div class="divTableCell">${blacklist.userPN}</div>
-                            <div class="divTableCell">${blacklist.reason}</div>
-                            <div class="divTableCell"><button>영구정지</button></div>
+                            <div class="divTableCell"><form action='../checkCnt.do' method='post'><input type='hidden' name="userID" value='${blacklist.userID}'>${blacklist.userID}</div>
+                            <div class="divTableCell"><input type='hidden' name="warnCnt" value='${blacklist.warnCnt}'>${blacklist.warnCnt}</div>
+                            <div class="divTableCell"><input type='hidden' name="userName" value='${blacklist.userName}'>${blacklist.userName}</div>
+                            <div class="divTableCell"><input type='hidden' name="userPN" value='${blacklist.userPN}'>${blacklist.userPN}</div>
+                            <div class="divTableCell"><input type='hidden' name="reason" value='${blacklist.reason}'>${blacklist.reason}</div>
+                            <div class="divTableCell"><input type='Submit' value='영구정지'></div></form>
                           </div>
                           </div>
+                          
                          </c:forEach>
                          <div style="display: block; text-align: center;">		
 							<c:if test="${paging.startPage != 1 }">
@@ -186,7 +187,6 @@
                
             
             </div><!-- 페이지 컨테이너 종료--> 
-          </form>
         </main>
         
         
@@ -240,7 +240,7 @@
                     <div class="right_address">
                         <p>
                             <span>주식회사 1982 |</span>
-                            <a href="#">
+                            <a>
 
                                 <span>대표이사 : 한세호 |</span>
                             </a>

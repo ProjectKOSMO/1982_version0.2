@@ -313,7 +313,9 @@ MyLocation();
 
 $(function(){
 	//맨처음 화면을 불러올 때 쓸 함수
+
 setTimeout(function(){
+
 	Test();
 	Test2();},500
 	);

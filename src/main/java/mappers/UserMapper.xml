@@ -24,4 +24,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</where>
 	</select>
 	<!-- userid=#{userid} AND userpass=#{userpass} -->
+	
+	
+     <update id="updateUserView" parameterType="UserVO">
+		<![CDATA[
+		UPDATE userInfo SET
+		 userimg1 = #{userimg1},
+		 userself = #{userself}
+		WHERE userid = #{userid}
+		]]>
+	</update>
+	
+<!-- 	<delete id="deleteUserView" parameterType="UserVO">
+		DELETE FROM uploadtemp
+		WHERE b_id = #{b_id}
+	</delete> -->
+	
+	<select id="getUserView" resultType="UserVO">
+		<![CDATA[
+		SELECT *
+		FROM userInfo
+		WHERE userid = #{userid}
+		]]>
+	</select>
+	
+	<select id="getShopList" resultType="java.util.HashMap"  parameterType="java.util.HashMap">
+	<![CDATA[
+		SELECT * FROM support a, shopInfo b
+		Where a.userid = '${userid}'
+		]]>
+	</select>
 </mapper>

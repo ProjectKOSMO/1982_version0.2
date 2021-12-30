@@ -9,18 +9,11 @@
 .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
 .map_wrap {position:relative;width:100%;height:500px;}
-#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:500px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
+#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
 .bg_white {background:#fff;}
 #menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
 #menu_wrap .option{text-align: center;}
-#menu_wrap .option p {margin:10px 0;}
-.span{
-    font-size: 20px;
-}
-input{
-    width: 200px;
-    height: 30px;
-}
+#menu_wrap .option p {margin:10px 0;}  
 #menu_wrap .option button {margin-left:5px;}
 #placesList li {list-style: none;}
 #placesList .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
@@ -49,22 +42,9 @@ input{
 #pagination {margin:10px auto;text-align: center;}
 #pagination a {display:inline-block;margin-right:10px;}
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
-.search_button{
-    width: 100px;
-    height: 30px;
-    border:none;
-    font-size: 15px;
-    cursor: pointer;
-}
-#locationConfirm{
-    border: none;
-    cursor: pointer;
-}
 </style>
 </head>
 <body>
-
-    
 
 <h1>도로명 주소를 입력하세요</h1>
 <div class="map_wrap">
@@ -74,8 +54,8 @@ input{
         <div class="option">
             <div>
                 <form onsubmit="searchPlaces(); return false;">
-                    <span class="span">키워드 : </span><input type="text" value="이태원 맛집" id="keyword" size="15"> 
-                    <button type="submit" class="search_button">검색하기</button> 
+                    키워드 : <input type="text" value="가산디지털1로" id="keyword" size="15"> 
+                    <button type="submit">검색하기</button> 
                 </form>
             </div>
         </div>
@@ -99,7 +79,7 @@ var markers = [];
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
         center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
+        level: 6 // 지도의 확대 레벨
     };  
 
 // 지도를 생성합니다    

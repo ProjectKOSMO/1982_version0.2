@@ -1,5 +1,3 @@
-
-
 package com.javassem.controller;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +13,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.javassem.domain.UserVO;
 import com.javassem.service.UserService;
 
+/*
+ * 작성일자 : 2021. 12. 25.
+ * 최신화 일자 : 2021. 12. 25.
+ * 작성자 : 이혁철, 고성훈, 송현석
+ * 내용 : 구직자 로그인, 회원가입 컨트롤러
+ * 변경 사항 있으면 아래에 자세히 작성 바랍니다..
+ * ex) idcheck 보안사항 추가, 맵핑 추가 등등
+ * 
+ * 
+ */
+
 @Controller
 @RequestMapping({"user"})
 public class UserLoginController {
@@ -27,7 +36,6 @@ public class UserLoginController {
 
     @RequestMapping({"{step.do}"})
     public String userJoin(@PathVariable String step) {
-    	System.out.println("유저 컨트롤러 로그인입니다.");
         return "/user/" + step;
     }
 
@@ -46,6 +54,10 @@ public class UserLoginController {
         	HttpSession session = request.getSession();
         	session.setAttribute("userNum", result.getUsernum());
         	session.setAttribute("userId", result.getUserid());
+        	session.setAttribute("userPass", result.getUserpass());
+/*        	session.setAttribute("userImg", result.getUserimg());
+        	session.setAttribute("userSelf", result.getUserself());*/
+        	System.out.println(result.getUserid());
         	return "user/userMain";
         }
     }

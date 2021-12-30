@@ -1,5 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,8 +25,8 @@
             </a>
             </div>
             <!--메뉴--> 
-          
-            
+
+
             <!-- 오른쪽 메뉴-->
             <div class="right-menu">
                 <!--검색 -->
@@ -38,8 +41,11 @@
                 <a href="#">
                 고객센터
                     <!--카트 상품-->
-                    
+
                 </a>
+                 <a href="/project1982/index.jsp" class="logout">
+                    로그아웃
+                   </a>
             </div>
 
         </header>
@@ -54,7 +60,7 @@
                     <input name="username" type="text" placeholder="업체명" />
                     <input name="password" type="password" placeholder="주소" />
                     <input name="password" type="password" placeholder="연락처" />
-                   
+
                     <input name="password" type="password" placeholder="업종" />
                     <input type="submit" value="길찾기" />
                   </form>
@@ -75,8 +81,8 @@
         <!--아래 게시판 ----------------------------------------------------------------------->
 
         <section class="section_main">
-           
-            
+
+
 
 
 
@@ -86,10 +92,10 @@
                 <ul>
                     <!-- 게시판 제목 -->
                     <div class="board_title">사용자 리뷰 </div>
-        
+
                     <!-- 게시판 목록  -->
                     <li>
-                        
+
                         <div class="chart_title">             
                             <div><a href="#">작성일순</a></div>
                             <div><a href="#">별점순</a></div>
@@ -121,7 +127,7 @@
                                     </li>
                                 </ul>
                             </li>
-        
+
                             <li>
                                 <ul>
                                     <li class="left">2</li>
@@ -131,7 +137,7 @@
                                     <li class="left">0</li>
                                 </ul>
                             </li>
-        
+
                             <li>
                                 <ul>
                                     <li class="left">3</li>
@@ -141,7 +147,7 @@
                                     <li class="left">0</li>
                                 </ul>
                             </li>
-        
+
                             <li>
                                 <ul>
                                     <li class="left">4</li>
@@ -153,7 +159,7 @@
                             <li>                                        
                         </ul>
                     </li>
-        
+
                     <!-- 게시판 페이징 영역 -->
                     <li>
                         <div id="divPaging">
@@ -166,7 +172,7 @@
                             <div>▶</div>
                         </div>
                     </li>
-        
+
                     <!-- 검색 폼 영역 -->
                     <li id='liSearchOption'>
                         <div>
@@ -179,22 +185,11 @@
                             <input type='button' value='검색'class="search_height"/>
                         </div>
                         </li>
-        
+
                 </ul>
             </div>
 
         </section>
-
-
-
-
-
-
-
-
-
-
-
 <!-- footer --------------------------------------------------------------------->
     <footer>
         <div id="footer">
@@ -220,8 +215,6 @@
                         <div><a href="#"><i class="fab fa-instagram fa-2x" style="color:rgba(0,0,0,0.5)"></i></a></div>
                     </div>
                 </div>
-
-
                 <div class="right_area">
                     <div class="right_ul">
                         <p>이용약관 | </p>
@@ -233,7 +226,6 @@
                         <p>
                             <span>주식회사 1982 |</span>
                             <a href="#">
-
                                 <span>대표이사 : 한세호 |</span>
                             </a>
                                 <span>사업자등록번호 : 123-12-12345</span>

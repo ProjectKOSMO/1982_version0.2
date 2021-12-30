@@ -12,9 +12,12 @@ import com.javassem.domain.ShopVO;
 @Service("shopService")
 public class ShopServiceImpl implements ShopService {
 
-		@Autowired
-		private ShopDAOImpl shopDAO;
-		
+  @Autowired
+  private ShopDAOImpl shopDAO;
+  
+  public List<ShopVO> ShopList(ShopVO vo) {
+    return this.shopDAO.ShopList(vo);
+  }		
 		/*public List<ShopVO> ShopList(ShopVO vo) {
 			return shopDAO.ShopList(vo);
 		}*/
