@@ -4,11 +4,19 @@
 
 <mapper namespace="ShopDAO">
 
-<select id="ShopList" resultType="com.javassem.domain.ShopVO"  parameterType="com.javassem.domain.StoreVO">
+<select id="ShopList" resultType="com.javassem.domain.ShopVO"  parameterType="com.javassem.domain.ShopVO">
 		
-		SELECT *
-		FROM board_owner
+			select * From shopInfo si ,board_owner bo 
+			where si.ownernum = bo.ownernum ;
 </select>
+
+<select id="ShopList1" resultType="com.javassem.domain.ShopVO"  parameterType="com.javassem.domain.ShopVO">
+		
+			select * From shopInfo 
+			where ownernum = #{ownernum}  ;
+</select>
+
+
 	<!-- 	<where>
 			<if test="searchCondition != null">
 				${searchCondition} LIKE '%${searchKeyword}%'

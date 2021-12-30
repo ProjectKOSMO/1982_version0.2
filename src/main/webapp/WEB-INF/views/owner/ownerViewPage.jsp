@@ -34,7 +34,7 @@
                     구인공고
                    </a>
                    <!--유저 -->
-                   <a href="/project1982/owner/ownerMypage" id="s2">
+                   <a href="/project1982/owner/ownerList.do" id="s2">
                    마이페이지
                    </a>
                    <!--카트  -->
@@ -69,31 +69,31 @@
                         <div class="body_container_center_shop_contanier">
                             <div class="body_container_center_shop_contanier_img">
                                 <div >
-                                    <img class="img_box" src="/project1982/resources/upload/${shopInfo[0].si_realname }">
-					                <input class="img_button" type="file" name="file" maxlength="60" size="40">
+                                    <img class="img_box" src="/project1982/resources/upload/${shopList[0].si_realname }">
+					              
                                     
                                 </div>
                  
                             </div>
                             <div class= "body_container_center_shop_contanier_info">
                                 <div class="main_font salary">업체이름 :
-                                    <input class="input_box" type="text" value="${shopInfo[0].shopname }">
+                                    <input class="input_box" type="text" value="${shopList[0].shopname }" disabled/>
                                 </div>
                                 <div class="main_font">업체주소 :
-                                    <input class="input_box" type="text" value="${shopInfo[0].shopaddr }">
+                                    <input class="input_box" type="text" value="${shopList[0].shopaddr }" disabled/>
                                 </div>
                                 <div class="main_font">전화번호 :
-                                    <input class="input_box" type="text" value="${shopInfo[0].shoppn }">
+                                    <input class="input_box" type="text" value="${shopList[0].shoppn }" disabled/>
                                 </div>          
                                 <div class="main_font">업체소개 :
                                     
-                                    <textarea name="" id="" cols="30" rows="10">
-                                        ${shopInfo[0].shopcontent }
+                                    <textarea name="" id="" cols="30" rows="10" style="resize:none"; disabled>
+                                        ${shopList[0].shopcontent }
                                     </textarea>
                                 </div>                              
                                 
                                 <button class="store_button1">수정 </button>
-                                <button class="store_button2">업체 등록 </button>                 
+                               
                             </div>
                         </div> 
                      
@@ -134,12 +134,12 @@
                             
                          </c:forEach>
                     </div>
-    
+    				<br>
+    				<br>
                     <div class="main_title">구직자 신청 현황</div>
 
                     
 
-                    <div>구직자 신청 현황</div>
 
                     <div>
                         <div>
@@ -202,7 +202,7 @@
                             </div>
                            
                             </div>
-    
+    						<br>
                             <div class="main_title">출근 현황</div>
                     <div>
                         <div class="divTable minimalistBlack">

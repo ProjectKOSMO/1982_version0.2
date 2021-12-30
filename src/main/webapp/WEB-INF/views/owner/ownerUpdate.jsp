@@ -70,7 +70,7 @@
          
                 
                 <div class="body_container_center"> <!-- 중간 메뉴바 시작-->
-                    <div class="main_title">업체 등록 / 수정</div>
+                    <div class="main_title">업체 정보 수정</div>
                         <div class="body_container_center_shop_contanier">
                             <div class="body_container_center_shop_contanier_img">
                                 <div >
@@ -98,7 +98,6 @@
                                 </div>                              
                                 
                                 <button class="store_button1">수정 </button>
-                                <button class="store_button2">업체 등록 </button>                 
                             </div>
                         </div>            
               

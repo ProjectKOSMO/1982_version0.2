@@ -34,10 +34,7 @@
                
                <!-- 오른쪽 메뉴-->
                <div class="right-menu">
-                   <!--검색 -->
-                   <a href="/project1982/owner/job_positing.do" id="s1">
-                    구인공고
-                   </a>
+           
                    <!--유저 -->
                    <a href="/project1982/owner/ownerMypage.do" id="s2">
                    마이페이지
@@ -80,11 +77,11 @@
                                 <div class="main_font">업체 이름: <input type="text" name="shopname"> </div>
 
                                 <div class="main_font">업체 주소: <input type="text" name="shopaddr" id="shopaddr"><div id="locationConfirm">주소확인</div></div>                                
-                                <div class="main_font">location_y: <input type="text" name="location_y" id="location_y" ></div>
-                                <div class="main_font">location_x: <input type="text" name="location_x" id="location_x" ></div>
+                                <div class="hide">location_y: <input type="text" name="location_y" id="location_y" ></div>
+                                <div class="hide">location_x: <input type="text" name="location_x" id="location_x" ></div>
                                 <div class="main_font">업체 연락처: <input type="text" name="shoppn"></div>                             
                                 <div class="body_container_center_shop_contanier_info_ta main_font">업체 소개: &nbsp;&nbsp;
-                                    <textarea name="shopcontent" id="" cols="30" rows="10"></textarea>   &nbsp;&nbsp;  
+                                    <textarea name="shopcontent" id="" cols="30" rows="10" style="resize:none;"></textarea>   &nbsp;&nbsp;  
                                  <div class="hide" >담당자 번호: <input type="text" name="ownernum" value = "${ownernum}"></div>   
                                 </div>                                
                                 

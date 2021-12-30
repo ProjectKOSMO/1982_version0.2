@@ -4,6 +4,9 @@
   
   
 }
+.hide{
+	display:none;
+}
 
 .body_container_left{
   width: auto;
@@ -136,6 +139,7 @@ div.minimalistBlack {
   border:none;
   background-color: rgba(0,0,0, 0.05);
   height: 4vh;
+  
 }
 .main_wrap{
   display: flex;
